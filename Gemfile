@@ -5,6 +5,8 @@ gem 'pg', '~> 0.15'
 gem 'sass-rails', '4.0.5'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'foundation-rails', '5.4.3.1'
+
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
