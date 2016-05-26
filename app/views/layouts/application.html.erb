@@ -11,25 +11,19 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+
+  <body class="<%= @current_page %>">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <nav>
-      <ul class="menu vertical">
-        <% if user_signed_in? %>
-          <li><%= link_to 'Sign Out', destroy_user_session_path %></li>
 
-        <% else %>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <% end %>
-        <!-- <%= link_to 'Sign' %> -->
-        <li><a href="#">Two</a></li>
-        <li><a href="#">Three</a></li>
-        <li><a href="#">Four</a></li>
-      </ul>
-    </nav>
-
-    <%= yield %>
+    <div class="row">
+      <div class="small-8 columns">
+      <% unless @hide_nav_bar %>
+        <%= render 'layouts/navbar' %>
+      <% end %>
+      <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

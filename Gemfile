@@ -6,9 +6,9 @@ gem 'sass-rails', '4.0.5'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'foundation-rails', '5.4.3.1'
-gem "dotenv"
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth'
 gem 'simple_form'
 
 group :development, :test do
@@ -18,6 +18,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem 'dotenv-rails', :groups => [:development, :test]
 end
 
 group :test do
