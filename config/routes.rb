@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   devise_scope :user do
     delete 'sign_out', :to => 'devise/sessions#destroy'
   end
+  resources :newsfeed, only: [:index]
 end
