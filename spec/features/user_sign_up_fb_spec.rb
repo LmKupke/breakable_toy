@@ -15,4 +15,14 @@ feature 'sign_up', %Q{
     click_button "Sign in with Facebook"
     expect(page).to have_content("Successfully authenticated from Facebook account.")
   end
+
+  scenario 'user signs up invalid' do
+  #   OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
+  #   visit root_path
+  #   click_button "Sign in with Facebook"
+  #   save_and_open_page
+  #
+  #   expect(page).to have_content("Successfully authenticated from Facebook account.")
+  # end
+
 end
