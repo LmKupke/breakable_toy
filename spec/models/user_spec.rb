@@ -18,11 +18,10 @@ RSpec.describe User, type: :model do
     expect(user.errors[:password_confirmation]).to_not be_blank
   end
 
-  describe '.fname' do
-    it 'returns the first name of the user' do
-      name = create(:user, name: "Arya Stark").name
-
-
+  describe '.name' do
+    it 'returns the name of the user' do
+      user = create(:user, name: "Arya Stark")
+      name = user.name
       expect(name).to eq("Arya Stark")
     end
   end

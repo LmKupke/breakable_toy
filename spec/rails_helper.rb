@@ -23,7 +23,25 @@ RSpec.configure do |config|
   config.after :each do
     Warden.test_reset!
   end
+
   config.use_transactional_fixtures = true
+
+  OmniAuth.config.test_mode = true
+  # OmniAuth.config.mock_auth[:facebook]
+  #
+  FACEBOOK_INFO = {
+     "id"=> "220439",
+     "email" => "bret@facebook.com",
+   }
+
+  OmniAuth.config.mock_auth[:facebook] =  OmniAuth::AuthHash.new({
+     "uid" => '12345',
+     "provider" => 'facebook',
+     "info" => {"name" => "Bret Taylor", "email" => 'example@gmail.com', "image" => 'photo.png'},
+     "credentials" => {"token" => 'plataformatec'},
+     "extra" => {"user_hash" => FACEBOOK_INFO}
+   })
+
 
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
