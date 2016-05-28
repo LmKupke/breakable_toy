@@ -14,20 +14,21 @@
     <div class="contain-to-grid" id="hometop-bar">
       <%= render 'layouts/hometopbar' %>
     </div>
+    <body class="<%= @current_page %>">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <div class="row">
+
+        <%= yield %>
+      </div>
+      <%= javascript_include_tag "application" %>
+    </body>
+  <% else %>
+
+    <%= render 'layouts/testnav' %>
+    <%= javascript_include_tag "application" %>
+    
   <% end %>
 
-  <body class="<%= @current_page %>">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <div class="row">
-    <div class="small-8 columns">
-      <% unless @hide_nav_bar %>
-        <%= render 'layouts/navbar' %>
-      <% end %>
-    </div>
-      <%= yield %>
-    </div>
-    <%= javascript_include_tag "application" %>
-  </body>
 </html>

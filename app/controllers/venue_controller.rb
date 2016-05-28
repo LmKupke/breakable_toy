@@ -1,2 +1,3 @@
-class VenueController < ApplicationController
+class VenueController < AuthenticateController
+
 end

@@ -1,0 +1,59 @@
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+      <nav class="tab-bar">
+        <section class="left-small">
+          <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        </section>
+
+        <section class="middle tab-bar-section">
+          <h1 class="title">FOMO NOMO</h1>
+        </section>
+
+        <section class="right">
+          <% if user_signed_in? %>
+            <%= link_to 'Sign Out', sign_out_path, method: :delete %>
+          <% end %>
+        </section>
+
+      </nav>
+
+      <aside class="left-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <li><label>Menu</label></li>
+          <li><img src="<%= current_user.photo %>" alt="<%= current_user.name %> photo" />
+              <%= link_to current_user.name, user_path(current_user.id) %>
+          </li>
+          <li><%= link_to 'Home', newsfeed_index_path %></li>
+          <li><%= link_to 'Create a New Event', new_event_path %></li>
+          <li><%= link_to 'Your Events', event_index_path %></li>
+          <li><a href="#">Groups</a></li>
+          <li><a href="#">Invitations</a></li>
+          <li><a href="#">Tinder Matches</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </aside>
+
+
+      <section class="main-section">
+        <% if notice != nil %>
+          <div data-alert class="alert-box success radius">
+            <p class="notice"><%= notice %></p>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+        <% if alert != nil %>
+          <div class="alert-box alert radius">
+            <p class="alert"><%= alert %></p>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+        <!-- content goes here -->
+        <%= yield %>
+
+
+      </section>
+
+      <a class="exit-off-canvas"></a>
+
+    </div>
+  </div>

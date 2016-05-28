@@ -14,4 +14,16 @@
  *= require_self
  *= require foundation_and_overrides
 
+
  */
+html, body, body > .page, .off-canvas-wrap { height:100%; }
+
+.off-canvas-wrap { overflow-y: scroll; }
+
+.inner-wrap { min-height: 100%; }
+
+ul.off-canvas-list {
+  li {
+    color: white;
+  }
+}
