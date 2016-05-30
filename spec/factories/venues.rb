@@ -8,5 +8,6 @@ FactoryGirl.define do
     postal_code "02115"
     state_code "MA"
     rating 3
+    photo "http://www.dillonsboston.com/files/Dillons_Exterior_33-578x328.jpg"
   end
 end

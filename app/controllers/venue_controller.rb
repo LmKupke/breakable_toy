@@ -1,3 +1,0 @@
-class VenueController < AuthenticateController
-
-end

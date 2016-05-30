@@ -20,12 +20,18 @@
       <aside class="left-off-canvas-menu">
         <ul class="off-canvas-list">
           <li><label>Menu</label></li>
-          <li><img src="<%= current_user.photo %>" alt="<%= current_user.name %> photo" />
+          <li class="image-name-row">
+            <div class="small-4 columns">
+              <img src="<%= current_user.photo %>" alt="<%= current_user.name %> photo" height="50px" width="60px" />
+            </div>
+            <div class="name-title">
               <%= link_to current_user.name, user_path(current_user.id) %>
+            </div>
           </li>
-          <li><%= link_to 'Home', newsfeed_index_path %></li>
+          <li><%= link_to 'Home', newsfeeds_path %></li>
+          <li><%= link_to 'Boston Nightlife', venues_path %></li>
           <li><%= link_to 'Create a New Event', new_event_path %></li>
-          <li><%= link_to 'Your Events', event_index_path %></li>
+          <li><%= link_to 'Your Events', events_path %></li>
           <li><a href="#">Groups</a></li>
           <li><a href="#">Invitations</a></li>
           <li><a href="#">Tinder Matches</a></li>
