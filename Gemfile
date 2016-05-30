@@ -10,6 +10,9 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'simple_form'
+gem 'jquery-ui-rails'
+gem 'foundation-datetimepicker-rails'
+
 
 group :development, :test do
   gem 'capybara'
