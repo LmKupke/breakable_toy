@@ -5,7 +5,7 @@
 
 <div class="small-offset-4 columns">
   <div class="small-4">
-  <%= simple_form_for (@event), method: "post", url: event_index_path do |f| %>
+  <%= simple_form_for (@event), method: "post", url: events_path do |f| %>
     <%= f.input :name, label: "Event Name (Optional):" %>
       <%= f.input :date, as: :datetime %>
 

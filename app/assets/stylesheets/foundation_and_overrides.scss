@@ -1438,6 +1438,9 @@ $include-html-global-classes: $include-html-classes;
 // $include-table-visibility-classes: true;
 // $include-legacy-visibility-classes: true;
 // $include-accessibility-classes: true;
-
 @import "foundation/functions";
 @import 'foundation';
+
+// @import 'motion-ui/motion-ui';
+// @include motion-ui-transitions;
+// @include motion-ui-animations;
