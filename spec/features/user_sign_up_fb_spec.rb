@@ -24,6 +24,6 @@ feature 'sign_up', %Q{
   #   save_and_open_page
   #
   #   expect(page).to have_content("Successfully authenticated from Facebook account.")
-  # end
+  end
 
 end

@@ -7,7 +7,18 @@
   <div class="small-4">
   <%= simple_form_for (@event), method: "post", url: events_path do |f| %>
     <%= f.input :name, label: "Event Name (Optional):" %>
-      <%= f.input :date, as: :datetime %>
+    <%= f.input :date, as: "text", class: "span2", value: "#{DateTime.now}", id: "dpt" %>
+    <script>
+    $(function(){
+      $('#dpt').fdatepicker({
+    		format: 'mm-dd-yyyy hh:ii',
+    		disableDblClickSelection: true,
+    		language: 'en',
+    		pickTime: true
+    	});
+    });
+    </script>
+  
 
     <%= f.button :submit %>
   <% end %>
