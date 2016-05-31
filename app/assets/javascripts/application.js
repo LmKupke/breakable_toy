@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require foundation-datepicker.min
 //= require_tree .
-
 
 
 

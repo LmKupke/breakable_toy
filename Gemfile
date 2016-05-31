@@ -12,7 +12,7 @@ gem 'omniauth'
 gem 'simple_form'
 gem 'jquery-ui-rails'
 gem 'foundation-datetimepicker-rails'
-
+ gem 'foundation-icons-sass-rails'
 
 group :development, :test do
   gem 'capybara'
