@@ -7,8 +7,8 @@
   <div class="small-4">
   <%= simple_form_for (@event), method: "post", url: events_path do |f| %>
     <%= f.input :name, label: "Event Name" %>
-    <%= f.input :date, as: "text", class: "span2", input_html: { value: "#{DateTime.now}", id: "dpt" } %>
-
+    <%= f.input :date, as: :string, input_html: { class: "span2", id: "dpt" } %>
+    <%= f.input :start_time, as: :string, label: "Start Time", input_html: { id: "timepicker" } %>
     <%= f.button :submit %>
   <% end %>
   </div>

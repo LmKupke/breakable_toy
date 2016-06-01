@@ -1,7 +1,7 @@
 class EventsController < AuthenticateController
 
   def index
-
+    @event = Event.where(organizer: current_user)
   end
 
   def new
@@ -25,6 +25,6 @@ class EventsController < AuthenticateController
 
 
   def event_params
-    params.require(:event).permit(:name, :date)
+    params.require(:event).permit(:name, :date, :start_time)
   end
 end

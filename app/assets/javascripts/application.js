@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require foundation
-//= require foundation-datepicker.min
 //= require_tree .
+//= require wickedpicker
 
 
 
