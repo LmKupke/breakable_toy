@@ -8,7 +8,7 @@
 
     "use strict";
 
-    if (typeof String.prototype.endsWith != 'function') {
+    if (typeof String.prototype.endsWith !== 'function') {
         /*
          * Checks if this string end ends with another string
          *
@@ -186,7 +186,7 @@
             $(element).on('click focus', function (event) {
                 self.showPicker($(this));
             });
-            
+
             //Handle click events for closing Wickedpicker
             var clickHandler = function (event) {
                 //Clicking the X
@@ -199,7 +199,7 @@
                 }
             };
             $(document).off('click', clickHandler).on('click', clickHandler);
-            
+
             $(element).on('focus', function () {
                 $('.wickedpicker__controls__control--hours').focus();
             });
@@ -416,7 +416,7 @@
             }, function (event) {
                 var operator = (this.className.indexOf('up') > -1) ? '+' : '-';
                 var passedData = event.data;
-                if (event.type == 'mousedown') {
+                if (event.type === 'mousedown') {
                     timeOut = setInterval($.proxy(function (args) {
                         args.Wickedpicker.changeValue(operator, args.input, this);
                     }, this, {'Wickedpicker': passedData.Wickedpicker, 'input': passedData.input}), 200);

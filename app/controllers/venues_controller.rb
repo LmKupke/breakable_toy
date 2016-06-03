@@ -22,7 +22,6 @@ class VenuesController < AuthenticateController
     @yelpvenue['categories'].each do |category|
       venuecategory << category[0]
     end
-    binding.pry
     @venue = Venue.new do |u|
       u.name = @yelpvenue['name']
       u.phone = @yelpvenue['display_phone']

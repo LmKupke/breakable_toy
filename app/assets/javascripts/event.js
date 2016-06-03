@@ -4,7 +4,7 @@ $(document).ready(function(){
   $('#dpt').datepicker({
     gotoCurrent: true,
     dateFormat: "yy/mm/dd",
-    minDate: 0,
+    minDate: 0
   });
   $('#timepicker').wickedpicker();
 });
