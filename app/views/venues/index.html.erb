@@ -5,8 +5,16 @@
         <h1 class="animated fadeInDown">Boston Nightlife</h1>
       </div>
     </div>
-
-
-    <%= render @venues %>
+    <div class="search">
+      <%= form_tag(venues_path, method: "get", id: "search-form") do  %>
+        <%= text_field_tag :search, "Search Venues" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+    <% if @venues.size != 0 %>
+      <%= render @venues %>
+    <% elsif @yelpvenues != nil %>
+      <%= render 'yelpvenue' %>
+    <% end %>
   </div>
 </div>

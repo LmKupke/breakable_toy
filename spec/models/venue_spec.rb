@@ -5,7 +5,7 @@ RSpec.describe Venue, type: :model do
   it { should have_valid(:name).when("Dillion's", "T's Pub") }
   it { should_not have_valid(:name).when(nil, '') }
 
-  it { should have_valid(:phone).when("1234567890", "1112223333") }
+  it { should have_valid(:phone).when("+1-123-456-7890", "+1-111-222-3333") }
   it { should_not have_valid(:phone).when(nil, '', "12345678", "12345678901") }
 
   it { should have_valid(:category).when("Dace Club", "Lounge") }
@@ -25,6 +25,15 @@ RSpec.describe Venue, type: :model do
 
   it { should have_valid(:rating).when(1, 3.5, 5) }
   it { should_not have_valid(:rating).when(nil, 6, -1) }
+
+  it { should have_valid(:latitude).when(1, 3.333335, 5, -4.333) }
+  it { should_not have_valid(:latitude).when(nil, "hello" ) }
+
+  it { should have_valid(:longitude).when(1, 3.333335, 5, -4.333) }
+  it { should_not have_valid(:longitude).when(nil, "hello" ) }
+
+  it { should have_valid(:url).when("https://www.google.com", "https://www.facebook.com") }
+  it { should_not have_valid(:url).when(nil, "" ) }
 
   describe '#full_address' do
     it 'returns a string of the address' do

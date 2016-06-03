@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :newsfeeds, only: [:index]
   resources :users, only: [:show]
   resources :events
-  resources :venues, only: [:index, :show]
+  get '/venues/search', to: 'venues#search', as: 'venue_search'
+  resources :venues, only: [:index, :show, :create]
 end

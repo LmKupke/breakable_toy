@@ -12,6 +12,8 @@ gem 'omniauth'
 gem 'simple_form'
 gem 'jquery-ui-rails'
 gem 'foundation-icons-sass-rails'
+gem 'yelp', require: 'yelp'
+gem 'pg_search'
 
 group :development, :test do
   gem 'capybara'
@@ -21,10 +23,14 @@ group :development, :test do
   gem 'shoulda'
   gem 'valid_attribute'
   gem 'dotenv-rails', :groups => [:development, :test]
+  gem 'launchy', require: false
 end
 
 group :test do
-  gem 'launchy', require: false
+  gem 'simplecov', require: false
+  gem 'coveralls', require: false
+  gem "vcr"
+  gem "webmock"
 end
 
 group :production do

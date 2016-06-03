@@ -10,7 +10,6 @@ feature 'sign_up', %Q{
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
   end
   scenario 'user signs up valid' do
-    # OmniAuth.config.mock_auth[:facebook] = nil
     visit root_path
     click_button "Login with Facebook"
     expect(page).to have_content("Successfully authenticated from Facebook account.")

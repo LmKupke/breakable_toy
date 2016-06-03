@@ -69,19 +69,37 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # describe "#admin?" do
-  #   context 'when user is a member' do
-  #     it 'returns false' do
-  #       user = create(:user)
-  #       expect(user.admin?).to eq(false)
-  #     end
-  #   end
-  #
-  #   context "when user is an admin" do
-  #     it 'returns true' do
-  #       user = create(:user, role: "admin")
-  #       expect(user.admin?).to eq(true)
-  #     end
-  #   end
-  # end
+  describe "#admin?" do
+    context 'when user is a member' do
+      it 'returns false' do
+        user = create(:user)
+        expect(user.admin?).to eq(false)
+      end
+    end
+
+    context "when user is an admin" do
+      it 'returns true' do
+        user = create(:user, role: "admin")
+        expect(user.admin?).to eq(true)
+      end
+    end
+  end
+
+  describe "#moderator?" do
+    context 'when user is a member' do
+      it 'returns false' do
+        user = create(:user)
+        expect(user.admin?).to eq(false)
+      end
+    end
+
+    context "when user is a moderator" do
+      it 'returns true' do
+        user = create(:user, role: "moderator")
+        expect(user.moderator?).to eq(true)
+      end
+    end
+  end
+
+
 end

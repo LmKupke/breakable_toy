@@ -1,0 +1,25 @@
+<div class="large-12 medium-12 small-12 columns">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+        <th>Rating</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @yelpvenues.each do |yelpvenue| %>
+        <tr>
+          <td><%= yelpvenue.name %></td>
+          <td><%= yelpvenue.location.display_address.join(",").gsub(",",", <br/>").gsub("''","").html_safe %></td>
+          <td><a href="tel:<%= yelpvenue.display_phone %>"><%= yelpvenue.display_phone %></a></td>
+          <td><%= yelpvenue.rating %></td>
+          <td><%= button_to "Add to Database", venues_path, method: "post", params: { spot: yelpvenue.to_json } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
