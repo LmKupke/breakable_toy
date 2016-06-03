@@ -13,12 +13,14 @@ class User < ActiveRecord::Base
 
 
  def self.from_omniauth(auth)
-  #  binding.pry
+   binding.pry
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
      user.email = auth.info.email
      user.password = Devise.friendly_token[0,20]
      user.name = auth.info.name   # assuming the user model has a name
      user.photo = auth.info.image # assuming the user model has an image
+     user.token = auth.credentials.token
+     user.expires_at = auth.credentials.expires_at
    end
  end
 
