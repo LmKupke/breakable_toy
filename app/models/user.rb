@@ -2,7 +2,10 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true, allow_nil: false, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
-  has_many :events, as: :organizer_id
+  has_many :events, foreign_key: "organizer_id"
+  has_many :invites, class_name: "User", as: :inviter_id
+  has_many :invites, class_name: "User", as: :invitee_id
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

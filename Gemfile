@@ -14,6 +14,7 @@ gem 'jquery-ui-rails'
 gem 'foundation-icons-sass-rails'
 gem 'yelp', require: 'yelp'
 gem 'pg_search'
+gem "rails-erd"
 
 group :development, :test do
   gem 'capybara'

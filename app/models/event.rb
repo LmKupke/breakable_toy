@@ -3,8 +3,10 @@ class Event < ActiveRecord::Base
   validates :organizer_id, null: false, presence: true
   validates :name, null: false, presence:true
   validates :start_time, null: false, presence:true, format: { with: /\A([1-9]|1[012]) (: [0-5]\d) [AP][M]\z/ }
-  belongs_to :organizer, class_name: User
   validate :date_cannot_be_in_the_past
+
+  belongs_to :organizer, class_name: "User", foreign_key: "organizer_id"
+  has_many :invites
 
   def date_cannot_be_in_the_past
     if date.present? && date < Date.today
