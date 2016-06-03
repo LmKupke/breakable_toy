@@ -2,7 +2,7 @@ require "vcr"
 require "webmock/rspec"
 require 'simplecov'
 require 'coveralls'
-Coveralls.wear!('rails')
+Coveralls.wear!
 SimpleCov.start 'rails'
 
 
