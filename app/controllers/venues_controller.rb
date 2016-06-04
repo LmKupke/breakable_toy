@@ -22,7 +22,8 @@ class VenuesController < AuthenticateController
     @yelpvenue['categories'].each do |category|
       venuecategory << category[0]
     end
-    @venue = Venue.new do |u|
+
+    @venue = Venue.find_or_create_by(yelp_id: @yelpvenue['id']) do |u|
       u.name = @yelpvenue['name']
       u.phone = @yelpvenue['display_phone']
       u.category = venuecategory
@@ -36,12 +37,12 @@ class VenuesController < AuthenticateController
       u.latitude = @yelpvenue['location']['coordinate']['latitude']
       u.longitude = @yelpvenue['location']['coordinate']['longitude']
       u.url = @yelpvenue['url']
-      u.yelp_id = @yelpvenue['id']
     end
+
     if @venue.valid?
       @venue.save
       flash[:notice] = "Thanks for adding this bar to our database!"
-      render 'show'
+      redirect_to venue_path(@venue)
     else
       flash[:alert] = "Sorry that bar or club already exists in the database please search that name instead"
       @venues = 0

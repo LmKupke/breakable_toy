@@ -1,0 +1,23 @@
+<h2>Your Events</h2>
+
+<div class="large-12 medium-12 small-12 columns">
+  <table>
+    <thead>
+      <tr>
+        <th>Event Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Friends Attending</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= link_to event.name, event_path(event) %></td>
+          <td><%= event.date.strftime('%m/%d/%Y') %></td>
+          <td><%= event.start_time %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

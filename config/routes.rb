@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :events
   get '/venues/search', to: 'venues#search', as: 'venue_search'
   resources :venues, only: [:index, :show, :create]
+  resources :events, except: [:delete] do
+    resources :venues, only: [:index, :show, :create]
+  end
 end

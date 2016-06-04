@@ -17,6 +17,6 @@ class Venue < ActiveRecord::Base
   end
 
   def self.search(search)
-    where("name LIKE ?", "%#{search}%")
+    where("name LIKE ?", "#{search}")
   end
 end

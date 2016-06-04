@@ -1,7 +1,7 @@
 class EventsController < AuthenticateController
 
   def index
-    @event = Event.where(organizer: current_user)
+    @events = Event.where(organizer: current_user).order(date: :asc, start_time: :asc)
   end
 
   def new
