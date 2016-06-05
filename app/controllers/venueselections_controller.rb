@@ -1,0 +1,2 @@
+class VenueselectionsController < AuthenticateController
+end
