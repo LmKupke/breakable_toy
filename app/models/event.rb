@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   before_save :fix_datetime
   belongs_to :organizer, class_name: "User", foreign_key: "organizer_id"
   has_many :invites
-
+  has_many :venueselections
   def date_cannot_be_in_the_past
     if date.present? && date < Time.zone.now
       errors.add(:date, "can't be in the past")

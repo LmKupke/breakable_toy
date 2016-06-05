@@ -12,6 +12,8 @@ class Venue < ActiveRecord::Base
   validates :url, presence: true, allow_nil: false, allow_blank: false, numericality: false
   validates :yelp_id, presence: true, uniqueness: true
 
+  has_many :venueselections
+  
   def full_address
     "#{self.address} #{self.city}, #{self.state_code} #{self.postal_code}"
   end
