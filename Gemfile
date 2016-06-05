@@ -15,6 +15,7 @@ gem 'foundation-icons-sass-rails'
 gem 'yelp', require: 'yelp'
 gem 'pg_search'
 gem "rails-erd"
+gem "koala", "~> 2.2"
 
 group :development, :test do
   gem 'capybara'
