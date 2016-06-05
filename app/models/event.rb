@@ -4,21 +4,19 @@ class Event < ActiveRecord::Base
   validates :name, null: false, presence:true
   validates :start_time, null: false, presence:true, format: { with: /\A([1-9]|1[012]) (: [0-5]\d) [AP][M]\z/ }
   validate :date_cannot_be_in_the_past
-
+  before_save :fix_datetime
   belongs_to :organizer, class_name: "User", foreign_key: "organizer_id"
   has_many :invites
 
   def date_cannot_be_in_the_past
-
     if date.present? && date < Time.zone.now
       errors.add(:date, "can't be in the past")
       errors.add(:start_time, "time has to be later if same day")
     end
   end
 
-  def fix_datetime(newdate,newtime)
-    self.date = newdate
-    self.start_time = newtime
+  def fix_datetime
+
     date = self.date
     time = self.start_time
     time = time.to_datetime.strftime("%R")

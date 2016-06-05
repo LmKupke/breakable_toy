@@ -40,8 +40,8 @@ RSpec.configure do |config|
      "uid" => '12345',
      "provider" => 'facebook',
      "info" => {"name" => "Bret Taylor", "email" => 'example@gmail.com', "image" => 'photo.png'},
-     "credentials" => {"token" => 'plataformatec'},
-     "extra" => {"user_hash" => FACEBOOK_INFO}
+     "credentials" => {"token" => '#3248023580238402398409432', "expires_at" => 241241},
+     "extra" => {"user_hash" => FACEBOOK_INFO, "raw_info" => { "timezone" => -4.0 } }
    })
 
 

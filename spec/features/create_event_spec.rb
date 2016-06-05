@@ -31,23 +31,25 @@ feature 'See User Events', %Q{
 
   end
   scenario 'user creates a new Event goes to show page' do
+    a = Time.zone.today.beginning_of_day
+    a = a + 2.weeks
     click_link("Create a New Event")
     fill_in('Event Name', :with => 'Crazy Friday Night')
-    fill_in('Date', :with => '2016/06/01')
+    fill_in('Date', :with => a)
     fill_in('Start Time', :with => '10 : 00 PM')
 
     click_button('Create Event')
 
     expect(page).to have_content("Crazy Friday Night")
-    expect(page).to have_content("06/01/2016")
+    expect(page).to have_content(a.strftime("%m/%d/%Y"))
     expect(page).to have_content("10 : 00 PM")
 
   end
   scenario 'user creates a invalid new Event with only name goes to shows form again with error' do
     click_link("Create a New Event")
     fill_in('Event Name', :with => 'Crazy Friday Night')
-    fill_in('Date', :with => 'this is incorrect')
-    fill_in('Start Time', :with => 'this is incorrect')
+    fill_in('Date', :with => '06/01/2016')
+    fill_in('Start Time', :with => '10 : 00 PM')
 
     click_button('Create Event')
 
@@ -58,6 +60,8 @@ feature 'See User Events', %Q{
     click_link("Create a New Event")
     fill_in('Event Name', :with => '')
     fill_in('Date', :with => 'this is incorrect')
+    fill_in('Start Time', :with => 'this is incorrect')
+
 
     click_button('Create Event')
 

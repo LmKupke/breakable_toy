@@ -1,7 +1,7 @@
 require 'coveralls'
 Coveralls.wear!('rails')
-require "vcr"
-require "webmock/rspec"
+# require "vcr"
+# require "webmock/rspec"
 require 'simplecov'
 SimpleCov.start 'rails'
 

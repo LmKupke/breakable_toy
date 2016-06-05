@@ -12,8 +12,9 @@ class EventsController < AuthenticateController
   def create
     @event = Event.new(event_params)
     @event.organizer = current_user
-    binding.pry
-    @event.fix_datetime(params["event"]['date'],params["event"]['start_time'])
+
+
+    # @event.fix_datetime(params["event"]['date'],params["event"]['start_time'])
     if @event.save
       redirect_to event_path(@event.id)
     else

@@ -22,8 +22,8 @@ feature 'Your Events', %Q{
   context "current user logged in" do
     let(:current_user) { User.find_by(uid: "12345") }
 
-    scenario 'user sees Your Events in nav' do
-      expect(page).to have_content("Your Events")
+    scenario 'user sees Your Upcoming Events in nav' do
+      expect(page).to have_content("Your Upcoming Events")
     end
 
     # scenario 'user clicks Create a New Event' do
