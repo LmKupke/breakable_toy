@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :events, except: [:delete] do
     resources :venues, only: [:index, :show, :create]
   end
+  resources :venueselections, only: [:create, :update, :delete]
 end

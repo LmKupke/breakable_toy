@@ -7,6 +7,9 @@
         <h4><%= link_to venue.name, venue_path(venue) %></h4>
       </div>
       <p class="subheader">Yelp Rating: <%= venue.rating %></p>
+      <% if @event != nil %>
+        <%= button_to "Add to Your Event", venueselections_path, params: { event: @event, venue: venue } %>
+      <% end %>
     </div>
   </div>
 </div>

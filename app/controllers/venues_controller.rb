@@ -1,6 +1,7 @@
 class VenuesController < AuthenticateController
   def index
     @venues = Venue.all
+    @event = params["event_id"]
     if params[:search]
       @venues = Venue.search(params[:search])
       if @venues.size == nil || @venues.size == 0

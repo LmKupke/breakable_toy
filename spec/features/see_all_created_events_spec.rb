@@ -6,9 +6,9 @@ feature 'Your Events', %Q{
   So that I can see whats going on
 } do
   # Acceptance Criteria:
-  # [ X ] Link to Your Event exists on Nav Bar
-  # [ - ] Shows all events that belong to me and/or Events I joined(accepted)
-  # [ ] After clicking Events link Expect to see table of Events created by User, table of Events accepted with creator name and number of friends attending. Each has a link on the name (make required), link
+  # [ X ] Link to Your Upcoming Event exists on Nav Bar
+  # [ X ] Shows all events that belong to me
+  # [ ] After clicking Your Upcoming Events link Expect to see table of Events created by User, table of Events accepted with creator name and number of friends attending
   # [ ] User sees errors upon entering invalid input
 
   before(:each) do
@@ -26,14 +26,11 @@ feature 'Your Events', %Q{
       expect(page).to have_content("Your Upcoming Events")
     end
 
-    # scenario 'user clicks Create a New Event' do
-    #   event = create(:event, organizer: current_user)
-    #
-    #   click_link("Your Events")
-    #
-    #   expect(page).to have_link("#{event.name}")
-    #   expect(page).to have_css('table.organizer')
-    #
-    # end
+    scenario 'user clicks Create a New Event' do
+      event = create(:event, organizer: current_user)
+      click_link("Your Upcoming Events")
+      
+      expect(page).to have_link("#{event.name}")
+    end
   end
 end

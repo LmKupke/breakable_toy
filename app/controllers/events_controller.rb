@@ -1,8 +1,7 @@
 class EventsController < AuthenticateController
 
   def index
-    # @events = Event.where(organizer: current_user).order(date: :asc, start_time: :asc)
-    @events = Event.upcoming(current_user, Time.now.utc)
+    @events = Event.upcoming(current_user, Time.zone.now)
   end
 
   def new
@@ -13,8 +12,6 @@ class EventsController < AuthenticateController
     @event = Event.new(event_params)
     @event.organizer = current_user
 
-
-    # @event.fix_datetime(params["event"]['date'],params["event"]['start_time'])
     if @event.save
       redirect_to event_path(@event.id)
     else
@@ -25,6 +22,9 @@ class EventsController < AuthenticateController
 
   def show
     @event = Event.find(params[:id])
+    if current_user == @event.organizer
+      @venueselection = Venueselection.where(event: @event, user: @event.organizer )
+    end
   end
 
 

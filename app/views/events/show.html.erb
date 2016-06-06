@@ -1,3 +1,8 @@
 <%= @event.name %>
 <%= @event.date.strftime('%m/%d/%Y') %>
 <%= @event.start_time %>
+<% if @venueselection.empty? %>
+  <%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get %>
+<% else %>
+  <%= button_to "Invite Friends" %>
+<% end %>

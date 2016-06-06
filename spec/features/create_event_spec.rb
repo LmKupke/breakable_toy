@@ -6,10 +6,10 @@ feature 'See User Events', %Q{
   So that I have a plan
 } do
   # Acceptance Criteria:
-  # [ ] Link to Create Event exists on Nav Bar
-  # [ ] Create Event form requires user to specify date
-  # [ ] Upon successful submission user is redirected to the Event#show page for the newly created event and Asks to pick a Venue and Asks to add Friends
-  # [ ] User sees errors upon entering invalid input
+  # [ X ] Link to Create Event exists on Nav Bar
+  # [ X ] Create Event form requires user to specify date
+  # [ X ] Upon successful submission user is redirected to the Event#show page for the newly created event and Asks to pick a Venue and Asks to add Friends
+  # [ X ] User sees errors upon entering invalid input
 
 
   before(:each) do
@@ -62,9 +62,7 @@ feature 'See User Events', %Q{
     fill_in('Date', :with => 'this is incorrect')
     fill_in('Start Time', :with => 'this is incorrect')
 
-
     click_button('Create Event')
-
     expect(page).to_not have_content("Crazy Friday Night")
   end
 end
