@@ -248,7 +248,7 @@ Devise.setup do |config|
       scope: 'email, public_profile, user_friends',
       info_fields: 'name, location, email, verified, timezone',
       display: 'popup',
-      callback_url: "#{ENV["APP_HOST_DOMAIN"]}/users/auth/facebook/callback"
+      callback_url: "#{ENV['APP_HOST_DOMAIN']}/users/auth/facebook/callback"
     }
   # OmniAuth.config.test_mode = true
 
