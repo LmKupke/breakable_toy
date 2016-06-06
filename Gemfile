@@ -12,7 +12,7 @@ gem 'omniauth'
 gem 'simple_form'
 gem 'jquery-ui-rails'
 gem 'foundation-icons-sass-rails'
-gem 'yelp'
+gem 'yelp', require: 'yelp'
 gem 'pg_search'
 gem "rails-erd"
 gem "koala", "~> 2.2"
