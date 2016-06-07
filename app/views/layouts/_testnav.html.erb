@@ -6,7 +6,7 @@
         </section>
 
         <section class="middle tab-bar-section">
-          <h1 class="title">FOMO NOMO</h1>
+          <h1 class="title">NOMO FOMO</h1>
         </section>
 
         <section class="right">
@@ -16,7 +16,6 @@
         </section>
 
       </nav>
-
       <aside class="left-off-canvas-menu">
         <ul class="off-canvas-list">
           <li><label>Menu</label></li>
@@ -32,7 +31,6 @@
           <li><%= link_to 'Boston Nightlife', venues_path %></li>
           <li><%= link_to 'Create a New Event', new_event_path %></li>
           <li><%= link_to 'Your Upcoming Events', events_path %></li>
-          <li><a href="#">Groups</a></li>
           <li><a href="#">Invitations</a></li>
           <li><a href="#">Tinder Matches</a></li>
           <li><a href="#">Settings</a></li>
@@ -42,21 +40,24 @@
 
       <section class="main-section">
         <% if notice != nil %>
-          <div data-alert class="alert-box success radius">
-            <p class="notice"><%= notice %></p>
-            <a href="#" class="close">&times;</a>
+          <div data-alert="" class="alert-box round success">
+            <div class="text-center">
+              <div><p class="notice"><%= notice %></p></div>
+              <a href="#" class="close">×</a>
+            </div>
           </div>
         <% end %>
         <% if alert != nil %>
-          <div class="alert-box alert radius">
-            <p class="alert"><%= alert %></p>
-            <a href="#" class="close">&times;</a>
+          <div data-alert="" class="alert-box round alert">
+            <div class="text-center">
+              <div><p class="alert"><%= alert %></p></div>
+              <a href="#" class="close">×</a>
+            </div>
           </div>
+
         <% end %>
         <!-- content goes here -->
         <%= yield %>
-
-
       </section>
 
       <a class="exit-off-canvas"></a>

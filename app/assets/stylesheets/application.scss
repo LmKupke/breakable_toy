@@ -17,8 +17,8 @@
  *= require jquery-ui
  *= require foundation-icons
  *= require wickedpicker.css
+ *= require webicons.scss
  */
-
 
 html, body, body > .page, .off-canvas-wrap { height:100%; }
 
@@ -39,4 +39,60 @@ ul.off-canvas-list {
 
 .columns {
    position: relative;
+}
+
+li.facebookhome {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  float: center;
+  display: inline;
+
+}
+img.facebook-icon{
+  margin: 0px;
+  padding: 0px;
+  display: inline;
+}
+ul.facebookhome {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+#facebookhome.button {
+  background-color: #324D8E;
+  margin: 0px;
+  display: inline;
+  padding-top: 11px;
+
+}
+
+form.button_to {
+  display: inline;
+  margin: 0px;
+
+}
+
+#eventsshow {
+    background-color: #666666;
+    background-image: url("eventshowpage.jpeg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #d8d8d8;
+    padding: 15%;
+    text-align: center;
+    position: relative;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    width: 100%
+}
+
+div.alert-box {
+  padding: 0px;
+}
+p.alert{
+  margin: 0px;
 }
