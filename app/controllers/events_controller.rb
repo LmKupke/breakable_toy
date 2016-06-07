@@ -11,7 +11,7 @@ class EventsController < AuthenticateController
   def create
     @event = Event.new(event_params)
     @event.organizer = current_user
-
+    @event.fix_datetime
     if @event.save
       redirect_to event_path(@event.id)
     else
@@ -21,10 +21,9 @@ class EventsController < AuthenticateController
   end
 
   def show
+    @sectionpage = "eventsshow"
     @event = Event.find(params[:id])
-    if current_user == @event.organizer
-      @venueselection = Venueselection.where(event: @event, user: @event.organizer )
-    end
+    @venueselection = Venueselection.where(event: @event )
   end
 
 
