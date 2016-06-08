@@ -32,5 +32,12 @@ feature 'Your Events', %Q{
 
       expect(page).to have_link("#{event.name}")
     end
+    scenario 'user clicks Create a New Event' do
+      event = create(:event, organizer: current_user)
+      click_link("Your Upcoming Events")
+      click_link("#{event.name}")
+      expect(page).to have_content("#{event.name}")
+      expect(page).to have_button("Add Boston Nightlife")
+    end
   end
 end

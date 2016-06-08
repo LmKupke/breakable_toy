@@ -35,6 +35,21 @@ feature 'Event Organizer adds Venue', %Q{
       click_button "Add Boston Nightlife"
 
       expect(page).to have_content("#{venue.name}")
+      expect(page).to have_button("Add to Your Event")
+    end
+
+    scenario 'Organizer creates an Event sees Add Boston Nightlife Button' do
+      event = create(:event, organizer: current_user)
+      venue = create(:venue)
+      click_link "Your Upcoming Events"
+      click_link "#{event.name}"
+      click_button "Add Boston Nightlife"
+      click_button("Add to Your Event")
+
+      expect(page).to have_content(event.name)
+      expect(page).to have_content(event.date.strftime("%m/%d/%Y"))
+      expect(page).to have_content(venue.name)
+      expect(page).to have_button("Invite Friends")
     end
   end
 end

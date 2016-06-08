@@ -16,7 +16,7 @@
           <td><%= yelpvenue.location.display_address.join(",").gsub(",",", <br/>").gsub("''","").html_safe %></td>
           <td><a href="tel:<%= yelpvenue.display_phone %>"><%= yelpvenue.display_phone %></a></td>
           <td><%= yelpvenue.rating %></td>
-          <td><%= button_to "Add to Database", venues_path, method: "post", params: { spot: yelpvenue.to_json } %>
+          <td><%= button_to "Add to Database", venues_path, method: "post", params: { spot: yelpvenue.to_json }, id: yelpvenue.id %>
           </td>
         </tr>
       <% end %>

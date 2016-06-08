@@ -8,7 +8,7 @@
       </div>
       <p class="subheader">Yelp Rating: <%= venue.rating %></p>
       <% if @event != nil %>
-        <%= button_to "Add to Your Event", venueselections_path, params: { event: @event, venue: venue } %>
+        <%= button_to "Add to Your Event", venueselections_path, params: { event: @event, venue: venue }, id: venue.yelp_id %>
       <% end %>
     </div>
   </div>
