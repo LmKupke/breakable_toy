@@ -99,6 +99,9 @@ GEM
       railties (>= 3.2.16)
     json (1.8.3)
     jwt (1.5.1)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     koala (2.3.0)
       addressable
       faraday
@@ -273,6 +276,7 @@ DEPENDENCIES
   foundation-rails (= 5.4.3.1)
   jquery-rails
   jquery-ui-rails
+  kaminari
   koala (~> 2.2)
   launchy
   omniauth

@@ -37,4 +37,11 @@ feature 'see venues', %Q{
     expect(page).to have_content(dillions.name)
   end
 
+  scenario 'user finds venue on another page' do
+    create_list(:venue,10)
+    click_link("Boston Nightlife")
+
+    click_link "Next"
+    expect(page).to have_content("Dillion's")
+  end
 end

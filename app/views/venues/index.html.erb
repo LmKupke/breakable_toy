@@ -13,6 +13,9 @@
     </div>
     <% if @venues.size != 0 %>
       <%= render @venues %>
+      <div class="paginate-center">
+        <%= paginate @venues %>
+      </div>
     <% elsif @yelpvenues != nil %>
       <%= render 'yelpvenue' %>
     <% end %>

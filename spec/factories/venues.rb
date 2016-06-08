@@ -1,7 +1,9 @@
 FactoryGirl.define do
+  sequence(:yelp_id) { |n| "dillons-boston-#{n}" }
+  sequence(:phone, 11) { |n| "+1-617-422-18#{n}" }
   factory :venue do
     name "Dillion's"
-    phone "+1-617-421-1818"
+    phone
     category "Bar"
     address "955 Boylston St"
     city "Boston"
@@ -12,6 +14,6 @@ FactoryGirl.define do
     latitude 42.3479653914953
     longitude (-71.0858754834292)
     url "http://www.yelp.com/biz/dillons-boston?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=-Cb1yajNnIcLuAbIyK0PjQ"
-    yelp_id "dillons-boston"
+    yelp_id
   end
 end
