@@ -55,14 +55,4 @@ feature 'See User Events', %Q{
 
     expect(page).to_not have_content("Crazy Friday Night")
   end
-
-  scenario 'user creates a invalid new Event goes to shows form again with error' do
-    click_link("Create a New Event")
-    fill_in('Event Name', :with => '')
-    fill_in('Date', :with => 'this is incorrect')
-    fill_in('Start Time', :with => 'this is incorrect')
-
-    click_button('Create Event')
-    expect(page).to_not have_content("Crazy Friday Night")
-  end
 end

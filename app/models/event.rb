@@ -16,9 +16,7 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def fix_datetime(newdate,newtime)
-    self.date = newdate
-    self.start_time = newtime
+  def fix_datetime
     date = self.date
     time = self.start_time
     time = time.to_datetime.strftime("%R")

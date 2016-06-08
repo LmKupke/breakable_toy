@@ -9,7 +9,7 @@ feature 'Your Events', %Q{
   # [ X ] Link to Your Upcoming Event exists on Nav Bar
   # [ X ] Shows all events that belong to me
   # [ ] After clicking Your Upcoming Events link Expect to see table of Events created by User, table of Events accepted with creator name and number of friends attending
-  # [ ] User sees errors upon entering invalid input
+  # [ X ] User sees errors upon entering invalid input
 
   before(:each) do
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
@@ -29,7 +29,7 @@ feature 'Your Events', %Q{
     scenario 'user clicks Create a New Event' do
       event = create(:event, organizer: current_user)
       click_link("Your Upcoming Events")
-      
+
       expect(page).to have_link("#{event.name}")
     end
   end

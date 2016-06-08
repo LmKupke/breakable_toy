@@ -1,0 +1,312 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.yelp.com/v2/search?category_filter=danceclubs,bars,poolhalls,pianobars,beergardens&limit=20&location=Boston&term=Howl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+      Authorization:
+      - OAuth oauth_consumer_key="-Cb1yajNnIcLuAbIyK0PjQ", oauth_nonce="49824e2d46ac28463834b3899270ffd2",
+        oauth_signature="Msdlw9BXPT2jce3n1w9s%2FcditUs%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1465343121", oauth_token="l4R0n8Amw3sKnpG9tC6V0oe3O_NPgGD3",
+        oauth_version="1.0"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 07 Jun 2016 23:45:21 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d8ec81e4b4c8960bd39d43a6ef28392681465343121; expires=Wed, 07-Jun-17
+        23:45:21 GMT; path=/; domain=.yelp.com; HttpOnly
+      - bse=fd6c13266e68d66ae31addd4a1285a5f; Domain=.yelp.com; Path=/; HttpOnly
+      - yuv=ZAFK32YWfSGl_WTS90DtQg9QNaZt2amfzC8QR8Pfc8lXeAHJ8qqfvNXLE0HR4Z_ME1BpOWlhFdT_PbkLL-nPfCWSY_Zck4tM;
+        Domain=.yelp.com; Max-Age=630720000; Path=/; expires=Mon, 02-Jun-2036 23:45:21
+        GMT
+      X-Node:
+      - api_com
+      - web29-r6-iad1
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store, private
+      Expires:
+      - Tue, 07 Jun 2016 23:45:21 GMT
+      Pragma:
+      - no-cache
+      Vary:
+      - Accept-Encoding,User-Agent
+      X-Mode:
+      - ro
+      X-Proxied:
+      - extlb3-r8-iad1
+      Server:
+      - cloudflare-nginx
+      Cf-Ray:
+      - 2af7fa2b94bf213e-EWR
+    body:
+      encoding: ASCII-8BIT
+      string: '{"region": {"span": {"latitude_delta": 0.08841778000000033, "longitude_delta":
+        0.06995265410131424}, "center": {"latitude": 42.346615799999995, "longitude":
+        -71.08410333904484}}, "total": 15, "businesses": [{"is_claimed": true, "rating":
+        3.0, "mobile_url": "http://m.yelp.com/biz/howl-at-the-moon-dueling-piano-bar-boston-2?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+        "review_count": 272, "name": "Howl At The Moon Dueling Piano Bar", "rating_img_url_small":
+        "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+        "url": "http://www.yelp.com/biz/howl-at-the-moon-dueling-piano-bar-boston-2?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Bars", "bars"], ["Music Venues", "musicvenues"]], "phone":
+        "6172924695", "snippet_text": "If you are looking for an unexpected awesome
+        time good here. \n\n\nI thought I was going to a normal bar but little did
+        I know that downstairs that have a club...", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/gE_iBH9EtYJ9d9L6rWthMA/ms.jpg",
+        "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/FkhETxmK84trl-YDLUOAUw/ms.jpg",
+        "display_phone": "+1-617-292-4695", "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+        "id": "howl-at-the-moon-dueling-piano-bar-boston-2", "is_closed": false, "location":
+        {"cross_streets": "Leman Pl \u0026 Batterymarch St", "city": "Boston", "display_address":
+        ["184 High St", "Financial District", "Boston, MA 02110"], "geo_accuracy":
+        9.5, "neighborhoods": ["Financial District"], "postal_code": "02110", "country_code":
+        "US", "address": ["184 High St"], "coordinate": {"latitude": 42.3565569, "longitude":
+        -71.0523694}, "state_code": "MA"}}, {"is_claimed": false, "rating": 2.5, "mobile_url":
+        "http://m.yelp.com/biz/down-ultra-lounge-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+        "review_count": 24, "name": "Down Ultra Lounge", "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+        "url": "http://www.yelp.com/biz/down-ultra-lounge-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Lounges", "lounges"], ["Dance Clubs", "danceclubs"]], "phone":
+        "6172924650", "snippet_text": "Went here cuz howl had a huge line.\n\nPretty
+        standard Boston club, small and not big lines for bar, bathroom was nice,
+        girls were all cute/well dressed,...", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/j6r9oNBGGOjemt9ejjcfoA/ms.jpg",
+        "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/if_2guvGtGxAt-SJFYM2vg/ms.jpg",
+        "display_phone": "+1-617-292-4650", "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+        "id": "down-ultra-lounge-boston", "is_closed": false, "location": {"cross_streets":
+        "Leman Pl \u0026 Batterymarch St", "city": "Boston", "display_address": ["184
+        High St", "Financial District", "Boston, MA 02110"], "geo_accuracy": 8.0,
+        "neighborhoods": ["Financial District"], "postal_code": "02110", "country_code":
+        "US", "address": ["184 High St"], "coordinate": {"latitude": 42.3566704, "longitude":
+        -71.0525589}, "state_code": "MA"}}, {"is_claimed": true, "rating": 3.5, "mobile_url":
+        "http://m.yelp.com/biz/hojoko-boston-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 145, "name": "Hojoko Boston", "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/hojoko-boston-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Cocktail Bars", "cocktailbars"], ["Japanese", "japanese"]],
+        "phone": "6176700507", "snippet_text": "Fantastic restaurant with great service
+        and delicious food. Really funky vibe. Definitely try the fois gras and duck
+        dumplings, the steak ums, and the...", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/oW7uRebdLsiIEI-epfX_Yg/ms.jpg",
+        "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/fwVx01AaSDKU0FVLlfxMOQ/ms.jpg",
+        "display_phone": "+1-617-670-0507", "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "id": "hojoko-boston-boston", "is_closed": false, "location": {"cross_streets":
+        "Ipswich St \u0026 Yawkey Way", "city": "Boston", "display_address": ["1271
+        Boylston St", "Fenway", "Boston, MA 02215"], "geo_accuracy": 8.0, "neighborhoods":
+        ["Fenway"], "postal_code": "02215", "country_code": "US", "address": ["1271
+        Boylston St"], "coordinate": {"latitude": 42.3452987670898, "longitude": -71.0969314575195},
+        "state_code": "MA"}}, {"is_claimed": true, "rating": 3.5, "mobile_url": "http://m.yelp.com/biz/good-life-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 298, "name": "Good Life", "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/good-life-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Lounges", "lounges"], ["Dance Clubs", "danceclubs"]], "menu_date_updated":
+        1465306300, "phone": "6174512622", "snippet_text": "9 bucks for a G\u0026T
+        with Bombay is something I cannot complain about\nPretty good music, two rooms,
+        more dance/electro-y downstairs, preferred the hip-hop...", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/GyfzV2LfKhN27nwvmRQHRQ/ms.jpg",
+        "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/oGg-9Xr64sv9rHLs3CIt2w/ms.jpg",
+        "display_phone": "+1-617-451-2622", "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "menu_provider": "single_platform", "id": "good-life-boston", "is_closed":
+        false, "location": {"cross_streets": "Bedford St \u0026 Summer St", "city":
+        "Boston", "display_address": ["28 Kingston St", "Boston, MA 02111"], "geo_accuracy":
+        9.5, "postal_code": "02111", "country_code": "US", "address": ["28 Kingston
+        St"], "coordinate": {"latitude": 42.353525, "longitude": -71.05918}, "state_code":
+        "MA"}}, {"is_claimed": true, "rating": 3.5, "mobile_url": "http://m.yelp.com/biz/sonsie-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 848, "name": "Sonsie", "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/sonsie-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Wine Bars", "wine_bars"], ["American (New)", "newamerican"],
+        ["Breakfast \u0026 Brunch", "breakfast_brunch"]], "menu_date_updated": 1441950156,
+        "phone": "6173512500", "snippet_text": "I come here a lot while my parents
+        are in town because ti''s their favorite! I prefer the high tops by the bar
+        or the cafe like tables in the front when its...", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/FCpOKaKXn1HGXyQfPwUUJA/ms.jpg",
+        "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/-9HsAEPtYabxRjF-unnNyw/ms.jpg",
+        "display_phone": "+1-617-351-2500", "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "menu_provider": "single_platform", "id": "sonsie-boston", "is_closed": false,
+        "location": {"cross_streets": "Hereford St \u0026 Massachusetts Ave", "city":
+        "Boston", "display_address": ["327 Newbury St", "Back Bay", "Boston, MA 02115"],
+        "geo_accuracy": 8.0, "neighborhoods": ["Back Bay"], "postal_code": "02115",
+        "country_code": "US", "address": ["327 Newbury St"], "coordinate": {"latitude":
+        42.34884, "longitude": -71.08625}, "state_code": "MA"}}, {"is_claimed": true,
+        "rating": 3.0, "mobile_url": "http://m.yelp.com/biz/the-living-room-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+        "review_count": 256, "name": "The Living Room", "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+        "url": "http://www.yelp.com/biz/the-living-room-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Lounges", "lounges"], ["American (Traditional)", "tradamerican"]],
+        "menu_date_updated": 1465292734, "phone": "6177235101", "snippet_text": "Tonight
+        I went to the north end for a birthday party and we headed over to the living
+        room after Dinnr. Charlie was the best bartender we could of asked...", "image_url":
+        "https://s3-media2.fl.yelpcdn.com/bphoto/cCdL8b8menHoAg2Mfhy98w/ms.jpg", "snippet_image_url":
+        "http://s3-media2.fl.yelpcdn.com/photo/EsR5Zt10BP_k6r318JH7qA/ms.jpg", "display_phone":
+        "+1-617-723-5101", "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+        "menu_provider": "locu", "id": "the-living-room-boston", "is_closed": false,
+        "location": {"cross_streets": "Richmond St \u0026 Cross St", "city": "Boston",
+        "display_address": ["101 Atlantic Ave", "Waterfront", "Boston, MA 02110"],
+        "geo_accuracy": 9.5, "neighborhoods": ["Waterfront", "North End"], "postal_code":
+        "02110", "country_code": "US", "address": ["101 Atlantic Ave"], "coordinate":
+        {"latitude": 42.3617097199521, "longitude": -71.0523066780897}, "state_code":
+        "MA"}}, {"is_claimed": true, "rating": 3.0, "mobile_url": "http://m.yelp.com/biz/umbria-prime-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+        "review_count": 219, "name": "Umbria Prime", "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+        "url": "http://www.yelp.com/biz/umbria-prime-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Lounges", "lounges"], ["Steakhouses", "steak"]], "menu_date_updated":
+        1441940395, "phone": "6173381000", "snippet_text": "Well!  Too many reviews
+        to bother with a new one.  We had great meals, great service in a beautiful
+        setting.  Just be sure to make your reservation on \"Open...", "image_url":
+        "https://s3-media4.fl.yelpcdn.com/bphoto/y2hFa4MYiR2K_MquuymDcg/ms.jpg", "snippet_image_url":
+        "http://s3-media2.fl.yelpcdn.com/photo/8eca4qsS4x9k_scGFl0ymA/ms.jpg", "display_phone":
+        "+1-617-338-1000", "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+        "menu_provider": "single_platform", "id": "umbria-prime-boston", "is_closed":
+        false, "location": {"city": "Boston", "display_address": ["295 Franklin St",
+        "Boston, MA 02115"], "geo_accuracy": 8.0, "postal_code": "02115", "country_code":
+        "US", "address": ["295 Franklin St"], "coordinate": {"latitude": 42.3570365905762,
+        "longitude": -71.0527572631836}, "state_code": "MA"}}, {"is_claimed": true,
+        "rating": 3.0, "mobile_url": "http://m.yelp.com/biz/dillons-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/34bc8086841c/ico/stars/v1/stars_3.png",
+        "review_count": 338, "name": "Dillon''s", "rating_img_url_small": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/902abeed0983/ico/stars/v1/stars_small_3.png",
+        "url": "http://www.yelp.com/biz/dillons-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Bars", "bars"], ["American (Traditional)", "tradamerican"]],
+        "menu_date_updated": 1441950197, "phone": "6174211818", "snippet_text": "Very
+        disappointing for brunch. Came here because of the tots listed on the menu
+        and was surprised to find gross fritter style fried balls of cheese without...",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/tOSAie7wAkVeYOJscp3ZJA/ms.jpg",
+        "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/S8x3js1Da_lZiWzLvqcJ7w/ms.jpg",
+        "display_phone": "+1-617-421-1818", "rating_img_url_large": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/e8b5b79d37ed/ico/stars/v1/stars_large_3.png",
+        "menu_provider": "single_platform", "id": "dillons-boston", "is_closed": false,
+        "location": {"cross_streets": "St Cecilia St \u0026 I-90", "city": "Boston",
+        "display_address": ["955 Boylston St", "Back Bay", "Boston, MA 02115"], "geo_accuracy":
+        9.5, "neighborhoods": ["Back Bay"], "postal_code": "02115", "country_code":
+        "US", "address": ["955 Boylston St"], "coordinate": {"latitude": 42.3479653914953,
+        "longitude": -71.0858754834292}, "state_code": "MA"}}, {"is_claimed": true,
+        "rating": 2.5, "mobile_url": "http://m.yelp.com/biz/sissy-ks-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c7fb9aff59f9/ico/stars/v1/stars_2_half.png",
+        "review_count": 201, "name": "Sissy K''s", "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/8e8633e5f8f0/ico/stars/v1/stars_small_2_half.png",
+        "url": "http://www.yelp.com/biz/sissy-ks-boston?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Dance Clubs", "danceclubs"], ["Cocktail Bars", "cocktailbars"],
+        ["American (New)", "newamerican"]], "phone": "6172486511", "snippet_text":
+        "Great drink deals! ($6 Margaritas) Spacious venue! (bar/karaoke downstairs,
+        dance floor/bar upstairs, bathroom basement) Fun crowd!\n\nMy friends and
+        I...", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/dVN8v54otbEtGPFI7klYEA/ms.jpg",
+        "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/4giyFcAQkepfdB7F8xIZTA/ms.jpg",
+        "display_phone": "+1-617-248-6511", "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/d63e3add9901/ico/stars/v1/stars_large_2_half.png",
+        "id": "sissy-ks-boston", "is_closed": false, "location": {"cross_streets":
+        "Mckinley Sq \u0026 State St", "city": "Boston", "display_address": ["6 Commercial
+        St", "Boston, MA 02109"], "geo_accuracy": 8.0, "postal_code": "02109", "country_code":
+        "US", "address": ["6 Commercial St"], "coordinate": {"latitude": 42.3594748,
+        "longitude": -71.0536962}, "state_code": "MA"}}, {"is_claimed": true, "rating":
+        4.0, "mobile_url": "http://m.yelp.com/biz/vinnys-ristorante-somerville?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 241, "name": "Vinny''s Ristorante", "rating_img_url_small":
+        "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/vinnys-ristorante-somerville?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Wine Bars", "wine_bars"], ["Italian", "italian"], ["Sandwiches",
+        "sandwiches"]], "phone": "6176281921", "snippet_text": "This place is a diamond
+        in the rough .. Delicious Italian grinders .. Fresh ingredients and never
+        disappoints.. I have eaten here twice and both times the...", "image_url":
+        "https://s3-media4.fl.yelpcdn.com/bphoto/O_JE5WEuTqOPPKs8QXA_LQ/ms.jpg", "snippet_image_url":
+        "http://s3-media3.fl.yelpcdn.com/photo/utAMOFAQdCgbeg6C-j0Nwg/ms.jpg", "display_phone":
+        "+1-617-628-1921", "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "vinnys-ristorante-somerville", "is_closed": false, "location": {"city":
+        "Somerville", "display_address": ["76 Broadway", "Somerville, MA 02145"],
+        "geo_accuracy": 9.5, "postal_code": "02145", "country_code": "US", "address":
+        ["76 Broadway"], "coordinate": {"latitude": 42.3868057, "longitude": -71.081687},
+        "state_code": "MA"}}, {"is_claimed": true, "rating": 4.0, "mobile_url": "http://m.yelp.com/biz/cuchi-cuchi-cambridge?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png",
+        "review_count": 871, "name": "Cuchi Cuchi", "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png",
+        "url": "http://www.yelp.com/biz/cuchi-cuchi-cambridge?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Wine Bars", "wine_bars"], ["Cocktail Bars", "cocktailbars"],
+        ["Tapas/Small Plates", "tapasmallplates"]], "phone": "6178642929", "snippet_text":
+        "Decided to bring my friends from out of town to dinner, and It was the best
+        decision Id made! Promptly greeted by the host, we made a quick stop to the
+        bar...", "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/Wu2yY3975UnvRgFswLUyFw/ms.jpg",
+        "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/M4DGl2yBjBWPbMM1I7uAug/ms.jpg",
+        "display_phone": "+1-617-864-2929", "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png",
+        "id": "cuchi-cuchi-cambridge", "is_closed": false, "location": {"city": "Cambridge",
+        "display_address": ["795 Main St", "Kendall Square/MIT", "Cambridge, MA 02139"],
+        "geo_accuracy": 8.0, "neighborhoods": ["Kendall Square/MIT"], "postal_code":
+        "02139", "country_code": "US", "address": ["795 Main St"], "coordinate": {"latitude":
+        42.36334, "longitude": -71.09713}, "state_code": "MA"}}, {"is_claimed": true,
+        "rating": 3.5, "mobile_url": "http://m.yelp.com/biz/the-peoples-republiksv-cambridge?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 262, "name": "The People''s RepublikSv", "rating_img_url_small":
+        "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/the-peoples-republiksv-cambridge?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Bars", "bars"], ["Salad", "salad"], ["Sandwiches", "sandwiches"]],
+        "menu_date_updated": 1465306777, "phone": "6174916969", "snippet_text": "Nice,
+        mellow place at least on weekdays when I''ve been. Really solid nachos.",
+        "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/ws_lRjMcU-R2Z7P6EsQ6Dg/ms.jpg",
+        "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/sx4Qgc7RkwBQaEpNeraBvw/ms.jpg",
+        "display_phone": "+1-617-491-6969", "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "menu_provider": "single_platform", "id": "the-peoples-republiksv-cambridge",
+        "is_closed": false, "location": {"city": "Cambridge", "display_address": ["876-878
+        Massachusetts Ave", "Central Square", "Cambridge, MA 02139"], "geo_accuracy":
+        9.5, "neighborhoods": ["Central Square"], "postal_code": "02139", "country_code":
+        "US", "address": ["876-878 Massachusetts Ave"], "coordinate": {"latitude":
+        42.366610231256, "longitude": -71.1079133734416}, "state_code": "MA"}}, {"is_claimed":
+        true, "rating": 3.5, "mobile_url": "http://m.yelp.com/biz/flat-top-johnnys-cambridge?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 153, "name": "Flat Top Johnny''s", "rating_img_url_small":
+        "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/flat-top-johnnys-cambridge?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Pool Halls", "poolhalls"], ["Dive Bars", "divebars"], ["American
+        (Traditional)", "tradamerican"]], "phone": "6174949565", "snippet_text": "So
+        glad to have this place back! If you liked the old Flat Tops, you''ll love
+        what they''ve done with the renovation. It still has the same vibe and the
+        same...", "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/kjmeh7K-DcKPNKWMJuITxg/ms.jpg",
+        "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/35P9MDsxNAAdfN_Uwkgoag/ms.jpg",
+        "display_phone": "+1-617-494-9565", "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "id": "flat-top-johnnys-cambridge", "is_closed": false, "location": {"city":
+        "Cambridge", "display_address": ["1 Kendall Sq", "Kendall Square/MIT", "Cambridge,
+        MA 02139"], "geo_accuracy": 9.5, "neighborhoods": ["Kendall Square/MIT"],
+        "postal_code": "02139", "country_code": "US", "address": ["1 Kendall Sq"],
+        "coordinate": {"latitude": 42.3666061748873, "longitude": -71.0906624794006},
+        "state_code": "MA"}}, {"is_claimed": true, "rating": 3.5, "mobile_url": "http://m.yelp.com/biz/grafton-street-cambridge?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 640, "name": "Grafton Street", "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/grafton-street-cambridge?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Pubs", "pubs"], ["American (Traditional)", "tradamerican"]],
+        "phone": "6174970400", "snippet_text": "This is a pretty standard (read: good
+        but unspectacular in terms of flavor or creativity) American restaurant. For
+        flavor and the food alone, I''d give 3.5...", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/03DywWj6OCsRTOi7OxAN1g/ms.jpg",
+        "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/V_JELGm4G23sk5ZRoFreoA/ms.jpg",
+        "display_phone": "+1-617-497-0400", "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "id": "grafton-street-cambridge", "is_closed": false, "location": {"city":
+        "Cambridge", "display_address": ["1230 Massachusetts Ave", "Harvard Square",
+        "Cambridge, MA 02138"], "geo_accuracy": 9.5, "neighborhoods": ["Harvard Square"],
+        "postal_code": "02138", "country_code": "US", "address": ["1230 Massachusetts
+        Ave"], "coordinate": {"latitude": 42.372401, "longitude": -71.1159}, "state_code":
+        "MA"}}, {"is_claimed": true, "rating": 3.5, "mobile_url": "http://m.yelp.com/biz/doyles-cafe-jamaica-plain?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png",
+        "review_count": 518, "name": "Doyles Cafe", "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png",
+        "url": "http://www.yelp.com/biz/doyles-cafe-jamaica-plain?utm_campaign=yelp_api\u0026utm_medium=api_v2_search\u0026utm_source=-Cb1yajNnIcLuAbIyK0PjQ",
+        "categories": [["Pubs", "pubs"], ["Breakfast \u0026 Brunch", "breakfast_brunch"],
+        ["American (Traditional)", "tradamerican"]], "menu_date_updated": 1441940163,
+        "phone": "6175242345", "snippet_text": "Came to Doyle''s after the Sam Adams
+        tour to get the Sam Adams glass. \n\nKeep your tour ticket and come in and
+        get a beer and trade the ticket for your beer...", "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/u0yDXFZg-jCoVXOkdCax-w/ms.jpg",
+        "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/C1LgQyTWkNTRxKVpqiqt3A/ms.jpg",
+        "display_phone": "+1-617-524-2345", "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png",
+        "menu_provider": "single_platform", "id": "doyles-cafe-jamaica-plain", "is_closed":
+        false, "location": {"cross_streets": "Gartland St \u0026 Williams St", "city":
+        "Jamaica Plain", "display_address": ["3484 Washington St", "Jamaica Plain",
+        "Jamaica Plain, MA 02130"], "geo_accuracy": 8.0, "neighborhoods": ["Jamaica
+        Plain"], "postal_code": "02130", "country_code": "US", "address": ["3484 Washington
+        St"], "coordinate": {"latitude": 42.3064270019531, "longitude": -71.1072463989258},
+        "state_code": "MA"}}]}'
+    http_version: 
+  recorded_at: Tue, 07 Jun 2016 23:45:22 GMT
+recorded_with: VCR 2.5.0
