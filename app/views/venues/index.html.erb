@@ -1,13 +1,14 @@
+
 <div class="text-center">
   <div class="show-footer bg-img">
-    <div class="floating-container">
+    <div class="floating-container" id="venueindex">
       <div class="row title-header">
         <h1 class="animated fadeInDown">Boston Nightlife</h1>
       </div>
     </div>
     <div class="search">
       <%= form_tag(venues_path, method: "get", id: "search-form") do  %>
-        <%= text_field_tag :search, "Search Venues" %>
+        <%= text_field_tag :search, "Search Nightlife" %>
         <%= submit_tag "Search" %>
       <% end %>
     </div>
