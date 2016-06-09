@@ -20,11 +20,11 @@
         <ul class="off-canvas-list">
           <li><label>Menu</label></li>
           <li class="image-name-row">
-            <div class="small-4 columns">
-              <img src="<%= current_user.photo %>" alt="<%= current_user.name %> photo" height="50px" width="60px" />
+            <div class="small-4 columns" id="menu-photo">
+              <img src="<%= current_user.photo %>" alt="<%= current_user.name %> photo" height="52px" width="55px" />
             </div>
             <div class="name-title">
-              <%= link_to current_user.name, user_path(current_user.id) %>
+              <%= link_to current_user.name, user_path(current_user.id), id: "user-link" %>
             </div>
           </li>
           <li><%= link_to 'Home', newsfeeds_path %></li>

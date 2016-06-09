@@ -6,5 +6,13 @@ $(document).ready(function(){
     dateFormat: "yy/mm/dd",
     minDate: 0
   });
-  $('#timepicker').wickedpicker();
+  var options = {
+    twentyFour: false,
+    upArrow: 'wickedpicker__controls__control-up',
+    downArrow: 'wickedpicker__controls__control-down',
+    close: 'wickedpicker__close',
+    hoverState: 'hover-state'
+  }
+
+  $('#timepicker').wickedpicker(options);
 });

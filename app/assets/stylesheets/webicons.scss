@@ -14,7 +14,7 @@
 $webicons-icons: f500px facebook github linkedin yelp;
 
 // Specify the path to the webicons directory here. Include trailing slash.
-$webicons-url: "images/" !default;
+$webicons-url: "" !default;
 
 
 @each $webicons-icon in $webicons-icons {
