@@ -21,9 +21,13 @@ class EventsController < AuthenticateController
   end
 
   def show
-    @sectionpage = "eventsshow"
     @event = Event.find(params[:id])
     @venueselection = Venueselection.where(event: @event )
+    if @venueselection.empty?
+      @current_page = "event-show-no-venues"
+    else
+      @sectionpage = "eventsshow"
+    end
   end
 
 

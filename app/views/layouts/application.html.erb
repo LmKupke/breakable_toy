@@ -15,7 +15,6 @@
       <%= render 'layouts/hometopbar' %>
     </div>
     <body class="<%= @current_page %>">
-
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
@@ -27,7 +26,9 @@
     </body>
   <% else %>
 
+
     <%= render 'layouts/testnav' %>
+    </body>
     <%= javascript_include_tag "application" %>
 
   <% end %>

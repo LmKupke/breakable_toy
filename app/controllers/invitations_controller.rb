@@ -1,3 +1,0 @@
-class InvitationsController < AuthenticateController
-
-end

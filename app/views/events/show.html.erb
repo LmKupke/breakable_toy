@@ -1,17 +1,33 @@
-<div class="row" id="<%= @sectionpage %>">
+<% if @current_page == nil %>
+<section id="<%= @sectionpage %>">
+<% end %>
   <div class="text-center">
-    <h1><%= @event.name %> </h1></br>
-    <%= @event.date.strftime('%m/%d/%Y') %> <%= @event.start_time %>
+    <div class="event-title">
+      <h1><%= @event.name %></h1>
+    </div>
+    <div class="event-date">
+      <%= @event.date.strftime('%m/%d/%Y') %> <%= @event.start_time %>
+    </div>
     <ul>
       <% if @venueselection.empty? %>
         <li><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
-      <% else %>
-        <li><%= button_to "Invite Friends" %></li>
       <% end %>
     </ul>
   </div>
-</div>
+<% if @current_page == nil %>
+</section>
+<% end %>
 
+<% if @venueselection.empty? == false %>
+<div class="large-offset-3 large-5 medium-offset-3 medium-5 small-12 columns">
+  <div class="search">
+    <%= form_tag(event_invites_path(@event), method: "post", id: "invite-form") do  %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Invite Friend", class: "button small radius", id:"invite-friend" %>
+    <% end %>
+  </div>
+</div>
+<% end %>
 
 <% if @venueselection.empty? == false %>
   <% @venueselection.each do |venueselect| %>
@@ -20,7 +36,7 @@
         <%= link_to image_tag(venueselect.venue.photo, alt: "#{venueselect.venue.name} photo", class: "#{venueselect.venue.name} photo"), event_venue_path(@event.id,venueselect.venue.id), id: venueselect.venue.id %>
         <div class="panel">
           <div class="image-overlay-content">
-            <%= link_to "#{venueselect.venue.name}", venue_path(venueselect) %>
+            <%= link_to "#{venueselect.venue.name}", event_venue_path(@event.id,venueselect.venue.id) %>
           </div>
             <h6>Submitted By: <%= venueselect.user.name %></h6>
         </div>
