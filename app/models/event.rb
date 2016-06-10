@@ -25,7 +25,8 @@ class Event < ActiveRecord::Base
     date += h.to_i.hours + m.to_i.minutes + 1.minute
     self.date = date
   end
-  def self.upcoming(user, datenow)
-    where("organizer_id = ? AND date >= ?", user, datenow ).order(date: :asc, start_time: :asc)
+  def self.upcoming(user)
+    where("organizer_id = ? AND date >= ?", user, Time.zone.now ).order(date: :asc, start_time: :asc)
   end
+
 end

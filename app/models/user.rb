@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :events, foreign_key: "organizer_id"
   has_many :invites, class_name: "User", as: :inviter_id
-  
+  # has_many :invites, through: :events, as: :organizer
+
   has_many :invites, class_name: "User", as: :invitee_id
   has_many :venueselections
 

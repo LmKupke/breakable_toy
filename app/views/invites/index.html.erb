@@ -1,0 +1,26 @@
+<h2>Your Invitations</h2>
+
+<div class="large-12 medium-12 small-12 columns">
+  <table>
+    <thead>
+      <tr>
+        <th>Event Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Invited By</th>
+        <th>Response</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pending_invites.each do |invite| %>
+        <tr>
+          <td><%= invite.event.name %></td>
+          <td><%= invite.event.date.strftime('%m/%d/%Y') %></td>
+          <td><%= invite.event.start_time %></td>
+          <td><%= invite.inviter.name %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

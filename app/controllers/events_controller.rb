@@ -1,7 +1,8 @@
 class EventsController < AuthenticateController
 
   def index
-    @events = Event.upcoming(current_user, Time.zone.now)
+    @events = all_upcoming(current_user)
+    binding.pry
   end
 
   def new
@@ -30,6 +31,23 @@ class EventsController < AuthenticateController
     end
   end
 
+  def all_upcoming(user)
+    events = []
+    invites = []
+    events = Event.where("organizer_id = ? AND date >= ?", user, Time.zone.now).order(date: :asc, start_time: :asc)
+    invites = Invite.where(invitee: user, status: "Attending")
+
+    invites = invites.select do |invite|
+      invite.event.date >= Time.zone.now
+    end
+
+    invites = invites.map do |invite|
+      invite.event
+    end
+
+    all_events = events + invites
+    all_events.sort_by {|e| e.date }
+  end
 
   def event_params
     params.require(:event).permit(:name, :date, :start_time)
