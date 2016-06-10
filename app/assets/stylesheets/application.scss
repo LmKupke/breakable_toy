@@ -91,7 +91,15 @@ form.button_to {
     width: 100%
 }
 
-
+#event-show-no-venues {
+  background-color: white;
+  background-image: image-url("eventshowpage.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 div.alert-box {
   padding: 0px;

@@ -23,7 +23,7 @@ class InvitesController < AuthenticateController
     if current_user == @event.organizer
       friendlist = @graph.get_connections("me","friends")
       friendlist.each do |friend|
-        if friend["name"] == @friendsearch
+        if friend["name"].downcase == @friendsearch.downcase
           @friendfound = User.find_by(uid: friend["id"])
           invite = Invite.new(inviter: current_user, invitee: @friendfound, event: @event)
           if invite.valid?
@@ -46,7 +46,7 @@ class InvitesController < AuthenticateController
         return false
       else
         @mutual_friends.each do |mutual|
-          if mutual["name"] == @friendsearch
+          if mutual["name"].downcase == @friendsearch.downcase
             @mutualfound = User.find_by(uid: mutual["id"])
             invite = Invite.new(inviter: current_user, invitee: @mutualfound, event: @event)
             if invite.valid?
