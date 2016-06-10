@@ -2,7 +2,7 @@ class EventsController < AuthenticateController
 
   def index
     @events = all_upcoming(current_user)
-    binding.pry
+
   end
 
   def new
