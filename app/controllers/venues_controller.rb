@@ -10,6 +10,7 @@ class VenuesController < AuthenticateController
         @yelpvenues = Yelp.client.search('Boston', parameters)
         @yelpvenues = @yelpvenues.businesses
       end
+      flash[:notice] = "Seems like we got that spot!"
     end
   end
 

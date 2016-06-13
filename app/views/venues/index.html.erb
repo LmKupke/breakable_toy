@@ -7,16 +7,25 @@
       </div>
     </div>
     <div class="search">
-      <%= form_tag(venues_path, method: "get", id: "search-form") do  %>
-        <%= text_field_tag :search, "Search Nightlife" %>
-        <%= submit_tag "Search" %>
+      <% if params["event_id"] %>
+        <%= form_tag(event_venues_path, method: "get", id: "search-form") do %>
+          <%= text_field_tag :search, "Search Nightlife" %>
+          <%= submit_tag "Search" %>
+      <% end %>
+      <% else %>
+        <%= form_tag(venues_path, method: "get", id: "search-form") do  %>
+          <%= text_field_tag :search, "Search Nightlife" %>
+          <%= submit_tag "Search" %>
+        <% end %>
       <% end %>
     </div>
     <% if @venues.size != 0 %>
       <%= render @venues %>
-      <div class="paginate-center">
-        <%= paginate @venues %>
-      </div>
+      <% if @venues.size > 9 %>
+        <div class="paginate-center">
+          <%= paginate @venues %>
+        </div>
+      <% end %>
     <% elsif @yelpvenues != nil %>
       <%= render 'yelpvenue' %>
     <% end %>
