@@ -23,16 +23,22 @@ class InvitesController < AuthenticateController
     if current_user == @event.organizer
       friendlist = @graph.get_connections("me","friends")
       friendlist.each do |friend|
-        if friend["name"].downcase == @friendsearch.downcase
+        if friend["name"].downcase.rstrip.lstrip == @friendsearch.downcase.rstrip.lstrip
           @friendfound = User.find_by(uid: friend["id"])
-          invite = Invite.new(inviter: current_user, invitee: @friendfound, event: @event)
-          if invite.valid?
-            invite.save
-            @success = "You have successfully invited your friend, #{@friendfound.name}!"
-            return true
-          else
+          @existinginvite = Invite.find_by(invitee: @friendfound, event: @event)
+          if @existinginvite.nil? == false
             @alert = "It seems your friend has already been invited!"
             return false
+          else
+            invite = Invite.new(inviter: current_user, invitee: @friendfound, event: @event)
+            if invite.valid?
+              invite.save
+              @success = "You have successfully invited your friend, #{@friendfound.name}!"
+              return true
+            else
+              @alert = "Hmm something went wrong along the way."
+              return false
+            end
           end
         end
       end

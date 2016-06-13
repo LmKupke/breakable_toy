@@ -2,10 +2,13 @@
   <div class="image-wrapper overlay-fade-in animated fadeInLeft">
     <div class="large-7 large-offset-2 medium-offset-3 medium-6 small-12 panel">
       <div class="image-overlay-content">
-        <%= link_to image_tag(venue.photo, alt: "#{venue.name} photo", class: "venue photo"), venue_path(venue), id: venue.id %>
-        <p><%= link_to venue.name, venue_path(venue) %></p>
         <% if @event != nil %>
-        <%= button_to "Add to Your Event", venueselections_path, params: { event: @event, venue: venue }, id: venue.yelp_id %>
+          <%= link_to image_tag(venue.photo, alt: "#{venue.name} photo", class: "venue photo"), event_venue_path(@event,venue), id: venue.id %>
+          <p><%= link_to venue.name, event_venue_path(@event,venue) %></p>
+          <%= button_to "Add to Your Event", venueselections_path, params: { event: @event, venue: venue }, id: venue.yelp_id %>
+        <% else %>
+          <%= link_to image_tag(venue.photo, alt: "#{venue.name} photo", class: "venue photo"), venue_path(venue), id: venue.id %>
+          <p><%= link_to venue.name, venue_path(venue) %></p>
         <% end %>
       </div>
     </div>
