@@ -3,10 +3,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, allow_nil: false, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
   has_many :events, foreign_key: "organizer_id"
-  has_many :invites, class_name: "User", as: :inviter_id
+  has_many :invited, class_name: "Invite", foreign_key: "inviter_id"
   # has_many :invites, through: :events, as: :organizer
 
-  has_many :invites, class_name: "User", as: :invitee_id
+  has_many :invitations, class_name: "Invite", foreign_key: "invitee_id"
+
   has_many :venueselections
 
 
@@ -15,9 +16,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
+  def all_events
+    arr = events + invitations.map(&:event)
+    arr.uniq
+  end
 
- def self.from_omniauth(auth)
-
+  def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
      user.email = auth.info.email
      user.password = Devise.friendly_token[0,20]
@@ -27,10 +31,9 @@ class User < ActiveRecord::Base
      user.expires_at = Time.at(auth.credentials.expires_at)
      user.timezone = auth.extra.raw_info.timezone
    end
- end
+  end
 
   def self.new_with_session(params, session)
-
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?

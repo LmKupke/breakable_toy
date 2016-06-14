@@ -14,8 +14,9 @@ feature 'see venues', %Q{
   before(:each) do
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
     visit root_path
-    click_button "Login with Facebook"
+    find("#faceauth-link").click
   end
+
   scenario 'user sees boston nightlife in nav' do
     expect(page).to have_content("Boston Nightlife")
   end

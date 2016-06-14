@@ -16,7 +16,7 @@ feature 'User adds Venue from Yelp', %Q{
   before(:each) do
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
     visit root_path
-    click_button "Login with Facebook"
+    find("#faceauth-link").click
   end
 
   describe "Yelp Lookup" do

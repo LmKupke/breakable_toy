@@ -11,7 +11,7 @@ feature 'sign_up', %Q{
   end
   scenario 'user signs up valid' do
     visit root_path
-    click_button "Login with Facebook"
+    find("#faceauth-link").click
     expect(page).to have_content("Successfully authenticated from Facebook account.")
     expect(page).to have_link("Sign Out")
   end

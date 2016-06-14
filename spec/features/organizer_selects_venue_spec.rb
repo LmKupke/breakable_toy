@@ -13,7 +13,7 @@ feature 'Event Organizer adds Venue', %Q{
   before(:each) do
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
     visit root_path
-    click_button "Login with Facebook"
+    find("#faceauth-link").click
   end
   context "current user logged in" do
     let(:current_user) { User.find_by(uid: "12345") }

@@ -15,10 +15,12 @@ feature 'Sign_out', %Q{
   scenario 'user signs out' do
     # OmniAuth.config.mock_auth[:facebook] = nil
     visit root_path
-    click_button "Login with Facebook"
+    find("#faceauth-link").click
+
     expect(page).to have_link("Sign Out")
+
     click_link "Sign Out"
+
     expect(page).to have_content("Signed out successfully.")
-    expect(page).to have_button("Login with Facebook")
   end
 end

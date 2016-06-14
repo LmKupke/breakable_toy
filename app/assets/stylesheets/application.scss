@@ -32,6 +32,10 @@ ul.off-canvas-list {
   }
 }
 
+.image-circular{
+  border-radius: 50%;
+  float: left;
+}
 
 .labelrow {
    position: absolute;
@@ -124,6 +128,14 @@ div#menu-photo {
     width: 65px;
 }
 
+.newsfeed-name-link {
+  color: black;
+}
+
 .large-7.large-offset-2.medium-offset-3.medium-6.small-12.panel {
   height: 240px;
+}
+
+.end-row-line {
+  padding-top: 10px;
 }
