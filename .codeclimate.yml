@@ -7,3 +7,4 @@ exclude_paths:
 - "app/assets/javascripts/wickedpicker.js"
 - "app/assets/stylesheets/wickedpicker.css"
 - "app/assets/stylesheets/foundation-datepicker.css"
+- "/app/public"
