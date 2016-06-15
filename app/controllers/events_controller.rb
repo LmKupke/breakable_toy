@@ -58,6 +58,17 @@ class EventsController < AuthenticateController
     end
   end
 
+  def destroy
+    @event = Event.find(params["id"])
+    if current_user != @event.organizer
+      flash[:alert] = "Sorry you're not the event organizer"
+      redirect_to newsfeeds_path
+    else
+      @event.destroy
+      redirect_to events_path
+    end
+  end
+
   def all_upcoming(user)
     events = []
     invites = []
@@ -75,6 +86,8 @@ class EventsController < AuthenticateController
     all_events = events + invites
     all_events.sort_by {|e| e.date }
   end
+
+  private
 
   def event_params
     params.require(:event).permit(:name, :date, :start_time, :id, :organizer_id)

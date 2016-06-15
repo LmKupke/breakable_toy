@@ -21,7 +21,7 @@
     </div>
     <% if @venues.size != 0 %>
       <%= render @venues %>
-      <% if @venues.size > 9 %>
+      <% if @venues.size >= 9 %>
         <div class="paginate-center">
           <%= paginate @venues %>
         </div>

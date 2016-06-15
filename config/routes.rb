@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :venues, only: [:index, :show, :create]
 
-  resources :events, except: [:delete] do
+  resources :events, only: [:show] do
     resources :venues, only: [:index, :show, :create]
     resources :invites, only: [:create]
   end

@@ -6,7 +6,8 @@ class Event < ActiveRecord::Base
   validate :date_cannot_be_in_the_past
 
   belongs_to :organizer, class_name: "User", foreign_key: "organizer_id"
-  has_many :invites
+  has_many :invites, dependent: :destroy
+  has_many :venueselections, dependent: :destroy
 
   def date_cannot_be_in_the_past
 
