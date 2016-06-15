@@ -1,4 +1,4 @@
-<h2>Your Upcoming Events</h2>
+<h2 class="text-center">Your Upcoming Events</h2>
 
 <div class="large-12 medium-12 small-12 columns">
   <table>
@@ -8,7 +8,7 @@
         <th>Event Organizer</th>
         <th>Date</th>
         <th>Time</th>
-        <th>Friends Attending</th>
+        <th>Attendees</th>
       </tr>
     </thead>
     <tbody>
@@ -25,7 +25,7 @@
           <td><%= event.date.strftime('%m/%d/%Y') %></td>
           <td><%= event.start_time %></td>
           <td>
-            <%= event.invites.where(status: "Attending", invitee: !current_user).count %>
+            <%= event.invites.count %>
           </td>
         </tr>
       <% end %>

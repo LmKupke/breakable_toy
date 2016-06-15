@@ -6,9 +6,12 @@ class EventsController < AuthenticateController
 
   def new
     @event = Event.new
+    @url = events_path
+    @method = "post"
   end
 
   def create
+    @eventparams = event_params
     @event = Event.new(event_params)
     @event.organizer = current_user
     @event.fix_datetime
@@ -27,6 +30,31 @@ class EventsController < AuthenticateController
       @current_page = "event-show-no-venues"
     else
       @sectionpage = "eventsshow"
+    end
+  end
+
+
+
+  def edit
+    @event = Event.find(params["id"])
+    if current_user != @event.organizer
+      flash[:alert] = "Sorry you're not the event organizer"
+      redirect_to newsfeeds_path
+    end
+    @method = "patch"
+    @url = event_path
+  end
+
+  def update
+    @event = Event.find(params["id"])
+    @event.assign_attributes(event_params)
+    @event.fix_datetime
+    if @event.save
+      flash[:notice] = "You updated your event"
+      redirect_to event_path(@event)
+    else
+      flash[:alert] = "Please add values to each of the forms"
+      render :edit
     end
   end
 
@@ -49,6 +77,6 @@ class EventsController < AuthenticateController
   end
 
   def event_params
-    params.require(:event).permit(:name, :date, :start_time)
+    params.require(:event).permit(:name, :date, :start_time, :id, :organizer_id)
   end
 end

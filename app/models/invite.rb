@@ -30,4 +30,27 @@ class Invite < ActiveRecord::Base
   def pending?
     status == "Pending"
   end
+
+  def self.user_attending?(user)
+    a = where("invitee_id = ? AND status = 'Attending'", user)
+    if a.empty?
+      false
+    else
+      true
+    end
+  end
+
+  def self.user_notattending?(user)
+    a = where("invitee_id = ? AND status = 'Not Attending'", user)
+    if a.empty?
+      false
+    else
+      true
+    end
+  end
+
+  def self.user_notinvited?(user)
+    a = where("invitee_id = ?", user)
+    a.empty?
+  end
 end

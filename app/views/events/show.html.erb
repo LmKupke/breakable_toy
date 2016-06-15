@@ -8,6 +8,14 @@
     <div class="event-date">
       <%= @event.date.strftime('%m/%d/%Y') %> <%= @event.start_time %>
     </div>
+    <% if current_user == @event.organizer %>
+      <div class="event-edit">
+        <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "button small radius", params: { :"event[name]" => @event.name, :"event[date]" => @event.date, :"event[start_time]" => @event.start_time, :"event[id]" => @event.id, :"event[organizer_id]" => @event.organizer_id } %>
+      </div>
+      <div class="event-delete">
+        <%= button_to "Cancel Event", "#" %>
+      </div>
+    <% end %>
     <ul>
       <% if @venueselection.empty? %>
         <li><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>

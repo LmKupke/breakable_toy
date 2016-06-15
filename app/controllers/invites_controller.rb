@@ -71,5 +71,20 @@ class InvitesController < AuthenticateController
     end
   end
 
+  def update
+    @invite = Invite.find(invite_params["id"])
+    @invite.update(status: invite_params["status"])
+    if @invite.status == "Attending"
+      flash[:notice] = "You are now attending the upcoming event."
+    else
+      flash[:notice] = "You declined the invitation to the event."
+    end
+    redirect_to invites_path
+  end
 
+  private
+
+  def invite_params
+    params.require(:invite).permit(:status, :id)
+  end
 end

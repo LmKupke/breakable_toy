@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   end
 
   resources :venueselections, only: [:create, :update, :delete]
-  resources :invites, only: [:show, :index, :destroy]
+  resources :invites, only: [:show, :index, :update]
 end

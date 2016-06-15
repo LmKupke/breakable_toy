@@ -23,8 +23,8 @@
           <td><%= invite.event.start_time %></td>
           <td><%= link_to invite.inviter.name, user_path(invite.inviter) %></td>
           <td>
-              <%= button_to "Attending" %>
-              <%= button_to "Can't Attend" %>
+              <%= button_to "Attending", invite_path(invite), method: :patch, params: { :"invite[status]" => "Attending", :"invite[id]" => invite.id }  %>
+              <%= button_to "Can't Attend", invite_path(invite), method: :patch, params: { :"invite[status]" => "Not Attending" } %>
           </td>
         </tr>
       </div>

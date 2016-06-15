@@ -1,0 +1,14 @@
+<div class="small-offset-3 large-offset-4 medium-offset-4 columns">
+  <div class="small-6 large-4 medium-4">
+  <%= simple_form_for (@event), method: @method, url: @url do |f| %>
+    <%= f.input :name, label: "Event Name" %>
+    <% if @event.date.nil? %>
+      <%= f.input :date, as: :string, input_html: { class: "span2", id: "dpt"} %>
+    <% else %>
+      <%= f.input :date, as: :string, input_html: { class: "span2", id: "dpt", value: @event.date.beginning_of_day.strftime('%Y/%m/%d')} %>
+    <% end %>
+    <%= f.input :start_time, as: :string, label: "Start Time", input_html: { id: "timepicker" } %>
+    <%= f.button :submit %>
+  <% end %>
+  </div>
+</div>
