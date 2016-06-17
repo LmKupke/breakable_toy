@@ -45,7 +45,6 @@ class InvitesController < AuthenticateController
       @alert = "Either your friend, #{@friendsearch}, isn't using the app yet or you spelled their name wrong! Please write their full Facebook name!"
       return false
     else
-
       @mutual_friends = @graph.get_object("#{@event.organizer.uid}", {fields: ["context"]}) { |data| data["context"]["mutual_friends"]["data"] }
       if @mutual_friends.empty?
         @alert = "The #{@event.organizer.name} and you have no mutual friends on the app! Let them know about NOMO-FOMO!"
@@ -66,7 +65,7 @@ class InvitesController < AuthenticateController
           end
         end
       end
-      @alert = "Either your mutual friend, #{@friendsearch}, with #{@event.organizer.name} is not on the app or you spelled their name wrong! Please write their full Facebook name!"
+      @alert = "Either your friend, #{@friendsearch}, is not friends with #{@event.organizer.name} on Facebook,is not on the app, or you spelled their name wrong! Please write their full Facebook name!"
       return false
     end
   end

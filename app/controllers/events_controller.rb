@@ -1,5 +1,4 @@
 class EventsController < AuthenticateController
-
   def index
     @events = all_upcoming(current_user)
   end
@@ -25,15 +24,20 @@ class EventsController < AuthenticateController
 
   def show
     @event = Event.find(params[:id])
-    @venueselection = Venueselection.where(event: @event )
+    # @venueselection = Venueselection.where(event: @event )
+    @venueselection = Venueselection.where(event: @event).page(params[:page]).per(12)
+    @selected = false
+    @venueselection.each do |venue|
+      if venue.user == current_user
+        @selected = true
+      end
+    end
     if @venueselection.empty?
       @current_page = "event-show-no-venues"
     else
       @sectionpage = "eventsshow"
     end
   end
-
-
 
   def edit
     @event = Event.find(params["id"])
