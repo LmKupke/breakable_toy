@@ -19,6 +19,8 @@
     <ul>
       <% if @venueselection.empty? %>
         <li><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
+      <% elsif !@venueselection.empty? && !@selected %>
+      <li><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
       <% end %>
     </ul>
   </div>
@@ -26,7 +28,8 @@
 </section>
 <% end %>
 
-<% if @venueselection.empty? == false %>
+
+<% if @venueselection.empty? == false && @selected %>
   <%= form_tag(event_invites_path(@event), method: "post", id: "invite-form") do  %>
   <div class="row">
     <div class="large-10 medium-10 columns">
@@ -44,6 +47,7 @@
 <% end %>
 
 
+
 <% if @venueselection.empty? == false %>
     <% @venueselection.each do |venueselect| %>
       <div class="large-2 medium-3 small-6 columns">
@@ -58,4 +62,12 @@
       </div>
     </div>
   <% end %>
+<% end %>
+
+<% if @venueselection.size >= 12 %>
+  <div class="row">
+    <div class="paginate-center">
+      <%= paginate @venueselection %>
+    </div>
+  </div>
 <% end %>
