@@ -5,12 +5,14 @@ class VenuesController < AuthenticateController
     if params[:search]
       @venues = Venue.search(params[:search])
       if @venues.size == nil || @venues.size == 0
-        flash[:notice] = "Seems like our database doesn't have that spot! Here are some results from Yelp."
+        binding.pry
         parameters = { term: params[:search], limit: 20, category_filter: 'danceclubs,bars,poolhalls,pianobars,beergardens' }
         @yelpvenues = Yelp.client.search('Boston', parameters)
         @yelpvenues = @yelpvenues.businesses
+        flash[:notice] = "Seems like our database doesn't have that spot! Here are some results from Yelp."
+      else
+        flash[:notice] = "Seems like we got that spot!"
       end
-      flash[:notice] = "Seems like we got that spot!"
     end
   end
 
@@ -35,7 +37,7 @@ class VenuesController < AuthenticateController
       u.state_code = @yelpvenue['location']['state_code']
       u.postal_code = @yelpvenue['location']['postal_code']
       u.rating = @yelpvenue['rating']
-      u.photo = @yelpvenue['image_url']
+      u.photo = @yelpvenue['image_url'].gsub(/\/ms/,"/l")
       u.latitude = @yelpvenue['location']['coordinate']['latitude']
       u.longitude = @yelpvenue['location']['coordinate']['longitude']
       u.url = @yelpvenue['url']
