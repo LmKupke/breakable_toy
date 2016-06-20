@@ -139,3 +139,21 @@ div#menu-photo {
 .end-row-line {
   padding-top: 10px;
 }
+ul.contact li {
+    display: inline-block;
+}
+ul.contact {
+    list-style-type: none;
+    text-align: center;
+}
+ul.contact a {
+  font-size: 1.5rem;
+  color: white;
+  line-height: 2rem;
+  text-align: center;
+}
+
+footer.footer {
+  background-color: black;
+
+}

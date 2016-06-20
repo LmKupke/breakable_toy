@@ -1,3 +1,27 @@
 // Place all the styles related to the venue controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input#search {
+    height: 2.4375rem;
+    display: block;
+}
+
+input.button {
+    position: absolute;
+    right: 0px;
+    top: -1px;
+    margin: 0px;
+    height: 2.4375rem;
+    box-sizing: border-box;
+    line-height: 1;
+    vertical-align: middle;
+    padding: 0.85em 1em;
+}
+
+img.venue.photo {
+    height: 250px;
+    width: 100%;
+    position: relative;
+    float: left;
+}

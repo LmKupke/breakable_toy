@@ -6,22 +6,30 @@
         <h1 class="animated fadeInDown">Boston Nightlife</h1>
       </div>
     </div>
-    <div class="search">
-      <% if params["event_id"] %>
-        <%= form_tag(event_venues_path, method: "get", id: "search-form") do %>
-          <%= text_field_tag :search, "Search Nightlife" %>
-          <%= submit_tag "Search" %>
-      <% end %>
-      <% else %>
-        <%= form_tag(venues_path, method: "get", id: "search-form") do  %>
-          <%= text_field_tag :search, "Search Nightlife" %>
-          <%= submit_tag "Search" %>
+    <div class="row small-12 medium-offset-3 medium-6 columns">
+      <div class="search">
+        <% if params["event_id"] %>
+          <%= form_tag(event_venues_path, method: "get", id: "search-form") do %>
+            <%= text_field_tag :search, nil,placeholder: "Search Nightlife" %>
+            <div class="search-button">
+              <%= submit_tag "Search", class: "button" %>
+            </div>
+          <% end %>
+        <% else %>
+          <%= form_tag(venues_path, method: "get", id: "search-form") do  %>
+            <%= text_field_tag :search, nil,placeholder: "Search Nightlife" %>
+            <div class="search-button">
+              <%= submit_tag "Search", class: "button" %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
     <% if @venues.size != 0 %>
       <%= render @venues %>
+      <br>
       <% if @venues.size >= 9 %>
+        <hr />
         <div class="paginate-center">
           <%= paginate @venues %>
         </div>
