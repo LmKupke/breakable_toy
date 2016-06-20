@@ -5,7 +5,6 @@ class VenuesController < AuthenticateController
     if params[:search]
       @venues = Venue.search(params[:search])
       if @venues.size == nil || @venues.size == 0
-        binding.pry
         parameters = { term: params[:search], limit: 20, category_filter: 'danceclubs,bars,poolhalls,pianobars,beergardens' }
         @yelpvenues = Yelp.client.search('Boston', parameters)
         @yelpvenues = @yelpvenues.businesses
