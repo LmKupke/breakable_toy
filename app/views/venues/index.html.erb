@@ -12,14 +12,14 @@
           <%= form_tag(event_venues_path, method: "get", id: "search-form") do %>
             <%= text_field_tag :search, nil,placeholder: "Search Nightlife" %>
             <div class="search-button">
-              <%= submit_tag "Search", class: "button" %>
+              <%= submit_tag "Search", class: "button", id: "search-button" %>
             </div>
           <% end %>
         <% else %>
           <%= form_tag(venues_path, method: "get", id: "search-form") do  %>
             <%= text_field_tag :search, nil,placeholder: "Search Nightlife" %>
             <div class="search-button">
-              <%= submit_tag "Search", class: "button" %>
+              <%= submit_tag "Search", class: "button", id: "search-button" %>
             </div>
           <% end %>
         <% end %>

@@ -8,7 +8,8 @@
       <%= f.input :date, as: :string, input_html: { class: "span2", id: "dpt", value: @event.date.beginning_of_day.strftime('%Y/%m/%d')} %>
     <% end %>
     <%= f.input :start_time, as: :string, label: "Start Time", input_html: { id: "timepicker" } %>
-    <%= f.button :submit %>
+    <br>
+    <%= f.button :submit, id: "update-button"%>
   <% end %>
   </div>
 </div>

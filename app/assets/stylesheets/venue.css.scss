@@ -7,7 +7,7 @@ input#search {
     display: block;
 }
 
-input.button {
+#search-button {
     position: absolute;
     right: 0px;
     top: -1px;
@@ -24,4 +24,20 @@ img.venue.photo {
     width: 100%;
     position: relative;
     float: left;
+    margin-bottom: 15px;
+}
+
+.venueinfo {
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    width: 100%
+}
+
+.venueinfo span {
+  color: white;
+  letter-spacing: -1px;
+  background: rgb(0, 0, 0); /* fallback color */
+  background: rgba(0, 0, 0, 0.7);
+  padding: 3.4px;
 }

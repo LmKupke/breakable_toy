@@ -9,11 +9,11 @@
       <%= @event.date.strftime('%m/%d/%Y') %> <%= @event.start_time %>
     </div>
     <% if current_user == @event.organizer %>
-      <div class="event-edit">
-        <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "button small radius", params: { :"event[name]" => @event.name, :"event[date]" => @event.date, :"event[start_time]" => @event.start_time, :"event[id]" => @event.id, :"event[organizer_id]" => @event.organizer_id } %>
-      </div>
       <div class="event-delete">
         <%= button_to "Cancel Event", event_path(@event), method: :delete, class: "button small radius" %>
+      </div>
+      <div class="event-edit">
+        <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "button small radius", params: { :"event[name]" => @event.name, :"event[date]" => @event.date, :"event[start_time]" => @event.start_time, :"event[id]" => @event.id, :"event[organizer_id]" => @event.organizer_id } %>
       </div>
     <% end %>
     <ul>
