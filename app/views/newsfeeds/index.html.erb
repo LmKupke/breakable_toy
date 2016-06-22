@@ -1,13 +1,14 @@
 
 <% @friendevents.each do |aevent| %>
-    <div class="small-12 medium-12 large-12 columns">
-      <div class="row">
+    <div class="small-12 medium-12 large-12  columns">
+      <div class="row" id="newsfeedrow">
         <%=  link_to image_tag(aevent.organizer.photo, class: "image-circular"), user_path(aevent.organizer)%>
         <div class="small-10 medium-10 large-10 columns">
           <b><%= link_to "#{aevent.organizer.name}", user_path(aevent.organizer), class: "newsfeed-name-link" %></b>
-          created the event, <b><%= aevent.name %></b>.<br />
+          created the event, <b><%= aevent.name %></b>.
+          <br>
           <% if aevent.invites.user_attending?(current_user) %>
-              <b><%= link_to aevent.name, event_path(aevent) %></b>
+            <b><%= link_to aevent.name, event_path(aevent) %></b>
           <% else %>
             <b><%= aevent.name %></b>
           <% end %>
@@ -15,21 +16,26 @@
           <%= aevent.invites.where(status: "Attending").count %>
           Attending and
           <%= aevent.invites.where(status: 'Pending').count %> Pending invites.
+          <br>
+          <br>
           <% if aevent.invites.user_attending?(current_user) %>
-            You are attending this event!
+            <b>You are attending this event!</b>
           <% elsif aevent.invites.user_notattending?(current_user) %>
-            You declined this event!
+            <b>You declined this event!</b>
           <% end %>
           <% if aevent.invites.user_notinvited?(current_user) %>
-            <div class="small-offset-7 medium-offset-7 large-offset-7">
+
+            <div class="text-centered">
               <div class="buttons">
-                <%= button_to "Ask to Tag along!" %>
-                <%= button_to "Going there with Friends" %>
+                <ul class="newsfeed-buttons">
+                  <li><%= button_to "Ask to Tag along!" %></li>
+                  <li><%= button_to "Going there w/ Friends" %></li>
+                </ul>
               </div>
             </div>
           <% end %>
         </div>
       </div>
     </div>
-    <hr class="end-row-line">
+    <hr>
 <% end %>

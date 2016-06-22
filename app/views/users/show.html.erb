@@ -9,7 +9,7 @@
   </div>
 </section>
 
-<div class="large-9 small-9 medium-9 columns">
+<div class="large-9 small-8 medium-10 columns">
   <div class="profile box">
     <div class="text-center">
     <%= @user.created_at.strftime("%b %Y") %>
@@ -17,6 +17,12 @@
   </div>
 </div>
 
-<div class="large-2 small-3 medium-2 columns">
-aaaa
+<div class="large-3 small-4 medium-2 columns" id="friendcolumn">
+  <div class="friendsuserprofile">
+    <div class="text-center">
+      Friends
+    </div>
+    <%# TODO: This calls user.friends and displays friend circular photo and is linked,
+    if person is not friends with that friend not linked %>
+  </div>
 </div>
