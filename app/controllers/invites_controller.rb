@@ -13,6 +13,17 @@ class InvitesController < AuthenticateController
     redirect_to event_path(event)
   end
 
+  def create
+    @invite = Invite.new(invite_params)
+    if @invite.save
+      flash[:success] = "Friend successfully invited"
+      redirect_to @invite
+    else
+      flash[:alert] = @invite.errors.full_messages.join(", ")
+      render :new
+    end
+  end
+
   def friendfind?
     if current_user == event.organizer
       @friendfound = graph.friendlist_match

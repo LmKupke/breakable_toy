@@ -8,7 +8,7 @@ require 'rspec/rails'
 require "capybara/rails"
 require "valid_attribute"
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-
+Koala::Facebook::API = KoalaFake
 
 ActiveRecord::Migration.maintain_test_schema!
 
