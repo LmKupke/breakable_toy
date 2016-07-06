@@ -15,7 +15,7 @@ gem 'foundation-icons-sass-rails'
 gem 'yelp', require: 'yelp'
 gem 'pg_search'
 gem "rails-erd"
-gem "koala", "~> 2.2", require: false
+gem "koala", "~> 2.2"
 gem 'kaminari'
 
 group :development, :test do

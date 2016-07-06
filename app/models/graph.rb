@@ -1,9 +1,12 @@
 class Graph
+  cattr_accessor :client_class
+  self.client_class = Koala::Facebook::API
+
   attr_reader :user, :graph, :event_organizer, :search_string
 
   def initialize(user)
     @user = user
-    @graph = Koala::Facebook::API.new(user.token, ENV["FB_APP_SECRET"])
+    @graph = self.class.client_class.new(user.token, ENV["FB_APP_SECRET"])
   end
 
   def friendlist
