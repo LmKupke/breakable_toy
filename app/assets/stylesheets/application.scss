@@ -151,7 +151,46 @@ ul.contact a {
   text-align: center;
 }
 
+
 footer.footer {
   background-color: black;
+}
 
+.alert-box {
+  margin: 0px;
+}
+.add-venue.button.expanded{
+  width: 100%;
+}
+
+.venueinfo {
+  margin-bottom: 0px;
+}
+
+img.venue.photo{
+  margin-bottom: 0px;
+}
+
+section.venueshowpage{
+  margin-top: 0px;
+  background-image: image-url("beaconhill.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  padding: 30px;
+}
+
+.venueshowimage{
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+
+  position: absolute;
+}
+
+.venuetitle {
+  color: white;
+  margin-top: 0px;
 }

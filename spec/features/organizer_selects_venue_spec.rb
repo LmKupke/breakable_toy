@@ -16,7 +16,7 @@ feature 'Event Organizer adds Venue', %Q{
     find("#faceauth-link").click
   end
   context "current user logged in" do
-    let(:current_user) { User.find_by(uid: "12345") }
+    let(:current_user) { User.find_by(uid: "104163923349051") }
 
     scenario 'Organizer creates an Event sees Add Boston Nightlife Button' do
       @event = create(:event, organizer: current_user )

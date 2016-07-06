@@ -1,5 +1,20 @@
-<h2><%= @venue.name %></h2>
-<%= image_tag(@venue.photo) %>
-<%= @venue.category %>
-<%= @venue.phone %>
-<%= @venue.full_address %>
+<section class="venueshowpage">
+  <div class="text-center">
+    <h2 class="venuetitle"><%= @venue.name %></h2>
+  </div>
+  <div class="text-center">
+    <%= image_tag(@venue.photo, class: "venueshowimage") %>
+  </div>
+</section>
+
+<div class="">
+  Categories:
+  <ul>
+    <% @venue.category.gsub("/","").gsub(/"/, '').gsub("]","").gsub("[","").split(",").each do |t| %>
+    <li><%= t %></li>
+    <% end %>
+  </ul>
+</div>
+  Rating: <%= @venue.rating %>
+  Phone Number: <a href="tel:<%= @venue.phone %>"><%= @venue.phone %></a> <br />
+  Address: <%= @venue.full_address %> <br />

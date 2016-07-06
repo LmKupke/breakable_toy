@@ -9,6 +9,7 @@ require "capybara/rails"
 require "valid_attribute"
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
+Graph.client_class = KoalaFake
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -35,13 +36,28 @@ RSpec.configure do |config|
      "email" => "bret@facebook.com",
    }
 
-  OmniAuth.config.mock_auth[:facebook] =  OmniAuth::AuthHash.new({
-     "uid" => '12345',
-     "provider" => 'facebook',
-     "info" => {"name" => "Bret Taylor", "email" => 'example@gmail.com', "image" => 'photo.png'},
-     "credentials" => {"token" => '#3248023580238402398409432', "expires_at" => 241241},
-     "extra" => {"user_hash" => FACEBOOK_INFO, "raw_info" => { "timezone" => -4.0 } }
-   })
+  OmniAuth.config.mock_auth[:facebook] =  OmniAuth::AuthHash.new(
+  {"provider"=>"facebook",
+    "uid"=>"104163923349051",
+    "info"=>
+      {"email"=>"jax_jnnlnzk_valtchanovberg@tfbnw.net",
+        "name"=>"Jax Alabffccjcgef Valtchanovberg",
+        "image"=>"http://graph.facebook.com/104163923349051/picture",
+        "verified"=>false
+      },
+      "credentials"=>
+      {"token"=>
+        "EAAQebgjckX4BAKwNnp9ush1cwFG3F1aKq57qSIf92kqsjupitxr7ZCx6hGnfzUdOEnl3LrLhY0xZCwR6Wi0kOU3mEquuQH08Px1a4yIEUMgliss96EgUfSiRZCxopEj1Y5TgdkGCuURczv1q0VYhP7BuXSYWUsZD",
+        "expires_at"=>1472945689,
+        "expires"=>true
+      },
+      "extra"=>
+        {"raw_info"=>
+          {"name"=>"Jax Alabffccjcgef Valtchanovberg",
+            "email"=>"jax_jnnlnzk_valtchanovberg@tfbnw.net",
+            "verified"=>false,
+            "timezone"=>0,
+            "id"=>"104163923349051"}}})
 
 
   # https://relishapp.com/rspec/rspec-rails/docs
