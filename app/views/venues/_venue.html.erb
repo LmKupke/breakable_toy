@@ -8,11 +8,13 @@
           <p class="venueinfo">
             <span>
               <%= venue.name %> <span class='spacer'></span><br>
-              <span class='spacer'></span><%= venue.address %>  <%= venue.city %>, <%= venue.state_code %>
+              <span class='spacer'></span><%= venue.address %>
             </span>
           </p>
         </div>
-        <%= button_to "Add to Your Event", venueselections_path, params: { event: @event, venue: venue }, id: venue.yelp_id %>
+        <div class="text-center">
+          <%= button_to "Add to Your Event", venueselections_path, params: { event: @event, venue: venue }, id: venue.yelp_id, class: "add-venue button expanded" %>
+        </div>
       <% else %>
         <%= link_to image_tag(venue.photo, alt: "#{venue.name} photo", class: "venue photo"), venue_path(venue), id: venue.id %>
         <div class="text-left">

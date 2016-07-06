@@ -1,3 +1,4 @@
+require "koala"
 class AuthenticateController < ApplicationController
   before_filter :auth_user
 
