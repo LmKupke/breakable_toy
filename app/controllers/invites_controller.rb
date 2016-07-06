@@ -41,7 +41,7 @@ class InvitesController < AuthenticateController
   end
 
   def graph
-    @graph ||= Graph.new(current_user, event.organizer, search_string)
+    @graph ||= Graph.new(current_user)
   end
 
   def event
@@ -50,9 +50,9 @@ class InvitesController < AuthenticateController
 
   def friend_search
     if current_user == event.organizer
-      graph.friendlist_match
+      graph.friendlist_match(search_string)
     else
-      graph.mutual_friendmatch
+      graph.mutual_friendmatch(search_string)
     end
   end
 
