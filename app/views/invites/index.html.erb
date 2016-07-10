@@ -1,8 +1,9 @@
 <h2 class="text-center">Your Invitations</h2>
 
-<div class="small-12 medium-12 large-12 columns">
+<div style="overflow-x:auto;">
+<!-- <div class="small-12 medium-12 large-12 columns"> -->
   <table role="grid">
-    <div class="small-12 medium-12 large-12 columns">
+    <!-- <div class="small-12 medium-12 large-12 columns"> -->
     <thead>
       <tr>
         <th scope="column">Event Name</th>
@@ -12,10 +13,10 @@
         <th scope="column">Response</th>
       </tr>
     </thead>
-  </div>
+  <!-- </div> -->
     <tbody>
       <% @pending_invites.each do |invite| %>
-        <div class="small-12 large-12 medium-12">
+        <!-- <div class="small-12 large-12 medium-12"> -->
 
         <tr>
           <td><%= invite.event.name %></td>
@@ -27,7 +28,7 @@
               <%= button_to "Can't Attend", invite_path(invite), method: :patch, params: { :"invite[status]" => "Not Attending" } %>
           </td>
         </tr>
-      </div>
+      <!-- </div> -->
       <% end %>
     </tbody>
   </table>

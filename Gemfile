@@ -17,6 +17,7 @@ gem 'pg_search'
 gem "rails-erd"
 gem "koala", "~> 2.2"
 gem 'kaminari'
+gem 'table-for'
 
 group :development, :test do
   gem 'capybara'

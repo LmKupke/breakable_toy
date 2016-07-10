@@ -12,7 +12,27 @@
 <div class="large-9 small-8 medium-10 columns">
   <div class="profile box">
     <div class="text-center">
-    <%= @user.created_at.strftime("%b %Y") %>
+    Member Since: <%= @user.created_at.strftime("%b %Y") %>
+    </div>
+    <div style="overflow-x:auto;">
+      <%= table_for @events,
+          table_html: { id: "user-past-events", class: "user-profile-table" },
+          sortable: true,
+          data_row_html: {
+            id: lambda { |event| "event-#{event.id}" }
+            } do |table| %>
+
+        <% table.column :name, link_url: lambda { |event| event_path(event) } %>
+        <% table.column :date, :formatter => [:strftime, "%m/%d/%Y"], :sortable => true %>
+        <% table.column :start_time, :sortable => false %>
+        <% if @ownprofile %>
+          <% table.footer do %>
+            <div class="pull-right">
+              <%= paginate @events %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

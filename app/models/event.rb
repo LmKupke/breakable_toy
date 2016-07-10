@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  paginates_per 10
   validates :date, null: false, presence: true
   validates :organizer_id, null: false, presence: true
   validates :name, null: false, presence:true
@@ -30,4 +31,7 @@ class Event < ActiveRecord::Base
     where("organizer_id = ? AND date >= ?", user, Time.zone.now ).order(date: :asc, start_time: :asc)
   end
 
+  def self.past_events(user)
+    where("organizer_id = ? AND date <= ?", user, Time.zone.now ).order(date: :desc, start_time: :asc)
+  end
 end

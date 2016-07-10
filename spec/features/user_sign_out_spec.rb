@@ -13,7 +13,6 @@ feature 'Sign_out', %Q{
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
   end
   scenario 'user signs out' do
-    # OmniAuth.config.mock_auth[:facebook] = nil
     visit root_path
     find("#faceauth-link").click
 
