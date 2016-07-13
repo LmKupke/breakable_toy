@@ -76,7 +76,7 @@ class EventsController < AuthenticateController
   def all_upcoming(user)
     events = []
     invites = []
-    events = Event.where("organizer_id = ? AND date >= ?", user, Time.zone.now).order(date: :asc, start_time: :asc)
+    events = Event.upcoming(user)
     invites = Invite.where(invitee: user, status: "Attending")
 
     invites = invites.select do |invite|
