@@ -32,11 +32,7 @@ feature "user rsvps to event", %{
     }
     let!(:event) { create(:event, organizer: friend, name: "Friend Invite") }
     let!(:venueselection) {
-      create(
-        :venueselection,
-        user: friend,
-        event: event
-      )
+      create(:venueselection, user: friend, event: event)
     }
     let!(:invite) {
       Invite.create(
