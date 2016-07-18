@@ -52,7 +52,7 @@ feature "user views profile", %{
         date: Time.zone.now + 1.week
       )
 
-      invite = Invite.create(
+      Invite.create(
         invitee: current_user,
         inviter: friend,
         event: newsfeedevent
