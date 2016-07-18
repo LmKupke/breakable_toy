@@ -38,12 +38,6 @@ feature "user views newsfeed", %{
         date: Time.zone.now + 1.week
       )
 
-      invite = Invite.create(
-        invitee: current_user,
-        inviter: friend,
-        event: newsfeedevent
-      )
-
       click_link "Home"
       expect(page).to have_content(newsfeedevent.name)
     end
