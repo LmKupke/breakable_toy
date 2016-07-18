@@ -22,7 +22,7 @@ feature "user rsvps to event", %{
   context "current_user" do
     let(:current_user) { User.find_by(uid: "104163923349051") }
     let!(:koalafake) { KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"]) }
-    let!(:friendlist) { koalafake.get_connections("me","friends") }
+    let!(:friendlist) { koalafake.get_connections("me", "friends") }
     let!(:friend) {
       create(
         :user,
@@ -35,12 +35,7 @@ feature "user rsvps to event", %{
       create(:venueselection, user: friend, event: event)
     }
     let!(:invite) {
-      Invite.create(
-        inviter: friend,
-        invitee: current_user,
-        event: event,
-        status: "Pending"
-      )
+      Invite.create(inviter: friend, invitee: current_user, event: event, status: "Pending")
     }
 
     scenario "a user sees rsvp buttons and inviter name" do
