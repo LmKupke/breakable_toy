@@ -17,15 +17,13 @@ feature "user views profile", %{
     let(:current_user) { User.find_by(uid: "104163923349051") }
 
     scenario "views their own profile" do
-      first_event =
-      create(
+      first_event = create(
         :event,
         organizer: current_user,
         date: Time.zone.now.beginning_of_day + 1.week,
         name: "First Event"
       )
-      second_event =
-      create(
+      second_event = create(
         :event,
         organizer: current_user,
         name: "Second Event"
@@ -42,16 +40,14 @@ feature "user views profile", %{
       a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
       friendlist = a.get_connections("me","friends")
 
-      friend =
-      create(
+      friend = create(
         :user,
         name: friendlist.first["name"],
         uid: friendlist.first["id"]
       )
 
 
-      newsfeedevent =
-      create(
+      newsfeedevent = create(
         :event,
         organizer: friend,
         name: "NewsFeed Event",
@@ -78,32 +74,28 @@ feature "user views profile", %{
         date: Time.zone.now - 2.hours
       )
 
-      past_friend_event3 =
-      build(
+      past_friend_event3 = build(
         :event,
         organizer: friend,
         name: "Event 3",
         date: Time.zone.now - 3.hours
       )
 
-      past_friend_event4 =
-      build(
+      past_friend_event4 = build(
         :event,
         organizer: friend,
         name: "Event 4",
         date: Time.zone.now - 4.hours
       )
 
-      past_friend_event5 =
-        build(
+      past_friend_event5 = build(
           :event,
           organizer: friend,
           name: "Event 5",
           date: Time.zone.now - 5.hours
         )
 
-      past_friend_event6 =
-        build(
+      past_friend_event6 = build(
           :event,
           organizer: friend,
           name: "Event 6",
