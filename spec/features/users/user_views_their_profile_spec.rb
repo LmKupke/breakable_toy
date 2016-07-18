@@ -92,14 +92,14 @@ feature "user views profile", %{
             organizer: friend,
             name: "Event 5",
             date: Time.zone.now - 5.hours
-        )
+      )
 
       past_friend_event6 = build(
             :event,
             organizer: friend,
             name: "Event 6",
             date: Time.zone.now - 6.hours
-        )
+      )
 
       past_friend_event1.save(validate: false)
       past_friend_event2.save(validate: false)
