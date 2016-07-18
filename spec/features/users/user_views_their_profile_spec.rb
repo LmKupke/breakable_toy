@@ -50,7 +50,8 @@ feature 'user views profile', %Q{
       name: "Event 4", date: Time.zone.now - 4.hours)
 
       past_friend_event5 =
-        build(:event,
+        build(
+          :event,
           organizer: friend,
           name: "Event 5",
           date: Time.zone.now - 5.hours
