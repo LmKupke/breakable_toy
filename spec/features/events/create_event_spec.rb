@@ -14,14 +14,6 @@ feature 'See User Events', %Q{
 
   before(:each) do
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
-    # test_users = Koala::Facebook::TestUsers.new(app_id: ENV["FB_APP_ID"], secret: ENV["FB_APP_SECRET"])
-    # @facebook_user = test_users.create(true, "email,user_friends")
-    # @friend = test_users.create(true, "email,user_friends")
-    # test_users.befriend(@facebook_user, @friend)
-    #
-    #
-    # @original_user = create(:user, uid: @facebook_user["id"], token: @facebook_user["access_token"], email: @facebook_user['email'], password: @facebook_user["password"], provider: "facebook", name: "Jax Teller")
-    # @friend_user = create(:user, uid: @friend["id"], token: @friend["access_token"], email: @friend['email'], password: @friend["password"], provider: "facebook", name: "Jon Snow")
     visit root_path
 
     find("#faceauth-link").click

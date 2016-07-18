@@ -27,7 +27,7 @@ feature 'user views profile', %Q{
       expect(page).to have_content(second_event.start_time)
     end
 
-    scenario "views friends profile and see recent Past Events" do
+    scenario "views friends profile and see only 5 recent Past Events" do
       a = KoalaFake.new(current_user.token, ENV['FB_APP_SECRET'])
       friendlist = a.get_connections("me","friends")
       friend = create(:user, name: friendlist.first["name"], uid: friendlist.first["id"])
@@ -38,18 +38,37 @@ feature 'user views profile', %Q{
         event: newsfeedevent)
 
       past_friend_event1 = build(:event, organizer: friend,
-        name: "Most recent", date: Time.zone.now - 1.hour)
+        name: "Event 1", date: Time.zone.now - 1.hour)
 
       past_friend_event2 = build(:event, organizer: friend,
-        name: "Later Event", date: Time.zone.now - 2.hours)
+        name: "Event 2", date: Time.zone.now - 2.hours)
+
+      past_friend_event3 = build(:event, organizer: friend,
+        name: "Event 3", date: Time.zone.now - 3.hours)
+
+      past_friend_event4 = build(:event, organizer: friend,
+        name: "Event 4", date: Time.zone.now - 4.hours)
+
+      past_friend_event5 = build(:event, organizer: friend,
+        name: "Event 5", date: Time.zone.now - 5.hours)
+
+      past_friend_event6 = build(:event, organizer: friend,
+        name: "Event 6", date: Time.zone.now - 6.hours)
 
       past_friend_event1.save(validate: false)
       past_friend_event2.save(validate: false)
+      past_friend_event3.save(validate: false)
+      past_friend_event4.save(validate: false)
+      past_friend_event5.save(validate: false)
+      past_friend_event6.save(validate: false)
 
       click_link "Invitations"
       click_link friend.name
+      
       expect(page).to have_link(past_friend_event1.name)
       expect(page).to have_link(past_friend_event2.name)
+      expect(page).to have_link(past_friend_event3.name)
+      expect(page).to_not have_link(past_friend_event6.name)
     end
   end
 end
