@@ -38,14 +38,13 @@ feature "user views profile", %{
 
     scenario "views friends profile and see only 5 recent Past Events" do
       a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
-      friendlist = a.get_connections("me","friends")
+      friendlist = a.get_connections("me", "friends")
 
       friend = create(
         :user,
         name: friendlist.first["name"],
         uid: friendlist.first["id"]
       )
-
 
       newsfeedevent = create(
         :event,
