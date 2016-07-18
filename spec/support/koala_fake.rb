@@ -10,14 +10,14 @@ class KoalaFake
       { "mutual_friends" =>
         { "data" =>
           [{ "name" => "Carol Alabebdiafcja Smithberg",
-            "id" => "105338816560282"
-          },
+              "id" => "105338816560282" },
           { "name" => "Charlie Alabeicdfjfdi Smithson",
             "id" => "100610493702066"
           }],
-         "paging" => {
-           "cursors" =>
-           { "before" => "MTEzNTkzNzM1NzMyNjk1", "after" => "MTEzNTkzNzM1NzMyNjk1" }
+         "paging" => { "cursors" =>
+           { "before" => "MTEzNTkzNzM1NzMyNjk1",
+             "after" => "MTEzNTkzNzM1NzMyNjk1"
+           }
          }, "summary" => { "total_count" => 1 }
        },
        "mutual_likes" => { "data" => [], "summary" => { "total_count" => 0 } },
