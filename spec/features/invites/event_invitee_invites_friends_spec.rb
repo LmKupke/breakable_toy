@@ -5,7 +5,6 @@ feature "event invitee invites friend to event", %{
   I want to invite mutual friends
   So that more people can attend the event
 } do
-
   # Acceptance Criteria:
   # [ ] Invitee accepts event
   # [ ] Invites a valid friend and sees Success Message on Event#show

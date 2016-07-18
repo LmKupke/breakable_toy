@@ -5,7 +5,6 @@ feature "sign_up", %{
   I want to sign up through FB
   So that I can get full access to the the web app
 } do
-
   before(:each) do
     Rails.application.env_config["omniauth.auth"] =
       OmniAuth.config.mock_auth[:facebook]

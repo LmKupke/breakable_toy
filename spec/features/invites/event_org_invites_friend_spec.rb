@@ -5,12 +5,10 @@ feature "event organizer invites friend", %{
   I want to invite friends
   So that I can attend my event
 } do
-
   # Acceptance Criteria:
   # [ ] User creates an event
   # [ ] Invites a valid friend and sees Success Message on Event#show
   # [ ] Invites an invalid friend and sees Falure Message on Event#show
-
 
   before(:each) do
     Rails.application.env_config["omniauth.auth"] =

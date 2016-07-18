@@ -5,7 +5,6 @@ feature "user views profile", %{
   I want to see my profile
   So that I can see my past events and invites
 } do
-
   before(:each) do
     Rails.application.env_config["omniauth.auth"] =
       OmniAuth.config.mock_auth[:facebook]

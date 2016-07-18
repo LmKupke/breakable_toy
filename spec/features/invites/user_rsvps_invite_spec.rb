@@ -5,7 +5,6 @@ feature "user rsvps to event", %{
   I want to respond to an invitation
   So my friends know that I am attending
 } do
-
   # Acceptance Criteria:
   # [ ] Invitations Link in Nav Bar
   # [ ] Buttons for Attending Event and Not Attending Event

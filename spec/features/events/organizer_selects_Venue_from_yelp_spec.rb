@@ -5,7 +5,6 @@ feature "User adds Venue from Yelp", %{
   I can add the Venue from Yelp
   So I can use it later in the DB
 } do
-
   # Acceptance Criteria:
   # [ X ] Link to Boston Nightlife exists on Nav Bar
   # [ X ] Sees Venues in the Database
@@ -44,7 +43,7 @@ feature "User adds Venue from Yelp", %{
         expect(page).to have_content("Music Venues")
       end
     end
-    
+
     it "should return a bar that isn't in the database and be added to DB" do
       VCR.use_cassette "search/howl" do
         click_link "Boston Nightlife"
