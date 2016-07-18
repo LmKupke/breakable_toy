@@ -5,7 +5,6 @@ feature "user views newsfeed", %{
   I want to see current upcoming events that friends have organized
   So that I can ask to join them
 } do
-
   # Acceptance Criteria:
   # [ ] User is redirected newsfeed after login
   # [ ] Newsfeed contains a list of friends' upcoming events
@@ -26,14 +25,26 @@ feature "user views newsfeed", %{
       a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
       friendlist = a.get_connections("me","friends")
 
-      friend = create(:user, name: friendlist.first["name"],
-        uid: friendlist.first["id"])
+      friend =
+      create(
+        :user,
+        name: friendlist.first["name"],
+        uid: friendlist.first["id"]
+      )
 
-      newsfeedevent = create(:event, organizer: friend,
-        name: "NewsFeed Event", date: Time.zone.now + 1.week)
+      newsfeedevent =
+      create(
+        :event,
+        organizer: friend,
+        name: "NewsFeed Event",
+        date: Time.zone.now + 1.week
+      )
 
-      invite = Invite.create(invitee: current_user, inviter: friend,
-        event: newsfeedevent)
+      invite = Invite.create(
+        invitee: current_user,
+        inviter: friend,
+        event: newsfeedevent
+      )
 
       click_link "Home"
       expect(page).to have_content(newsfeedevent.name)

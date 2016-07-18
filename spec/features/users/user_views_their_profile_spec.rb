@@ -18,7 +18,7 @@ feature "user views profile", %{
 
     scenario "views their own profile" do
       first_event =
-        create(
+      create(
         :event,
         organizer: current_user,
         date: Time.zone.now.beginning_of_day + 1.week,
@@ -72,14 +72,29 @@ feature "user views profile", %{
         date: Time.zone.now - 1.hour
       )
 
-      past_friend_event2 = build(:event, organizer: friend,
-      name: "Event 2", date: Time.zone.now - 2.hours)
+      past_friend_event2 =
+      build(
+        :event,
+        organizer: friend,
+        name: "Event 2",
+        date: Time.zone.now - 2.hours
+      )
 
-      past_friend_event3 = build(:event, organizer: friend,
-      name: "Event 3", date: Time.zone.now - 3.hours)
+      past_friend_event3 =
+      build(
+        :event,
+        organizer: friend,
+        name: "Event 3",
+        date: Time.zone.now - 3.hours
+      )
 
-      past_friend_event4 = build(:event, organizer: friend,
-      name: "Event 4", date: Time.zone.now - 4.hours)
+      past_friend_event4 =
+      build(
+        :event,
+        organizer: friend,
+        name: "Event 4",
+        date: Time.zone.now - 4.hours
+      )
 
       past_friend_event5 =
         build(
@@ -89,8 +104,13 @@ feature "user views profile", %{
           date: Time.zone.now - 5.hours
         )
 
-      past_friend_event6 = build(:event, organizer: friend,
-      name: "Event 6", date: Time.zone.now - 6.hours)
+      past_friend_event6 =
+        build(
+          :event,
+          organizer: friend,
+          name: "Event 6",
+          date: Time.zone.now - 6.hours
+        )
 
       past_friend_event1.save(validate: false)
       past_friend_event2.save(validate: false)
