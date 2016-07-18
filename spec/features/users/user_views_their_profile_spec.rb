@@ -64,16 +64,14 @@ feature "user views profile", %{
         event: newsfeedevent
       )
 
-      past_friend_event1 =
-      build(
+      past_friend_event1 = build(
         :event,
         organizer: friend,
         name: "Event 1",
         date: Time.zone.now - 1.hour
       )
 
-      past_friend_event2 =
-      build(
+      past_friend_event2 = build(
         :event,
         organizer: friend,
         name: "Event 2",
