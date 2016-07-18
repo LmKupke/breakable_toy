@@ -44,15 +44,6 @@ feature 'Edits an existing', %Q{
       click_link "Your Upcoming Events"
       click_link(event.name)
       click_button("Edit Event")
-
-      # a = Time.zone.today.beginning_of_day
-      # a = a + 2.weeks
-      # save_and_open_page
-      # binding.pry
-      # fill_in('Event Name', :with => event.name)
-      # fill_in('Date', :with => event.date)
-      # fill_in('Start Time', :with => event.start_time)
-
       click_button('Update Event')
 
       expect(page).to have_content(event.name)
