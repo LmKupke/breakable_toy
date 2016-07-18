@@ -21,24 +21,32 @@ feature "event invitee invites friend to event", %{
     let!(:current_user) { User.find_by(uid: "104163923349051") }
     let!(:koalafake) { KoalaFake.new(current_user.token, ENV['FB_APP_SECRET']) }
     let!(:friendlist) { koalafake.get_connections("me","friends")}
-    let!(:friend) { create(:user, name: friendlist.first["name"],
-      uid: friendlist.first["id"])
+    let!(:friend) {
+      create(:user, name: friendlist.first["name"], uid: friendlist.first["id"])
     }
-    let!(:friend1) { create(:user, name: friendlist[1]["name"],
-      uid: friendlist[1]["id"])
+    let!(:friend1) {
+      create(:user, name: friendlist[1]["name"], uid: friendlist[1]["id"])
     }
-    let!(:friend2) { create(:user, name: friendlist[-1]["name"],
-      uid: friendlist[-1]["id"])
+    let!(:friend2) {
+      create(:user, name: friendlist[-1]["name"], uid: friendlist[-1]["id"])
     }
 
-    let!(:event) { create(:event, organizer: friend, name: "Fun Stuff!",
-      date: Time.zone.now + 1.week)
+    let!(:event) {
+      create(
+        :event,
+        organizer: friend, name: "Fun Stuff!", date: Time.zone.now + 1.week
+      )
     }
-    let!(:venueselection) { create(:venueselection, user: friend,
-      event: event)
+    let!(:venueselection) {
+      create(:venueselection, user: friend, event: event)
     }
-    let!(:invite) { Invite.create(inviter: friend, invitee: current_user,
-      event: event, status: "Attending")
+    let!(:invite) {
+      Invite.create(
+        inviter: friend,
+        invitee: current_user,
+        event: event,
+        status: "Attending"
+      )
     }
 
     scenario "invitee first must select a venue" do
