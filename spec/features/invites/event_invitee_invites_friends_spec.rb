@@ -20,6 +20,7 @@ feature "event invitee invites friend to event", %{
   context "current_user" do
     let!(:current_user) { User.find_by(uid: "104163923349051") }
     let!(:koalafake) { KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"]) }
+    let!(:date) { Time.zone.now + 1.week }
     let!(:friendlist) { koalafake.get_connections("me", "friends") }
     let!(:friend) {
       create(:user, name: friendlist.first["name"], uid: friendlist.first["id"])
@@ -31,19 +32,8 @@ feature "event invitee invites friend to event", %{
       create(:user, name: friendlist[-1]["name"], uid: friendlist[-1]["id"])
     }
 
-    let!(:event) {
-      create(
-        :event,
-        organizer: friend, name: "Fun Stuff!", date: Time.zone.now + 1.week
-      )
-    }
-    let!(:venueselection) {
-      create(
-        :venueselection,
-        user: friend,
-        event: event
-      )
-    }
+    let!(:event) { create(:event, organizer: friend, date: date) }
+    let!(:vselect) { create(:venueselection, user: friend, event: event) }
 
     let!(:invite) {
       Invite.create(
@@ -83,9 +73,7 @@ feature "event invitee invites friend to event", %{
 
     scenario "invitee invites invalid friend to event" do
       venue = create(:venue, yelp_id: "drink-boston-1", name: "Drink")
-      venueselection = create(:venueselection, venue: venue,
-        user: current_user, event: event)
-
+      create(:venueselection, venue: venue, user: current_user, event: event)
       click_link "Your Upcoming Events"
       click_link event.name
 
@@ -97,8 +85,7 @@ feature "event invitee invites friend to event", %{
 
     scenario "invitee invites valid mutual friend to event" do
       venue = create(:venue, yelp_id: "drink-boston-1", name: "Drink")
-      venueselection = create(:venueselection, venue: venue,
-        user: current_user, event: event)
+      create(:venueselection, venue: venue, user: current_user, event: event)
 
       click_link "Your Upcoming Events"
       click_link event.name
@@ -111,11 +98,14 @@ feature "event invitee invites friend to event", %{
 
     scenario "invitee invites already invited mutual friend" do
       venue = create(:venue, yelp_id: "drink-boston-1", name: "Drink")
-      venueselection = create(:venueselection, venue: venue,
-        user: current_user, event: event)
+      create(:venueselection, venue: venue, user: current_user, event: event)
 
-      existinginvite = Invite.create(inviter: friend, invitee: friend2,
-        event: event, status: "Attending")
+      Invite.create(
+      inviter: friend,
+        invitee: friend2,
+        event: event,
+        status: "Attending"
+      )
 
       click_link "Your Upcoming Events"
       click_link event.name
