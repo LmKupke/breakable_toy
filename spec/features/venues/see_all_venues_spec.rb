@@ -29,7 +29,7 @@ feature "see venues", %{
     expect(page).to have_css("a##{dillions.id}")
     expect(page).to have_link(dillions.name)
   end
-  
+
   scenario "user clicks venue and shows info page" do
     dillions = create(:venue)
 

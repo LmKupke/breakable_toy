@@ -17,9 +17,19 @@ feature "user views profile", %{
     let(:current_user) { User.find_by(uid: "104163923349051") }
 
     scenario "views their own profile" do
-      first_event = create(:event, organizer: current_user,
-        date: Time.zone.now.beginning_of_day + 1.week, name: "First Event")
-      second_event = create(:event, organizer: current_user, name: "Second Event")
+      first_event =
+        create(
+        :event,
+        organizer: current_user,
+        date: Time.zone.now.beginning_of_day + 1.week,
+        name: "First Event"
+      )
+      second_event =
+      create(
+        :event,
+        organizer: current_user,
+        name: "Second Event"
+      )
 
       click_link current_user.name
       expect(page).to have_link("First Event")
@@ -29,17 +39,38 @@ feature "user views profile", %{
     end
 
     scenario "views friends profile and see only 5 recent Past Events" do
-      a = KoalaFake.new(current_user.token, ENV['FB_APP_SECRET'])
+      a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
       friendlist = a.get_connections("me","friends")
-      friend = create(:user, name: friendlist.first["name"], uid: friendlist.first["id"])
-      newsfeedevent = create(:event, organizer: friend,
-      name: "NewsFeed Event", date: Time.zone.now + 1.week)
 
-      invite = Invite.create(invitee: current_user, inviter: friend,
-      event: newsfeedevent)
+      friend =
+      create(
+        :user,
+        name: friendlist.first["name"],
+        uid: friendlist.first["id"]
+      )
 
-      past_friend_event1 = build(:event, organizer: friend,
-      name: "Event 1", date: Time.zone.now - 1.hour)
+
+      newsfeedevent =
+      create(
+        :event,
+        organizer: friend,
+        name: "NewsFeed Event",
+        date: Time.zone.now + 1.week
+      )
+
+      invite = Invite.create(
+        invitee: current_user,
+        inviter: friend,
+        event: newsfeedevent
+      )
+
+      past_friend_event1 =
+      build(
+        :event,
+        organizer: friend,
+        name: "Event 1",
+        date: Time.zone.now - 1.hour
+      )
 
       past_friend_event2 = build(:event, organizer: friend,
       name: "Event 2", date: Time.zone.now - 2.hours)

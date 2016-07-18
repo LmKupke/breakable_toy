@@ -23,8 +23,8 @@ feature "see venues", %{
   scenario "user clicks Boston Nightlife" do
     click_link("Boston Nightlife")
     expect(page).to have_css("#search-form")
-
   end
+  
   scenario "user clicks venue and shows info page" do
     click_link("Boston Nightlife")
     VCR.use_cassette "search/howl" do
