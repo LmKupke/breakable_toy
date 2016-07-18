@@ -64,7 +64,7 @@ feature 'user views profile', %Q{
 
       click_link "Invitations"
       click_link friend.name
-      
+
       expect(page).to have_link(past_friend_event1.name)
       expect(page).to have_link(past_friend_event2.name)
       expect(page).to have_link(past_friend_event3.name)
