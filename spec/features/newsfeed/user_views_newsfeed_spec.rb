@@ -25,15 +25,13 @@ feature "user views newsfeed", %{
       a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
       friendlist = a.get_connections("me","friends")
 
-      friend =
-      create(
+      friend = create(
         :user,
         name: friendlist.first["name"],
         uid: friendlist.first["id"]
       )
 
-      newsfeedevent =
-      create(
+      newsfeedevent = create(
         :event,
         organizer: friend,
         name: "NewsFeed Event",
