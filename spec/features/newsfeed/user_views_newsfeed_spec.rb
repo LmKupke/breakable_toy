@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'user views newsfeed', %Q{
+feature "user views newsfeed", %{
   As an authenticated user
   I want to see current upcoming events that friends have organized
   So that I can ask to join them

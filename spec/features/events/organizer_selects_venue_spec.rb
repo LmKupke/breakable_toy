@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Event Organizer adds Venue', %Q{
+feature "Event Organizer adds Venue", %{
   As the Event Organizer
   I can add the Venue
   So I have an intial idea

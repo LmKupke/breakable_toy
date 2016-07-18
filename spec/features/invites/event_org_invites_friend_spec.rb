@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'event organizer invites friend', %Q{
+feature "event organizer invites friend", %{
   As an event organizer
   I want to invite friends
   So that I can attend my event

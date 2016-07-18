@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Your Events', %Q{
+feature "Your Events", %{
   As an authenticated user
   I can see Events created by me or joined by me
   So that I can see whats going on

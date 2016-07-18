@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'user rsvps to event', %Q{
+feature "user rsvps to event", %{
   As an invitee to an event
   I want to respond to an invitation
   So my friends know that I am attending

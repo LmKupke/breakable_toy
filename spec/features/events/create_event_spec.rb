@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'See User Events', %Q{
+feature "See User Events", %{
   As an authenticated user
   I can create an Event
   So that I have a plan

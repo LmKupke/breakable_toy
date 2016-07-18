@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Sign_out', %Q{
+feature "Sign_out", %{
   As an authenticated user
   I want to sign out
   So that I can leave the application

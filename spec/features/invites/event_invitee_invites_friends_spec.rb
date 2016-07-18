@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'event invitee invites friend to event', %Q{
+feature "event invitee invites friend to event", %{
   As an invited user
   I want to invite mutual friends
   So that more people can attend the event

@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'User adds Venue from Yelp', %Q{
+feature "User adds Venue from Yelp", %{
   As an authenticated User
   I can add the Venue from Yelp
   So I can use it later in the DB

@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Edits an existing', %Q{
+feature "Edits an existing", %{
   As an event organizer
   I can update an Event
   So that my friends know whats going on

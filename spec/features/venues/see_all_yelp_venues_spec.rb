@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'see venues', %Q{
+feature "see venues", %{
   As an authenticed user
   I want to see all the venues that might not be in the db
   So that I can see whats available
