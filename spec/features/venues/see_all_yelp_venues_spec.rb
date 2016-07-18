@@ -27,12 +27,16 @@ feature 'see venues', %Q{
   end
   scenario 'user clicks venue and shows info page' do
     click_link("Boston Nightlife")
-    # within(:css, "input#search") do
-      # fill_in 'Name', :with => 'Jimmy'
-    # end
-    # fill_in('Search Venues', :with => "Jerry Remy's")
-    # click_link "Search"
-    # expect(page).to have_content("Jerry Remy's Sports Bar & Grill")
+    VCR.use_cassette "search/howl" do
+      click_link "Boston Nightlife"
+      fill_in "search", with: "Howl"
+      click_on "Search"
+      click_button('howl-at-the-moon-dueling-piano-bar-boston-2')
+      expect(page).to have_content("Howl At The Moon Dueling Piano Bar")
+      click_link "Boston Nightlife"
+      click_link "Howl At The Moon Dueling Piano Bar"
+      expect(page).to have_content("Howl At The Moon Dueling Piano Bar")
+    end
   end
 
 end
