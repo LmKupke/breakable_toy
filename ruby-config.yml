@@ -7,6 +7,7 @@ AllCops:
     - "config/initializers/*"
     - "app/assets/stylesheets/application.scss"
     - "app/assets/stylesheets/foundation_and_overrides.scss"
+    - "spec/support/*"
   UseCache: false
 Style/CollectionMethods:
   Description: Preferred collection methods.
