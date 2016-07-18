@@ -2,4 +2,4 @@ db/schema.rb
 config/initializers/
 db/migrate/*.rb
 db/migrate/*
-spec/support/*
+spec/support/koala_fake.rb
