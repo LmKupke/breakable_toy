@@ -14,7 +14,8 @@ feature "User adds Venue from Yelp", %{
   # [ X ] Click add to DB button and expect to see the show page
 
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
     visit root_path
     find("#faceauth-link").click
   end
@@ -30,6 +31,7 @@ feature "User adds Venue from Yelp", %{
       end
     end
   end
+
   describe "Yelp Lookup and add to DB" do
     it "should return a bar that isn't in the database and be added to DB" do
       VCR.use_cassette "search/howl" do
@@ -42,6 +44,7 @@ feature "User adds Venue from Yelp", %{
         expect(page).to have_content("Music Venues")
       end
     end
+    
     it "should return a bar that isn't in the database and be added to DB" do
       VCR.use_cassette "search/howl" do
         click_link "Boston Nightlife"

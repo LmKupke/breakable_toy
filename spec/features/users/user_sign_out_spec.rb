@@ -10,7 +10,8 @@ feature "Sign_out", %{
   # * Upon clicking Sign Out user is redirected to Landing Page
 
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
   end
   scenario 'user signs out' do
     visit root_path

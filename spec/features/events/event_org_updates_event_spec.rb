@@ -11,9 +11,9 @@ feature "Edits an existing", %{
   # [ X ] Upon successful submission user is redirected to the Event#show page for the newly updated event and Asks to pick a Venue and Asks to add Friends
   # [ X ] User sees errors upon entering invalid input
 
-
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
     visit root_path
 
     find("#faceauth-link").click

@@ -11,9 +11,9 @@ feature "event invitee invites friend to event", %{
   # [ ] Invites a valid friend and sees Success Message on Event#show
   # [ ] Invites an invalid friend and sees Falure Message on Event#show
 
-
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
     visit root_path
     find("#faceauth-link").click
   end

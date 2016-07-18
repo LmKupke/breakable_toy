@@ -13,7 +13,8 @@ feature "event organizer invites friend", %{
 
 
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
     visit root_path
     find("#faceauth-link").click
   end

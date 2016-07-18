@@ -13,7 +13,8 @@ feature "Your Events", %{
 
   before(:each) do
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
 
     visit root_path
     find("#faceauth-link").click

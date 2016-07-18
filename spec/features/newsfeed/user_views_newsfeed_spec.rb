@@ -13,7 +13,8 @@ feature "user views newsfeed", %{
   # [ ] Clicking on an event will take me to the event show page
 
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
     visit root_path
     find("#faceauth-link").click
   end
@@ -22,7 +23,7 @@ feature "user views newsfeed", %{
     let(:current_user) { User.find_by(uid: "104163923349051") }
 
     scenario "user logs in and sees newsfeed" do
-      a = KoalaFake.new(current_user.token, ENV['FB_APP_SECRET'])
+      a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
       friendlist = a.get_connections("me","friends")
 
       friend = create(:user, name: friendlist.first["name"],

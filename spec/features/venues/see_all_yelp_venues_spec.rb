@@ -38,5 +38,4 @@ feature "see venues", %{
       expect(page).to have_content("Howl At The Moon Dueling Piano Bar")
     end
   end
-
 end

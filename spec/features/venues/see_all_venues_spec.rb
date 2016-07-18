@@ -10,7 +10,6 @@ feature "see venues", %{
   # * Clicking Button Shows paginated bars with photo
   # with name and clickable to show all info
 
-
   before(:each) do
     Rails.application.env_config["omniauth.auth"] =
       OmniAuth.config.mock_auth[:facebook]
@@ -30,6 +29,7 @@ feature "see venues", %{
     expect(page).to have_css("a##{dillions.id}")
     expect(page).to have_link(dillions.name)
   end
+  
   scenario "user clicks venue and shows info page" do
     dillions = create(:venue)
 

@@ -7,7 +7,8 @@ feature "sign_up", %{
 } do
 
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
   end
   scenario 'user signs up valid' do
     visit root_path
