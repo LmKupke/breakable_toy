@@ -41,43 +41,43 @@ feature "user views profile", %{
       friendlist = a.get_connections("me", "friends")
 
       friend = create(
-        :user,
-        name: friendlist.first["name"],
-        uid: friendlist.first["id"]
+          :user,
+          name: friendlist.first["name"],
+          uid: friendlist.first["id"]
       )
 
       newsfeedevent = create(
-        :event,
-        organizer: friend,
-        name: "NewsFeed Event",
-        date: Time.zone.now + 1.week
+          :event,
+          organizer: friend,
+          name: "NewsFeed Event",
+          date: Time.zone.now + 1.week
       )
 
       invite = Invite.create(
-        invitee: current_user,
-        inviter: friend,
-        event: newsfeedevent
+          invitee: current_user,
+          inviter: friend,
+          event: newsfeedevent
       )
 
       past_friend_event1 = build(
-        :event,
-        organizer: friend,
-        name: "Event 1",
-        date: Time.zone.now - 1.hour
+          :event,
+          organizer: friend,
+          name: "Event 1",
+          date: Time.zone.now - 1.hour
       )
 
       past_friend_event2 = build(
-        :event,
-        organizer: friend,
-        name: "Event 2",
-        date: Time.zone.now - 2.hours
+          :event,
+          organizer: friend,
+          name: "Event 2",
+          date: Time.zone.now - 2.hours
       )
 
       past_friend_event3 = build(
-        :event,
-        organizer: friend,
-        name: "Event 3",
-        date: Time.zone.now - 3.hours
+          :event,
+          organizer: friend,
+          name: "Event 3",
+          date: Time.zone.now - 3.hours
       )
 
       past_friend_event4 = build(
