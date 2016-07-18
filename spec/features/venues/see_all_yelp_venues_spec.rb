@@ -10,7 +10,6 @@ feature "see venues", %{
   # * Clicking Button Shows paginated bars with photo
   # with name and clickable to show all info
 
-
   before(:each) do
     Rails.application.env_config["omniauth.auth"] =
       OmniAuth.config.mock_auth[:facebook]
