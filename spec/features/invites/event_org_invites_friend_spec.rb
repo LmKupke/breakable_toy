@@ -27,8 +27,11 @@ feature "event organizer invites friend", %{
     let!(:vselect) { create(:venueselection, user: current_user, event: event) }
 
     scenario "event organizer invites valid friend to event" do
-      friend = create(:user, name: friendlist.first["name"],
-        uid: friendlist.first["id"])
+      friend = create(
+        :user,
+        name: friendlist.first["name"],
+        uid: friendlist.first["id"]
+      )
       click_link "Your Upcoming Events"
       click_link event.name
 
@@ -49,8 +52,12 @@ feature "event organizer invites friend", %{
     end
 
     scenario "event organizer invites friend twice to event" do
-      friend = create(:user, name: friendlist.first["name"],
-        uid: friendlist.first["id"])
+      friend = create(
+        :user,
+        name: friendlist.first["name"],
+        uid: friendlist.first["id"]
+      )
+
       click_link "Your Upcoming Events"
       click_link event.name
 
@@ -60,7 +67,10 @@ feature "event organizer invites friend", %{
       fill_in("search", with: friend.name)
       click_button("Invite Friends")
 
-      expect(page).to have_content("Your friend, #{friend.name} is either not on the app, or already invited.")
+      expect(page).to have_content(
+        "Your friend, #{friend.name} is either not on the app, or
+        already invited."
+      )
     end
   end
 end
