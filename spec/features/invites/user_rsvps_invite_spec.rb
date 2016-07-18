@@ -31,11 +31,14 @@ feature "user rsvps to event", %{
       )
     }
     let!(:event) { create(:event, organizer: friend, name: "Friend Invite") }
-    let!(:venueselection) {
-      create(:venueselection, user: friend, event: event)
-    }
+    let!(:venueselection) { create(:venueselection, user: friend, event: event) }
     let!(:invite) {
-      Invite.create(inviter: friend, invitee: current_user, event: event, status: "Pending")
+      Invite.create(
+        inviter: friend,
+        invitee: current_user,
+        event: event, status:
+        "Pending"
+      )
     }
 
     scenario "a user sees rsvp buttons and inviter name" do
