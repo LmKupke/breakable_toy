@@ -70,7 +70,6 @@ feature "event invitee invites friend to event", %{
       expect(page).to have_link(venue.name)
     end
 
-
     scenario "invitee invites invalid friend to event" do
       venue = create(:venue, yelp_id: "drink-boston-1", name: "Drink")
       create(:venueselection, venue: venue, user: current_user, event: event)
@@ -101,7 +100,7 @@ feature "event invitee invites friend to event", %{
       create(:venueselection, venue: venue, user: current_user, event: event)
 
       Invite.create(
-      inviter: friend,
+        inviter: friend,
         invitee: friend2,
         event: event,
         status: "Attending"

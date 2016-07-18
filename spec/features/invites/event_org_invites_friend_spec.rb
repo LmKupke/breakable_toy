@@ -48,7 +48,9 @@ feature "event organizer invites friend", %{
       fill_in("search", with: "John Snow")
 
       click_button("Invite Friends")
-      expect(page).to have_content("Your friend, John Snow is either not on the app, or already invited.")
+      expect(page).to have_content(
+        "Your friend, John Snow is either not on the app, or already invited."
+      )
     end
 
     scenario "event organizer invites friend twice to event" do

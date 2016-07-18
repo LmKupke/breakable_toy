@@ -32,7 +32,7 @@ class KoalaFake
     USERS.map(&:to_h)
   end
 
-  def get_object(arg1, arg2)
+  def get_object(_arg1, _arg2)
     MUTUALFRIENDS
   end
 end
