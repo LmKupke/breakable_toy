@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'user views profile', %Q{
+feature 'user views profile', %{
   As an authenticated user
   I want to see my profile
   So that I can see my past events and invites
