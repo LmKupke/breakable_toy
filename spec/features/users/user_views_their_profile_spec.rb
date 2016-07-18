@@ -32,7 +32,7 @@ feature 'user views profile', %Q{
       friendlist = a.get_connections("me","friends")
       friend = create(:user, name: friendlist.first["name"], uid: friendlist.first["id"])
       newsfeedevent = create(:event, organizer: friend,
-        name: "NewsFeed Event", date: Time.zone.now + 1.week)
+      name: "NewsFeed Event", date: Time.zone.now + 1.week)
 
       invite = Invite.create(invitee: current_user, inviter: friend,
       event: newsfeedevent)
