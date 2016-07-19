@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Sign_out', %Q{
+feature "Sign_out", %{
   As an authenticated user
   I want to sign out
   So that I can leave the application
@@ -10,7 +10,8 @@ feature 'Sign_out', %Q{
   # * Upon clicking Sign Out user is redirected to Landing Page
 
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
   end
   scenario 'user signs out' do
     visit root_path

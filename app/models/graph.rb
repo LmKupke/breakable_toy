@@ -4,7 +4,8 @@ class Graph
 
   attr_reader :user, :graph, :event_organizer, :search_string
 
-  def initialize(user)
+  def initialize(user, event_organizer = nil)
+    @event_organizer = event_organizer
     @user = user
     @graph = self.class.client_class.new(user.token, ENV["FB_APP_SECRET"])
   end
@@ -17,8 +18,9 @@ class Graph
     friendmatch(friendlist, search_string)
   end
 
-  def mutual_friendlist(event_organizer)
+  def mutual_friendlist
     @mutual_friendlist ||= graph.get_object("#{event_organizer.uid}", {fields: ["context"]})
+
     @mutual_friendlist["context"]["mutual_friends"]["data"]
   end
 

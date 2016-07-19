@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Your Events', %Q{
+feature "Your Events", %{
   As an authenticated user
   I can see Events created by me or joined by me
   So that I can see whats going on
@@ -13,7 +13,8 @@ feature 'Your Events', %Q{
 
   before(:each) do
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
 
     visit root_path
     find("#faceauth-link").click

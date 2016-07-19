@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Event Organizer adds Venue', %Q{
+feature "Event Organizer adds Venue", %{
   As the Event Organizer
   I can add the Venue
   So I have an intial idea
@@ -11,10 +11,12 @@ feature 'Event Organizer adds Venue', %Q{
   # [ ] Successful addition shows Event#show page with Venue
 
   before(:each) do
-    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    Rails.application.env_config["omniauth.auth"] =
+      OmniAuth.config.mock_auth[:facebook]
     visit root_path
     find("#faceauth-link").click
   end
+
   context "current user logged in" do
     let(:current_user) { User.find_by(uid: "104163923349051") }
 

@@ -41,7 +41,7 @@ class InvitesController < AuthenticateController
   end
 
   def graph
-    @graph ||= Graph.new(current_user)
+    @graph ||= Graph.new(current_user, event.organizer)
   end
 
   def event
