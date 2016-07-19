@@ -2,7 +2,7 @@ AllCops:
   Exclude:
     - "vendor/**/*"
     - "db/schema.rb"
-    - "spec/support/koala_fake.rb"
+    - "spec/support/koala_fake"
     - "spec/rails_helper"
     - "spec/spec_helper"
     - "config/initializers/*"
