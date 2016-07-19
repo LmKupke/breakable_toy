@@ -87,7 +87,7 @@ RSpec.describe Invite, type: :model do
       user = create(:user)
       friend = create(:user)
       event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
-      invite1 = Invite.create(
+      Invite.create(
         event: event1,
         inviter: friend,
         invitee: user,
@@ -100,7 +100,7 @@ RSpec.describe Invite, type: :model do
       user = create(:user)
       friend = create(:user)
       event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
-      invite1 = Invite.create(
+      Invite.create(
         event: event1,
         inviter: friend,
         invitee: user,
@@ -115,7 +115,7 @@ RSpec.describe Invite, type: :model do
       user = create(:user)
       friend = create(:user)
       event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
-      invite1 = Invite.create(
+      Invite.create(
         event: event1,
         inviter: friend,
         invitee: user,
@@ -142,7 +142,7 @@ RSpec.describe Invite, type: :model do
     it "returns true if user has no invites" do
       user = create(:user)
       friend = create(:user)
-      event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
+      create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
       expect(Invite.user_notinvited?(user)).to eq(true)
     end
 
