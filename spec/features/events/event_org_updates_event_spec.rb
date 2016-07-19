@@ -23,21 +23,21 @@ feature "Edits an existing", %{
     let(:current_user) { User.find_by(uid: "104163923349051") }
     let!(:event) { create(:event, organizer: current_user) }
 
-    scenario 'user sees Update Event button in Event#show' do
+    scenario "user sees Update Event button in Event#show" do
       click_link "Your Upcoming Events"
       click_link(event.name)
 
       expect(page).to have_button("Edit Event")
     end
 
-    scenario 'event organizer user clicks Edit Event' do
+    scenario "event organizer user clicks Edit Event" do
       click_link "Your Upcoming Events"
       click_link(event.name)
       click_button("Edit Event")
 
-      expect(page).to have_css('form input#event_name')
-      expect(page).to have_css('form input#dpt')
-      expect(page).to have_css('form input#timepicker')
+      expect(page).to have_css("form input#event_name")
+      expect(page).to have_css("form input#dpt")
+      expect(page).to have_css("form input#timepicker")
     end
 
     scenario "event organizer doesnt make changes" do
@@ -61,10 +61,10 @@ feature "Edits an existing", %{
       a = Time.zone.today.beginning_of_day
       a = a + 2.weeks
 
-      fill_in('Event Name', :with => event.name)
-      fill_in('Date', :with => event.date)
-      fill_in('Start Time', :with => "2 : 00 PM")
-      click_button('Update Event')
+      fill_in("Event Name", :with => event.name)
+      fill_in("Date", :with => event.date)
+      fill_in("Start Time", :with => "2 : 00 PM")
+      click_button("Update Event")
 
       expect(page).to have_content(event.name)
       expect(page).to have_content(event.date.strftime("%m/%d/%Y"))
@@ -80,10 +80,10 @@ feature "Edits an existing", %{
       a = Time.zone.today.beginning_of_day
       a = a + 2.weeks
 
-      fill_in('Event Name', :with => event.name)
-      fill_in('Date', :with => a)
-      fill_in('Start Time', :with => event.start_time)
-      click_button('Update Event')
+      fill_in("Event Name", :with => event.name)
+      fill_in("Date", :with => a)
+      fill_in("Start Time", :with => event.start_time)
+      click_button("Update Event")
 
       expect(page).to have_content(event.name)
       expect(page).to have_content(a.strftime("%m/%d/%Y"))
@@ -91,16 +91,16 @@ feature "Edits an existing", %{
       expect(page).to have_content("You updated your event")
     end
 
-    scenario 'event org enters invalid date' do
+    scenario "event org enters invalid date" do
       click_link "Your Upcoming Events"
       click_link(event.name)
       click_button("Edit Event")
 
-      fill_in('Event Name', :with => 'Crazy Friday Night')
-      fill_in('Date', :with => '06/01/2016')
-      fill_in('Start Time', :with => '10 : 00 PM')
+      fill_in("Event Name", :with => "Crazy Friday Night")
+      fill_in("Date", :with => "06/01/2016")
+      fill_in("Start Time", :with => "10 : 00 PM")
 
-      click_button('Update Event')
+      click_button("Update Event")
 
       expect(page).to_not have_content("Crazy Friday Night")
       expect(page).to have_content("Please add values to each of the forms")
