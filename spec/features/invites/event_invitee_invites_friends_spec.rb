@@ -23,7 +23,7 @@ feature "event invitee invites friend to event", %{
     let!(:date) { Time.zone.now + 1.week }
     let!(:friendlist) { koalafake.get_connections("me", "friends") }
     let!(:friend) {
-      create(:user, name: friendlist.first["name"], uid: friendlist.first["id"])
+      create(:user, name: friendlist[0]["name"], uid: friendlist[0]["id"])
     }
     let!(:friend1) {
       create(:user, name: friendlist[1]["name"], uid: friendlist[1]["id"])
@@ -36,12 +36,7 @@ feature "event invitee invites friend to event", %{
     let!(:vselect) { create(:venueselection, user: friend, event: event) }
 
     let!(:invite) {
-      Invite.create(
-        inviter: friend,
-        invitee: current_user,
-        event: event,
-        status: "Attending"
-      )
+      Invite.create(inviter: friend, invitee: current_user, event: event, status: "Attending")
     }
 
     scenario "invitee first must select a venue" do
