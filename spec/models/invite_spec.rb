@@ -157,7 +157,6 @@ RSpec.describe Invite, type: :model do
         status: "Attending"
       )
       expect(Invite.user_notinvited?(user)).to eq(false)
-
     end
   end
 end
