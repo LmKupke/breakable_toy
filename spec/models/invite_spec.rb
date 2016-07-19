@@ -87,29 +87,76 @@ RSpec.describe Invite, type: :model do
       user = create(:user)
       friend = create(:user)
       event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
-      invite1 = Invite.create(event: event1, inviter: friend, invitee: user, status: "Not Attending")
+      invite1 = Invite.create(
+        event: event1,
+        inviter: friend,
+        invitee: user,
+        status: "Attending"
+      )
+      expect(Invite.user_attending?(user)).to eq(true)
     end
 
     it "returns false if array empty" do
-
+      user = create(:user)
+      friend = create(:user)
+      event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
+      invite1 = Invite.create(
+        event: event1,
+        inviter: friend,
+        invitee: user,
+        status: "Not Attending"
+      )
+      expect(Invite.user_attending?(user)).to eq(false)
     end
   end
 
   describe "#user_notattending?" do
     it "returns true if user invited and not attending" do
-
+      user = create(:user)
+      friend = create(:user)
+      event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
+      invite1 = Invite.create(
+        event: event1,
+        inviter: friend,
+        invitee: user,
+        status: "Not Attending"
+      )
+      expect(Invite.user_notattending?(user)).to eq(true)
     end
 
     it "returns false if array empty" do
-
+      user = create(:user)
+      friend = create(:user)
+      event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
+      Invite.create(
+        event: event1,
+        inviter: friend,
+        invitee: user,
+        status: "Attending"
+      )
+      expect(Invite.user_notattending?(user)).to eq(false)
     end
   end
+
   describe "#user_notinvited?" do
     it "returns true if user has no invites" do
-
+      user = create(:user)
+      friend = create(:user)
+      event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
+      expect(Invite.user_notinvited?(user)).to eq(true)
     end
 
     it "returns false if user has invites" do
+      user = create(:user)
+      friend = create(:user)
+      event1 = create(:event, name: "Event 1", organizer: friend, date: Time.zone.now + 2.weeks)
+      Invite.create(
+        event: event1,
+        inviter: friend,
+        invitee: user,
+        status: "Attending"
+      )
+      expect(Invite.user_notinvited?(user)).to eq(false)
 
     end
   end
