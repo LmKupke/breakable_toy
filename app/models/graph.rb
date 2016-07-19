@@ -4,7 +4,7 @@ class Graph
 
   attr_reader :user, :graph, :event_organizer, :search_string
 
-  def initialize(user, event_organizer=nil)
+  def initialize(user, event_organizer = nil)
     @event_organizer = event_organizer
     @user = user
     @graph = self.class.client_class.new(user.token, ENV["FB_APP_SECRET"])

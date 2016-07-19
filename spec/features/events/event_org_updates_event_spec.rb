@@ -8,7 +8,8 @@ feature "Edits an existing", %{
   # Acceptance Criteria:
   # [ X ] Link to Create Event exists on Nav Bar
   # [ X ] Create Event form requires user to specify date
-  # [ X ] Upon successful submission user is redirected to the Event#show page for the newly updated event and Asks to pick a Venue and Asks to add Friends
+  # [ X ] Upon successful submission user is redirected to the Event#show page
+  # for the newly updated event and Asks to pick a Venue and Asks to add Friends
   # [ X ] User sees errors upon entering invalid input
 
   before(:each) do
@@ -50,7 +51,6 @@ feature "Edits an existing", %{
       expect(page).to have_content(event.date.strftime("%m/%d/%Y"))
       expect(page).to have_content(event.start_time)
       expect(page).to have_content("You updated your event")
-
     end
 
     scenario "event organizer enters valid new time to update event" do

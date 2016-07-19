@@ -27,14 +27,7 @@ feature "event invitee invites friend to event", %{
     let!(:fr2) { create(:user, name: flist[-1]["name"], uid: flist[-1]["id"]) }
     let!(:event) { create(:event, organizer: friend, date: date) }
     let!(:vselect) { create(:venueselection, user: friend, event: event) }
-    let!(:invite) {
-      Invite.create(
-        inviter: friend,
-        invitee: current_user,
-        event: event,
-        status: "Attending"
-      )
-    }
+    let!(:invite) { Invite.create(inviter: friend, invitee: current_user, event: event, status: "Attending") }
 
     scenario "invitee first must select a venue" do
       click_link "Your Upcoming Events"
