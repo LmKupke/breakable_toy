@@ -52,7 +52,9 @@ feature "event invitee invites friend to event", %{
       click_button("Add Boston Nightlife")
       click_button("Add to Your Event")
 
-      expect(page).to have_content("Sorry one of your friends already selected that place!")
+      expect(page).to have_content(
+        "Sorry one of your friends already selected that place!"
+      )
     end
 
     scenario "invitee selects a different venue" do
@@ -74,7 +76,9 @@ feature "event invitee invites friend to event", %{
       fill_in("search", with: "John Snow")
 
       click_button("Invite Friends")
-      expect(page).to have_content("Your friend, John Snow is either not on the app, or already invited.")
+      expect(page).to have_content(
+        "Your friend, John Snow is either not on the app, or already invited."
+      )
     end
 
     scenario "invitee invites valid mutual friend to event" do
@@ -87,7 +91,9 @@ feature "event invitee invites friend to event", %{
       fill_in("search", with: "Charlie Alabeicdfjfdi Smithson")
 
       click_button("Invite Friends")
-      expect(page).to have_content("You successfully added Charlie Alabeicdfjfdi Smithson!")
+      expect(page).to have_content(
+        "You successfully added Charlie Alabeicdfjfdi Smithson!"
+      )
     end
 
     scenario "invitee invites already invited mutual friend" do
@@ -107,7 +113,10 @@ feature "event invitee invites friend to event", %{
       fill_in("search", with: "Charlie Alabeicdfjfdi Smithson")
       click_button("Invite Friends")
 
-      expect(page).to have_content("Your friend, Charlie Alabeicdfjfdi Smithson is either not on the app, or already invited.")
+      expect(page).to have_content(
+        "Your friend, Charlie Alabeicdfjfdi Smithson is either not on the app,
+        or already invited."
+      )
     end
   end
 end
