@@ -21,23 +21,18 @@ feature "event invitee invites friend to event", %{
     let!(:current_user) { User.find_by(uid: "104163923349051") }
     let!(:koalafake) { KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"]) }
     let!(:date) { Time.zone.now + 1.week }
-    let!(:friendlist) { koalafake.get_connections("me", "friends") }
-    let!(:friend) {
-      create(:user, name: friendlist[0]["name"], uid: friendlist[0]["id"])
-    }
-    let!(:friend1) {
-      create(:user, name: friendlist[1]["name"], uid: friendlist[1]["id"])
-    }
-    let!(:friend2) {
-      create(:user, name: friendlist[-1]["name"], uid: friendlist[-1]["id"])
-    }
-
+    let!(:flist) { koalafake.get_connections("me", "friends") }
+    let!(:friend) { create(:user, name: flist[0]["name"], uid: flist[0]["id"]) }
+    let!(:fr1) { create(:user, name: flist[1]["name"], uid: flist[1]["id"]) }
+    let!(:fr2) { create(:user, name: flist[-1]["name"], uid: flist[-1]["id"]) }
     let!(:event) { create(:event, organizer: friend, date: date) }
     let!(:vselect) { create(:venueselection, user: friend, event: event) }
-
     let!(:invite) {
-      Invite.create(inviter: friend,
-        invitee: current_user, event: event, status: "Attending"
+      Invite.create(
+        inviter: friend,
+        invitee: current_user,
+        event: event,
+        status: "Attending"
       )
     }
 
@@ -104,7 +99,7 @@ feature "event invitee invites friend to event", %{
 
       Invite.create(
         inviter: friend,
-        invitee: friend2,
+        invitee: fr2,
         event: event,
         status: "Attending"
       )
