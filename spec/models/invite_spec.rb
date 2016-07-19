@@ -106,7 +106,7 @@ RSpec.describe Invite, type: :model do
     it "returns false if array empty" do
       user = create(:user)
       friend = create(:user)
-      d = Time.zone.now + 2 weeks
+      d = Time.zone.now + 2.weeks
       event1 = create(:event, name: "Event 1", organizer: friend, date: d)
       Invite.create(
         event: event1,
