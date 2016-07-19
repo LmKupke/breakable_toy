@@ -44,7 +44,7 @@ feature "Edits an existing", %{
       click_link "Your Upcoming Events"
       click_link(event.name)
       click_button("Edit Event")
-      click_button('Update Event')
+      click_button("Update Event")
 
       expect(page).to have_content(event.name)
       expect(page).to have_content(event.date.strftime("%m/%d/%Y"))
@@ -59,7 +59,7 @@ feature "Edits an existing", %{
       click_button("Edit Event")
 
       a = Time.zone.today.beginning_of_day
-      a = a + 2.weeks
+      a += 2.weeks
 
       fill_in("Event Name", with: event.name)
       fill_in("Date", with: event.date)
@@ -78,7 +78,7 @@ feature "Edits an existing", %{
       click_button("Edit Event")
 
       a = Time.zone.today.beginning_of_day
-      a = a + 2.weeks
+      a += 2.weeks
 
       fill_in("Event Name", with: event.name)
       fill_in("Date", with: a)
