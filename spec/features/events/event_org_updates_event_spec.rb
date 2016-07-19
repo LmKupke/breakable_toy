@@ -61,9 +61,9 @@ feature "Edits an existing", %{
       a = Time.zone.today.beginning_of_day
       a = a + 2.weeks
 
-      fill_in("Event Name", :with => event.name)
-      fill_in("Date", :with => event.date)
-      fill_in("Start Time", :with => "2 : 00 PM")
+      fill_in("Event Name", with: event.name)
+      fill_in("Date", with: event.date)
+      fill_in("Start Time", with: "2 : 00 PM")
       click_button("Update Event")
 
       expect(page).to have_content(event.name)
@@ -80,9 +80,9 @@ feature "Edits an existing", %{
       a = Time.zone.today.beginning_of_day
       a = a + 2.weeks
 
-      fill_in("Event Name", :with => event.name)
-      fill_in("Date", :with => a)
-      fill_in("Start Time", :with => event.start_time)
+      fill_in("Event Name", with: event.name)
+      fill_in("Date", with: a)
+      fill_in("Start Time", with: event.start_time)
       click_button("Update Event")
 
       expect(page).to have_content(event.name)
@@ -96,9 +96,9 @@ feature "Edits an existing", %{
       click_link(event.name)
       click_button("Edit Event")
 
-      fill_in("Event Name", :with => "Crazy Friday Night")
-      fill_in("Date", :with => "06/01/2016")
-      fill_in("Start Time", :with => "10 : 00 PM")
+      fill_in("Event Name", with: "Crazy Friday Night")
+      fill_in("Date", with: "06/01/2016")
+      fill_in("Start Time", with: "10 : 00 PM")
 
       click_button("Update Event")
 
