@@ -10,7 +10,13 @@ $(function(){ $(document).foundation();
     });
     request.done(function(data) {
       var voteCount = document.getElementById('venue-sum-' + id);
+      if(data < 0){
+        $("span#venue-sum-"+ id).addClass("red").removeClass("black");
+      } else {
+        $("span#venue-sum-"+ id).addClass("black").removeClass("red");
+      };
       voteCount.innerHTML = data;
+
     })
   });
 
@@ -25,6 +31,11 @@ $(function(){ $(document).foundation();
     });
     request.done(function(data) {
       var voteCount = document.getElementById('venue-sum-' + id);
+      if(data < 0){
+        $("span#venue-sum-"+ id).addClass("red").removeClass("black");
+      } else {
+        $("span#venue-sum-"+ id).addClass("black").removeClass("red");
+      };
       voteCount.innerHTML = data;
     })
   });

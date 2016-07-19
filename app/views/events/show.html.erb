@@ -67,7 +67,11 @@
                 <% end %>
               </div>
               <div class="venuesume small-3 medium-4 large-3 text-center columns">
-                <span id="venue-sum-<%= vselect.id %>"><%= vselect.votes.sum(:vote) %></span>
+                  <% if vselect.votes.sum(:vote) < 0 %>
+                    <span id="venue-sum-<%= vselect.id %>" class="vote-sum red"><%= vselect.votes.sum(:vote) %></span>
+                  <% else %>
+                    <span id="venue-sum-<%= vselect.id %>" class="vote-sum"><%= vselect.votes.sum(:vote) %></span>
+                  <% end %>
               </div>
               <div class="arrow down small-3 medium-4 large-3 columns">
                 <%= link_to(downvote_api_venueselection_votes_path(vselect), class: "downvote", id:"down-vselect-#{vselect.id}") do %>
