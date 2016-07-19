@@ -36,7 +36,9 @@ feature "event invitee invites friend to event", %{
     let!(:vselect) { create(:venueselection, user: friend, event: event) }
 
     let!(:invite) {
-      Invite.create(inviter: friend, invitee: current_user, event: event, status: "Attending")
+      Invite.create(inviter: friend,
+        invitee: current_user, event: event, status: "Attending"
+      )
     }
 
     scenario "invitee first must select a venue" do

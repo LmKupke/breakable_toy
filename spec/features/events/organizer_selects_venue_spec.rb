@@ -16,7 +16,7 @@ feature "Event Organizer adds Venue", %{
     visit root_path
     find("#faceauth-link").click
   end
-  
+
   context "current user logged in" do
     let(:current_user) { User.find_by(uid: "104163923349051") }
 
