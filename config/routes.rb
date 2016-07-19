@@ -20,4 +20,15 @@ Rails.application.routes.draw do
 
   resources :venueselections, only: [:create, :update, :delete]
   resources :invites, only: [:show, :index, :update]
+
+  namespace :api do
+    resources :venueselections, only: [:show] do
+      resources :votes, only: [:upvote,:downvote,:index] do
+        collection do
+          post 'upvote'
+          post 'downvote'
+        end
+      end
+    end
+  end
 end
