@@ -12,8 +12,6 @@ RSpec.describe Venueselection, type: :model do
   it { should have_valid(:user_id).when(1) }
   it { should_not have_valid(:user_id).when(nil, '') }
 
-  it { should have_valid(:votes).when(1) }
-  it { should_not have_valid(:votes).when(nil, '') }
 
   describe ".new" do
     it "should take dependencies" do

@@ -18,11 +18,13 @@ gem "rails-erd"
 gem "koala", "~> 2.2"
 gem 'kaminari'
 gem 'table-for'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
+  gem 'capybara-webkit'
   gem 'pry-rails'
   gem 'shoulda'
   gem 'valid_attribute'

@@ -7,6 +7,14 @@ require 'spec_helper'
 require 'rspec/rails'
 require "capybara/rails"
 require "valid_attribute"
+Capybara.javascript_driver = :webkit
+
+
+Capybara::Webkit.configure do |config|
+  config.allow_url("fonts.googleapis.com")
+  config.allow_unknown_urls
+end
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 Graph.client_class = KoalaFake
@@ -26,7 +34,7 @@ RSpec.configure do |config|
     Warden.test_reset!
   end
 
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   OmniAuth.config.test_mode = true
   # OmniAuth.config.mock_auth[:facebook]

@@ -9,13 +9,16 @@
       <%= @event.date.strftime('%m/%d/%Y') %> <%= @event.start_time %>
     </div>
     <% if current_user == @event.organizer %>
-      <div class="event-delete">
-        <%= button_to "Cancel Event", event_path(@event), method: :delete, class: "button small radius" %>
-      </div>
-      <div class="event-edit">
-        <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "button small radius", params: { :"event[name]" => @event.name, :"event[date]" => @event.date, :"event[start_time]" => @event.start_time, :"event[id]" => @event.id, :"event[organizer_id]" => @event.organizer_id } %>
+      <div class="small-12 large-12 medium-12 text-centered eventbuttons columns">
+        <div class="small-1 small-push-0 medium-2 medium-push-2 large-push-3 event-delete columns">
+          <%= button_to "Cancel Event", event_path(@event), method: :delete, class: "button small radius eventdelete" %>
+        </div>
+        <div class="small-1 small-pull-3 medium-pull-3 large-pull-4 event-edit columns">
+          <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "button small radius eventedit", params: { :"event[name]" => @event.name, :"event[date]" => @event.date, :"event[start_time]" => @event.start_time, :"event[id]" => @event.id, :"event[organizer_id]" => @event.organizer_id } %>
+        </div>
       </div>
     <% end %>
+
     <ul>
       <% if @venueselection.empty? %>
         <li><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
@@ -49,15 +52,30 @@
 
 
 <% if @venueselection.empty? == false %>
-    <% @venueselection.each do |venueselect| %>
+    <% @venueselection.each do |vselect| %>
       <div class="large-2 medium-3 small-6 columns">
         <div class="panel">
           <div class="image-wrapper overlay-fade-in animated fadeInLeft">
-            <%= link_to image_tag(venueselect.venue.photo, alt: "#{venueselect.venue.name} photo", class: "#{venueselect.venue.name} photo"), event_venue_path(@event.id,venueselect.venue.id), id: venueselect.venue.id %>
+            <%= link_to image_tag(vselect.venue.photo, alt: "#{vselect.venue.name} photo", class: "#{vselect.venue.name} photo"), event_venue_path(@event.id,vselect.venue.id), id: vselect.venue.id %>
             <div class="image-overlay-content">
-              <%= link_to "#{venueselect.venue.name}", event_venue_path(@event.id,venueselect.venue.id) %>
+              <%= link_to "#{vselect.venue.name}", event_venue_path(@event.id,vselect.venue.id) %>
             </div>
-            <h6>Submitted By: <%= venueselect.user.name %></h6>
+            <div class="small-centered medium-centered small-12 large-12 medium-12 row">
+              <div class="arrow up small-3 medium-4 large-3 columns">
+                <%= link_to(upvote_api_venueselection_votes_path(vselect), class: "upvote", id: "up-vselect-#{vselect.id}") do %>
+                  <i class='fa fa-chevron-up'></i>
+                <% end %>
+              </div>
+              <div class="venuesume small-3 medium-4 large-3 text-center columns">
+                <span id="venue-sum-<%= vselect.id %>"><%= vselect.votes.sum(:vote) %></span>
+              </div>
+              <div class="arrow down small-3 medium-4 large-3 columns">
+                <%= link_to(downvote_api_venueselection_votes_path(vselect), class: "downvote", id:"down-vselect-#{vselect.id}") do %>
+                  <i class='fa fa-chevron-down'></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
