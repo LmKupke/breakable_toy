@@ -52,7 +52,7 @@
 
 
 <% if @venueselection.empty? == false %>
-    <% @venueselection.each do |vselect| %>
+  <% @venueselection.each do |vselect| %>
       <div class="large-2 medium-3 small-6 columns">
         <div class="panel">
           <div class="image-wrapper overlay-fade-in animated fadeInLeft">
@@ -67,11 +67,7 @@
                 <% end %>
               </div>
               <div class="venuesume small-3 medium-4 large-3 text-center columns">
-                  <% if vselect.votes.sum(:vote) < 0 %>
-                    <span id="venue-sum-<%= vselect.id %>" class="vote-sum red"><%= vselect.votes.sum(:vote) %></span>
-                  <% else %>
-                    <span id="venue-sum-<%= vselect.id %>" class="vote-sum"><%= vselect.votes.sum(:vote) %></span>
-                  <% end %>
+                <span id="venue-sum-<%= vselect.id %>" class="vote-sum"><%= vselect.votes.sum(:vote) %></span>
               </div>
               <div class="arrow down small-3 medium-4 large-3 columns">
                 <%= link_to(downvote_api_venueselection_votes_path(vselect), class: "downvote", id:"down-vselect-#{vselect.id}") do %>
