@@ -16,7 +16,6 @@ $(function(){ $(document).foundation();
         $("span#venue-sum-"+ id).addClass("black").removeClass("red");
       };
       voteCount.innerHTML = data;
-
     })
   });
 

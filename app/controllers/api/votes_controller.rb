@@ -1,4 +1,4 @@
-class Api::VotesController < ApiController
+class Api::VotesController < AuthenticateController
   before_action :pre_vote
 
   def upvote
