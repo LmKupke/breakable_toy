@@ -3,7 +3,7 @@
     <div class="image-overlay-content">
       <!-- <div class="large-7 large-offset-2 medium-offset-3 medium-6 small-12"> -->
       <% if @event != nil %>
-        <%= link_to image_tag(venue.photo, alt: "#{venue.name} photo", class: "venue photo"), event_venue_path(@event,venue), id: venue.id %>
+        <%= link_to image_tag(venue.photo, alt: "#{venue.name} photo", class: "venue photo y"), event_venue_path(@event,venue), id: venue.id %>
         <div class="text-left">
           <p class="venueinfo">
             <span>
@@ -12,7 +12,7 @@
             </span>
           </p>
         </div>
-        <div class="text-center">
+        <div class="text-center add-to-event">
           <%= button_to "Add to Your Event", venueselections_path, params: { event: @event, venue: venue }, id: venue.yelp_id, class: "add-venue button expanded" %>
         </div>
       <% else %>
