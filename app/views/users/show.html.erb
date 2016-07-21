@@ -40,9 +40,39 @@
 <div class="large-3 small-4 medium-2 columns" id="friendcolumn">
   <div class="friendsuserprofile">
     <div class="text-center">
-      Friends
+      <div class="title">
+        Friends
+      </div>
+        <% if @ownprofile %>
+          <% @friendlist.each do |friend| %>
+            <div class="photoContainer small-4 large-4 medium-4 columns">
+              <%= link_to image_tag(friend.photo + "?type=large"), user_path(friend), class: "friends-photo" %>
+
+            </div>
+          <% end %>
+        <% else %>
+          <% @friendlist.each do |friend| %>
+            <div class="photoContainer small-4 large-4 medium-4 columns">
+            <% if @mutuallist.empty? %>
+              <% if friend == current_user %>
+                <%= link_to image_tag(friend.photo + "?type=large"), user_path(friend), class: "friends-photo" %>
+              </div>
+              <% else %>
+                <%= image_tag(friend.photo + "?type=large", class: "friends-photo") %>
+              </div>
+              <% end %>
+            <% elsif @mutuallist.include?(friend) %>
+              <%= link_to image_tag(friend.photo + "?type=large"), user_path(friend), class: "friends-photo" %>
+            </div>
+            <% elsif friend == current_user %>
+              <%= link_to image_tag(friend.photo + "?type=large"), user_path(friend), class: "friends-photo" %>
+            </div>
+            <% else %>
+              <%= image_tag(friend.photo + "?type=large", class: "friends-photo") %>
+            </div>
+            <% end %>
+          <% end %>
+        <% end %>
     </div>
-    <%# TODO: This calls user.friends and displays friend circular photo and is linked,
-    if person is not friends with that friend not linked %>
   </div>
 </div>
