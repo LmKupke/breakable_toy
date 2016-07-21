@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   def self.all_events(person)
-    user = self.find(person)
+    user = find(person)
     @invites = user.invitations.map(&:event)
     arr = user.events + @invites
     arr.uniq
@@ -26,12 +26,11 @@ class User < ActiveRecord::Base
   def newsfeed_events
     a = Time.zone.now
     b = a + 2.weeks
-    arr = events.where("date > ? AND date < ?",a ,b)
+    arr = events.where("date > ? AND date < ?", a, b)
     arr.uniq
   end
 
   def self.from_omniauth(auth)
-
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
      user.email = auth.info.email
      user.password = Devise.friendly_token[0,20]
