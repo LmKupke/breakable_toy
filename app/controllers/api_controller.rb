@@ -1,2 +1,0 @@
-class ApiController < AuthenticateController
-end
