@@ -2,7 +2,7 @@
   <% @friendevents.each do |aevent| %>
       <div class="small-12 medium-7 medium-centered large-7 large-centered newsfeed-list columns">
         <div class="row" id="newsfeedrow">
-          <%=  link_to image_tag(aevent.organizer.photo, class: "image-circular"), user_path(aevent.organizer)%>
+          <%=  link_to image_tag(aevent.organizer.photo + "?type=large", class: "friends-photo newsfeed"), user_path(aevent.organizer)%>
           <div class="small-10 medium-10 large-10 columns">
             <b><%= link_to "#{aevent.organizer.name}", user_path(aevent.organizer), class: "newsfeed-name-link" %></b>
             created the event, <b><%= aevent.name %></b>.
@@ -29,7 +29,6 @@
                 <div class="buttons">
                   <ul class="newsfeed-buttons">
                     <li><%= button_to "Ask to Tag along!" %></li>
-                    <li><%= button_to "Going there w/ Friends" %></li>
                   </ul>
                 </div>
               </div>

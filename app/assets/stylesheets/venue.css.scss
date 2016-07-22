@@ -40,3 +40,13 @@ img.venue.photo {
   background: rgba(0, 0, 0, 0.7);
   padding: 3.4px;
 }
+div.popular{
+  margin-top: 80px;
+}
+div.categories{
+  margin-top: 30px;
+  text-align: center;
+  li{
+    list-style-position: inside;
+  }
+}

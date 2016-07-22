@@ -24,7 +24,6 @@ class EventsController < AuthenticateController
 
   def show
     @event = Event.find(params[:id])
-    # @venueselection = Venueselection.where(event: @event )
     @venueselection = Venueselection.where(event: @event).page(params[:page]).per(12)
     @selected = false
     @venueselection.each do |venue|
@@ -37,6 +36,7 @@ class EventsController < AuthenticateController
     else
       @sectionpage = "eventsshow"
     end
+    eventfriendstatus
   end
 
   def edit
@@ -95,5 +95,23 @@ class EventsController < AuthenticateController
 
   def event_params
     params.require(:event).permit(:name, :date, :start_time, :id, :organizer_id)
+  end
+
+  def eventattending
+    @attending = @event.invites.where(status: "Attending").map(&:invitee)
+  end
+
+  def eventpending
+    @pending = @event.invites.where(status: "Pending").map(&:invitee)
+  end
+
+  def eventdeclined
+    @declined = @event.invites.where(status: "Not Attending").map(&:invitee)
+  end
+
+  def eventfriendstatus
+    eventattending
+    eventpending
+    eventdeclined
   end
 end
