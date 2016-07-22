@@ -2,7 +2,7 @@
   <div class="text-center">
     <h2 class="venuetitle"><%= @venue.name %></h2>
   </div>
-  <div class="text-center">
+  <div class="small-5 small-push-3 medium-5 medium-push-5 large-5 large-push-3 columns">
     <%= image_tag(@venue.photo, class: "venueshowimage") %>
   </div>
 </section>
@@ -15,6 +15,19 @@
     <% end %>
   </ul>
 </div>
-  Rating: <%= @venue.rating %>
+  Yelp Rating: <%= @venue.rating %>
   Phone Number: <a href="tel:<%= @venue.phone %>"><%= @venue.phone %></a> <br />
   Address: <%= @venue.full_address %> <br />
+  <% if @popular == 0 %>
+    Seems like this places has never been selected for any of your events or attended events!
+  <% else %>
+    <%= @venue.name %> has been selected <%= @popular %> times for your events and attended events!
+  <% end %>
+
+  <iframe
+    width="400"
+    height="250"
+    class="medium-8 small-10 large-8 large-push-2 medium-push-2 small-push-1 columns gmap"
+    frameborder="0" style="border:0"
+    src= "https://www.google.com/maps/embed/v1/place?key=<%= @mapcode %>&q=<%= @venue.name %><%= @venue.full_address %>&zoom=17&attribution_source=Google+Maps+Embed+API">
+  </iframe>

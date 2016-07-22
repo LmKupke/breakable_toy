@@ -17,6 +17,9 @@ class VenuesController < AuthenticateController
 
   def show
     @venue = Venue.find(params[:id])
+    @mapcode = ENV["GMAP"]
+    events = User.all_events(current_user)
+    popularity(events)
   end
 
   def create
@@ -51,5 +54,19 @@ class VenuesController < AuthenticateController
       @venues = 0
       render 'index'
     end
+  end
+
+  protected
+
+  def popularity(array)
+    @popular = 0
+    array.each do |one|
+      one.venueselections.each do |vselect|
+        if vselect.venue == @venue
+          @popular += 1
+        end
+      end
+    end
+    return @popular
   end
 end
