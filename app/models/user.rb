@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   def self.all_events(person)
-    user = find(person)
+    user = find(person.id)
     @invites = user.invitations.map(&:event)
     arr = user.events + @invites
     arr.uniq

@@ -30,14 +30,6 @@ feature "user votes on venueselection", %{
       expect(page).to have_css(".fa-chevron-up")
     end
 
-    scenario "event org upvotes their selection" do
-      find_link("Your Upcoming Events").trigger("click")
-      click_link event.name
-
-      find_link("up-vselect-#{vselect.id}").trigger("click")
-      expect(page).to have_content("1")
-    end
-
     scenario "event org downvotes their selection" do
       find_link("Your Upcoming Events").trigger("click")
       click_link event.name
