@@ -21,7 +21,6 @@
           data_row_html: {
             id: lambda { |event| "event-#{event.id}" }
             } do |table| %>
-
         <% table.column :name, link_url: lambda { |event| event_path(event) } %>
         <% table.column :date, :formatter => [:strftime, "%m/%d/%Y"], :sortable => true %>
         <% table.column :start_time, :sortable => false %>
@@ -47,7 +46,6 @@
           <% @friendlist.each do |friend| %>
             <div class="photoContainer small-4 large-4 medium-4 columns">
               <%= link_to image_tag(friend.photo + "?type=large"), user_path(friend), class: "friends-photo" %>
-
             </div>
           <% end %>
         <% else %>

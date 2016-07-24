@@ -7,27 +7,38 @@
   </div>
 </section>
 
-<div class="">
-  Categories:
-  <ul>
-    <% @venue.category.gsub("/","").gsub(/"/, '').gsub("]","").gsub("[","").split(",").each do |t| %>
-    <li><%= t %></li>
-    <% end %>
-  </ul>
-</div>
-  Yelp Rating: <%= @venue.rating %>
-  Phone Number: <a href="tel:<%= @venue.phone %>"><%= @venue.phone %></a> <br />
-  Address: <%= @venue.full_address %> <br />
-  <% if @popular == 0 %>
+<div class="text-center">
+  <div class="popular">
+    <% if @popular == 0 %>
     Seems like this places has never been selected for any of your events or attended events!
-  <% else %>
-    <%= @venue.name %> has been selected <%= @popular %> times for your events and attended events!
-  <% end %>
+    <% else %>
+    <%= @venue.name %> has been selected <b><%= @popular %></b> times for your events and attended events!
+    <% end %>
+  </div>
+  <div class="rating">
+    <b>Yelp Rating:</b> <%= @venue.rating %>
+  </div>
+</div>
+<div class="categories">
+  <b>Categories:</b><br />
+    <% @venue.category.gsub("/","").gsub(/"/, '').gsub("]","").gsub("[","").split(",").each do |t| %>
+      <%= t %><br />
+    <% end %>
+</div>
+<div class="text-center">
+  <div class="address">
+    <b>Address:</b> <%= @venue.full_address %>
+  </div>
+  <div class="phonenumber">
+    <b>Phone Number:</b> <a href="tel:<%= @venue.phone %>"><%= @venue.phone %></a> <br />
+  </div>
+</div>
+
 
   <iframe
     width="400"
     height="250"
     class="medium-8 small-10 large-8 large-push-2 medium-push-2 small-push-1 columns gmap"
     frameborder="0" style="border:0"
-    src= "https://www.google.com/maps/embed/v1/place?key=<%= @mapcode %>&q=<%= @venue.name %><%= @venue.full_address %>&zoom=17&attribution_source=Google+Maps+Embed+API">
+    src= "https://www.google.com/maps/embed/v1/place?key=<%= @mapcode %>&q=<%= @venue.full_address %> <%= @venue.name.gsub('&',"") %>&zoom=17&attribution_source=Google+Maps+Embed+API">
   </iframe>

@@ -1,5 +1,6 @@
 class NewsfeedsController < AuthenticateController
   def index
+    @current_page = "newsfeed"
     @user = current_user
     @friends = graph.friendlist
     array = @friends.map { |user| user["id"]}

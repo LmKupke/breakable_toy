@@ -32,6 +32,6 @@ class Event < ActiveRecord::Base
   end
 
   def self.past_events(user)
-    where("organizer_id = ? AND date <= ?", user, Time.zone.now ).order(date: :desc, start_time: :asc)
+    where("organizer_id = ? AND date <= ?", user, Time.zone.now ).order(date: :desc, start_time: :asc).limit(5)
   end
 end
