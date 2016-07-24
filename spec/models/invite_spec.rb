@@ -38,13 +38,13 @@ RSpec.describe Invite, type: :model do
       let!(:event1) { create(:event, name: "Event 1", organizer: friend, date: d) }
       describe "#attending?" do
 
-        scenario "returns true when Invite status is Attending" do
+        it "returns true when Invite status is Attending" do
           invite1 = Invite.create(event: event1, inviter: friend, invitee: user, status: "Attending")
 
           expect(invite1.attending?).to eq(true)
         end
 
-        scenario "returns false when Invite status is not Attending" do
+        it "returns false when Invite status is not Attending" do
           invite1 = Invite.create(event: event1, inviter: friend, invitee: user, status: "Pending")
 
           expect(invite1.attending?).to eq(false)
@@ -52,13 +52,13 @@ RSpec.describe Invite, type: :model do
       end
 
       describe "#missing_out?" do
-        scenario "returns true when Invite status is Not Attending" do
+        it "returns true when Invite status is Not Attending" do
           invite1 = Invite.create(event: event1, inviter: friend, invitee: user, status: "Not Attending")
 
           expect(invite1.missing_out?).to eq(true)
         end
 
-        scenario "returns false when Invite status is not Not Attending" do
+        it "returns false when Invite status is not Not Attending" do
           invite1 = Invite.create(event: event1, inviter: friend, invitee: user, status: "Attending")
 
           expect(invite1.missing_out?).to eq(false)
@@ -66,13 +66,13 @@ RSpec.describe Invite, type: :model do
       end
 
       describe "#pending?" do
-        scenario "returns true when Invite status is Pending" do
+        it "returns true when Invite status is Pending" do
           invite1 = Invite.create(event: event1, inviter: friend, invitee: user, status: "Pending")
 
           expect(invite1.pending?).to eq(true)
         end
 
-        scenario "returns false when Invite status is not Pending" do
+        it "returns false when Invite status is not Pending" do
           invite1 = Invite.create(event: event1, inviter: friend, invitee: user, status: "Not Attending")
 
           expect(invite1.pending?).to eq(false)
@@ -80,7 +80,7 @@ RSpec.describe Invite, type: :model do
       end
 
       describe "#user_attending?" do
-        scenario "returns true if user invited and attending" do
+        it "returns true if user invited and attending" do
           Invite.create(
             event: event1,
             inviter: friend,
@@ -91,7 +91,7 @@ RSpec.describe Invite, type: :model do
           expect(Invite.user_attending?(user)).to eq(true)
         end
 
-        scenario "returns false if array empty" do
+        it "returns false if array empty" do
           Invite.create(
             event: event1,
             inviter: friend,
@@ -104,7 +104,7 @@ RSpec.describe Invite, type: :model do
       end
 
       describe "#user_notattending?" do
-        scenario "returns true if user invited and not attending" do
+        it "returns true if user invited and not attending" do
           Invite.create(
             event: event1,
             inviter: friend,
@@ -115,7 +115,7 @@ RSpec.describe Invite, type: :model do
           expect(Invite.user_notattending?(user)).to eq(true)
         end
 
-        scenario "returns false if array empty" do
+        it "returns false if array empty" do
           Invite.create(
             event: event1,
             inviter: friend,
@@ -128,12 +128,12 @@ RSpec.describe Invite, type: :model do
       end
 
       describe "#user_notinvited?" do
-        scenario "returns true if user has no invites" do
+        it "returns true if user has no invites" do
 
           expect(Invite.user_notinvited?(user)).to eq(true)
         end
 
-        scenario "returns false if user has invites" do
+        it "returns false if user has invites" do
           Invite.create(
             event: event1,
             inviter: friend,
