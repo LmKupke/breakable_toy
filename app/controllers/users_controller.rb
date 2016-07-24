@@ -70,6 +70,5 @@ class UsersController < AuthenticateController
   def past_events(user)
     @a = Event.where("organizer_id = ? AND date <= ?", user, Time.zone.now ).order(date: :desc, start_time: :asc).limit(5)
     return @a
-    binding.pry
   end
 end
