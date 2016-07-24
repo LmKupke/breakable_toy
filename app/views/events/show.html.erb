@@ -35,37 +35,38 @@
 <% if @current_page == nil %>
 </section>
 <% end %>
-
-<div class="eventresponse row">
-  <div class="small-4 medium-4 large-4 attending columns">
-    <div class="attendingheader text-center">
-      <u>Attending</u>
+<% if @venueselection.empty? == false %>
+  <div class="eventresponse row">
+    <div class="small-4 medium-4 large-4 attending columns">
+      <div class="attendingheader text-center">
+        <u>Attending</u>
+      </div>
+      <div class="attendingfriends small-12 large-12 medium-12 columns">
+        <% @attending.each do |user| %>
+        <%= image_tag(user.photo + "?type=large", class: "friends-photo", id: "#{user.name}-photo", alt: "#{user.name}") %>
+        <% end %>
+      </div>
     </div>
-    <div class="attendingfriends small-12 large-12 medium-12 columns">
-      <% @attending.each do |user| %>
-      <%= image_tag(user.photo + "?type=large", class: "friends-photo", id: "#{user.name}-photo", alt: "#{user.name}") %>
-      <% end %>
+    <div class="small-4 medium-4 large-4 pending columns">
+      <div class="pendingheader text-center">
+        <u>Pending</u>
+      </div>
+      <div class= "pendingresponse">
+        <% @pending.each do |user| %>
+          <%= image_tag(user.photo + "?type=large", class: "friends-photo", id: "#{user.name}-photo", alt: "#{user.name}") %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="small-4 medium-4 large-4 pending columns">
-    <div class="pendingheader text-center">
-      <u>Pending</u>
-    </div>
-    <div class= "pendingresponse">
-      <% @pending.each do |user| %>
+    <div class="small-4 medium-4 large-4 declined columns">
+      <div class="declinedheader text-center">
+        <u>Declined</u>
+      </div>
+      <% @declined.each do |user| %>
         <%= image_tag(user.photo + "?type=large", class: "friends-photo", id: "#{user.name}-photo", alt: "#{user.name}") %>
       <% end %>
     </div>
   </div>
-  <div class="small-4 medium-4 large-4 declined columns">
-    <div class="declinedheader text-center">
-      <u>Declined</u>
-    </div>
-    <% @declined.each do |user| %>
-      <%= image_tag(user.photo + "?type=large", class: "friends-photo", id: "#{user.name}-photo", alt: "#{user.name}") %>
-    <% end %>
-  </div>
-</div>
+<% end %>
 
 <% if @venueselection.empty? == false && @selected %>
   <%= form_tag(event_invites_path(@event), method: "post", id: "invite-form") do  %>

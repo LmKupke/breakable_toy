@@ -32,7 +32,6 @@ feature "event invitee invites friend to event", %{
     scenario "invitee first must select a venue" do
       click_link "Your Upcoming Events"
       click_link event.name
-
       expect(page).to have_button("Add Boston Nightlife")
     end
 

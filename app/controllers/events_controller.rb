@@ -24,19 +24,25 @@ class EventsController < AuthenticateController
 
   def show
     @event = Event.find(params[:id])
-    @venueselection = Venueselection.where(event: @event).page(params[:page]).per(12)
-    @selected = false
-    @venueselection.each do |venue|
-      if venue.user == current_user
-        @selected = true
+    @attendees = @event.invites.where(status: "Attending").map(&:invitee)
+    if current_user == @event.organizer || @attendees.include?(current_user)
+      @venueselection = Venueselection.where(event: @event).page(params[:page]).per(12)
+      @selected = false
+      @venueselection.each do |venue|
+        if venue.user == current_user
+          @selected = true
+        end
       end
-    end
-    if @venueselection.empty?
-      @current_page = "event-show-no-venues"
+      if @venueselection.empty?
+        @current_page = "event-show-no-venues"
+      else
+        @sectionpage = "eventsshow"
+      end
+      eventfriendstatus
     else
-      @sectionpage = "eventsshow"
+      flash[:alert] = "Sorry you haven't been invited to this Event!"
+      redirect_to(:back)
     end
-    eventfriendstatus
   end
 
   def edit

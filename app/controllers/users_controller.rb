@@ -9,7 +9,7 @@ class UsersController < AuthenticateController
     else
       mutualsarray
       @ownprofile = false
-      @events = Event.past_events(@user).limit(5)
+      sort_table(@user,@page)
     end
   end
 
@@ -17,14 +17,29 @@ class UsersController < AuthenticateController
   private
 
   def sort_table(user,page)
-    if params[:order]
-      sort_value = params[:order].split(",").map do |field|
+    if current_user == friend
+      if params[:order]
+        sort_value = params[:order].split(",").map do |field|
         "#{field} #{params[:sort_mode]}"
-      end.join(",")
-      return @events = Event.where(organizer: @user).order(sort_value).page(page)
+        end.join(",")
+        arrayallevents
+        @events = Event.where(id:@arrayeventids).order(sort_value).page(page)
+        return @events
+      else
+        arrayallevents
+        @events = Event.where(id:@arrayeventids).page(page)
+        return @events
+      end
     else
-      return @events = Event.where(organizer: @user).page(page)
+      return @events = past_events(@user)
     end
+  end
+
+  def arrayallevents
+    @eventorgs = Event.where(organizer: @user)
+    @invites = Invite.where(invitee: @user, status: "Attending")
+    arrayinviteevents = @invites.map(&:event) + @eventorgs
+    @arrayeventids ||= arrayinviteevents.map(&:id)
   end
 
   def graph
@@ -50,5 +65,11 @@ class UsersController < AuthenticateController
     array = graph.mutual_friendlist.map { |user| user["id"] }
     @mutuallist = User.where(uid: array)
     @mutuallist ||= @mutuallist + current_user
+  end
+
+  def past_events(user)
+    @a = Event.where("organizer_id = ? AND date <= ?", user, Time.zone.now ).order(date: :desc, start_time: :asc).limit(5)
+    return @a
+    binding.pry
   end
 end
