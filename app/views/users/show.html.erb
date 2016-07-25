@@ -6,16 +6,22 @@
     <div class="usersname">
       <%= @user.name %>
     </div>
+    <% if current_user == @user %>
+      <div class="profileupdate">
+        <% if current_user.phonenumber.nil? %>
+          <%= button_to "Add Phone Number", edit_user_path(@user), class: "phonenumber small button", method: :get %>
+           <div class="phonenumber-form" style="display:none">
+             <%= render "phonenumberform" %>
+           </div>
+        <% else %>
+          <%= button_to "Update Phone Number", edit_user_path(@user), class: "phonenumber small button", method: :get %>
+          <div class="phonenumber-form" style="display:none">
+              <%= render "phonenumberform" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <% if current_user == @user %>
-    <div class="profileupdate">
-      <% if current_user.phonenumber.nil? %>
-        <%= button_to "Add Phone Number" %>
-      <% else %>
-        <%= button_to "Update Phone Number" %>
-      <% end %>
-    </div>
-  <% end %>
 </section>
 
 <div class="large-9 small-8 medium-10 columns">

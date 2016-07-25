@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :newsfeeds, only: [:index]
-  resources :users, only: [:index,:show]
+  resources :users, only: [:index,:show,:edit,:update]
   resources :events
   get '/venues/search', to: 'venues#search', as: 'venue_search'
 

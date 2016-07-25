@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true, allow_nil: false, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
-
+  validates :phonenumber, allow_nil: true, :uniqueness => true,
+            :length => { :is => 10, :message => "needs to be a correct US phone number" }
   has_many :events, foreign_key: "organizer_id"
   has_many :invited, class_name: "Invite", foreign_key: "inviter_id"
   # has_many :invites, through: :events, as: :organizer

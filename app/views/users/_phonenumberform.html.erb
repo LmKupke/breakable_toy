@@ -1,0 +1,7 @@
+<div class="small-11 small-centered medium-5 medium-centered large-4 large-centered columns">
+  <%= form_for @user, method: "patch", url: user_path do |f| %>
+    <%= f.label(:phonenumber, "Phone Number") %>
+    <%= f.text_field :phonenumber %>
+    <%= f.submit "Submit", class: "update-phone-number small button" %>
+  <% end %>
+</div>
