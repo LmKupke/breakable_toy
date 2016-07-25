@@ -1,7 +1,6 @@
-<div class="large-4 medium-4 small-12 columns">
+<div class="large-3 medium-4 small-12 columns">
   <div class="image-wrapper overlay-fade-in animated fadeInLeft">
     <div class="image-overlay-content">
-      <!-- <div class="large-7 large-offset-2 medium-offset-3 medium-6 small-12"> -->
       <% if @event != nil %>
         <%= link_to image_tag(venue.photo, alt: "#{venue.name} photo", class: "venue photo y"), event_venue_path(@event,venue), id: venue.id %>
         <div class="text-left">
