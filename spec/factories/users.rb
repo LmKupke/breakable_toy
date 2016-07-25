@@ -13,5 +13,6 @@ FactoryGirl.define do
     timezone (-4)
     token
     expires_at (324234)
+    phonenumber nil
   end
 end

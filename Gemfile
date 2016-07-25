@@ -19,6 +19,7 @@ gem "koala", "~> 2.2"
 gem 'kaminari'
 gem 'table-for'
 gem 'font-awesome-rails'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'capybara'

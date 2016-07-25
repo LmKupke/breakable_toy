@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :invites, only: [:show, :index, :update]
 
   namespace :api do
+    resources :newsfeeds, only: [:index]
     resources :venueselections, only: [:show] do
       resources :votes, only: [:upvote,:downvote,:index] do
         collection do

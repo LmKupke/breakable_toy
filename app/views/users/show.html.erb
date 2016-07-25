@@ -7,6 +7,15 @@
       <%= @user.name %>
     </div>
   </div>
+  <% if current_user == @user %>
+    <div class="profileupdate">
+      <% if current_user.phonenumber.nil? %>
+        <%= button_to "Add Phone Number" %>
+      <% else %>
+        <%= button_to "Update Phone Number" %>
+      <% end %>
+    </div>
+  <% end %>
 </section>
 
 <div class="large-9 small-8 medium-10 columns">
