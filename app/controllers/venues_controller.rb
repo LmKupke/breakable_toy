@@ -1,6 +1,6 @@
 class VenuesController < AuthenticateController
   def index
-    @venues = Venue.page(params[:page]).per(9)
+    @venues = Venue.page(params[:page]).per(12)
     @event = params["event_id"]
     if params[:search]
       @venues = Venue.search(params[:search])
