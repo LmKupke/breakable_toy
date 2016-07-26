@@ -5,7 +5,8 @@ class Api::VotesController < AuthenticateController
     if check_time
       # flash[:alert] = "Sorry voting for event has passed"
       flash.now[:alert] = "Sorry voting for event has passed!"
-      render json: { message: "Sorry voting for event has passed!" }, status: :bad_request
+      render json:
+        { message: "Sorry voting for event has passed!" }, status: :bad_request
     else
       if @value.vote == 1
         @value.vote -= 1

@@ -1,5 +1,4 @@
 class Api::NewsfeedsController < AuthenticateController
-
   def notify
     event = Event.find(params["format"])
     if event.organizer.phonenumber.nil? && current_user.phonenumber.nil?
@@ -10,7 +9,9 @@ class Api::NewsfeedsController < AuthenticateController
       flash[:alert] = "Seems like #{event.organizer.name} doesn't have their number on NOMO-FOMO. Text them and let them know to added it."
     else
       client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
-      message = client.messages.create from: '+16172063319', to: "+1#{event.organizer.phonenumber}", body: "Your friend #{current_user.name} wants to join your Event, #{event.name} on NOMO-FOMO! Invite them to it!"
+      message = client.messages.create from: '+16172063319',
+        to: "+1#{event.organizer.phonenumber}",
+        body: "Your friend #{current_user.name} wants to join your Event, #{event.name} on NOMO-FOMO! Invite them to it!"
       Notification.create(user: current_user, event: event)
     end
     redirect_to newsfeeds_path

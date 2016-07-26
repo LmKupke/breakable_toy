@@ -1,21 +1,21 @@
 class User < ActiveRecord::Base
   validates :name, presence: true
-  validates :email, presence: true, allow_nil: false, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
-  validates :phonenumber, allow_nil: true, :uniqueness => true,
-            :length => { :is => 10, :message => "needs to be a correct US phone number" }
+  validates :email, presence: true, allow_nil: false,
+            format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
+  validates :phonenumber, allow_nil: true, uniqueness: true,
+            length: { is: 10, message: "needs to be a correct US phone number" }
   has_many :events, foreign_key: "organizer_id"
   has_many :invited, class_name: "Invite", foreign_key: "inviter_id"
   # has_many :invites, through: :events, as: :organizer
-
   has_many :invitations, class_name: "Invite", foreign_key: "invitee_id"
-
   has_many :venueselections
   has_many :notifications
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
 
   def self.all_events(person)
     user = find(person.id)

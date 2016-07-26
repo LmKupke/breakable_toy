@@ -21,12 +21,10 @@ feature "user asks to join event", %{
   context "current_user" do
     let!(:current_user) { User.find_by(uid: "104163923349051") }
     let!(:a) { KoalaFake.new(current_user.token) }
-    let!(:friendlist) { a.get_connections("me","friends") }
-    let!(:friend) { create(
-      :user,
-      name: friendlist.first["name"],
-      uid: friendlist.first["id"]
-    ) }
+    let!(:friendlist) { a.get_connections("me", "friends") }
+    let!(:friend) {
+      create(:user, name: friendlist.first["name"], uid: friendlist.first["id"])
+    }
 
     let!(:newsfeedevent) {
       create(:event, organizer: friend, name: "NewsFeed Event", date: Time.zone.now + 1.week)
