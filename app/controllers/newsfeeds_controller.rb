@@ -8,6 +8,14 @@ class NewsfeedsController < AuthenticateController
     @friendevents = fr.map(&:newsfeed_events).flatten.uniq
     @friendevents = @friendevents - current_user.events
     @friendevents = @friendevents.reject { |c| c.nil? }
+    @notifications = @friendevents.map(&:notifications).flatten
+    events = []
+    @notifications.each do |notification|
+      if notification.user == current_user
+        events << notification.event
+      end
+    end
+    @friendevents = @friendevents - events
   end
 
   private

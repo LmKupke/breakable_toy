@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   belongs_to :organizer, class_name: "User", foreign_key: "organizer_id"
   has_many :invites, dependent: :destroy
   has_many :venueselections, dependent: :destroy
-
+  has_many :notifications
   def date_cannot_be_in_the_past
 
     if date.present? && date < Time.zone.now
