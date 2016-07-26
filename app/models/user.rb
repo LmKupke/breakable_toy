@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
      user.token = auth.credentials.token
      user.expires_at = Time.at(auth.credentials.expires_at)
      user.timezone = auth.extra.raw_info.timezone
+     user.phonenumber = nil
    end
   end
 
