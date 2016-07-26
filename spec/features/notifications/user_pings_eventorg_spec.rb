@@ -28,12 +28,9 @@ feature "user asks to join event", %{
       uid: friendlist.first["id"]
     ) }
 
-    let!(:newsfeedevent) { create(
-      :event,
-      organizer: friend,
-      name: "NewsFeed Event",
-      date: Time.zone.now + 1.week
-    ) }
+    let!(:newsfeedevent) {
+      create(:event,organizer: friend, name: "NewsFeed Event", date: Time.zone.now + 1.week)
+    }
 
     scenario "user logs in and sees newsfeed" do
       click_link "Home"
@@ -45,7 +42,9 @@ feature "user asks to join event", %{
       click_link "Home"
       click_button("Ask to Tag along!")
 
-      expect(page).to have_content("Your phonenumber and #{newsfeedevent.organizer.name}'s number is not saved!")
+      expect(page).to have_content("Your phonenumber
+        and #{newsfeedevent.organizer.name}'s number is not saved!"
+      )
     end
 
     scenario "current user's phonenumber not saved" do
@@ -54,7 +53,11 @@ feature "user asks to join event", %{
       click_link "Home"
       click_button("Ask to Tag along!")
 
-      expect(page).to have_content("Your phonenumber is not saved! Please add your number so you can ping the #{newsfeedevent.organizer.name}. To add your phonenumber go to your profile!")
+      expect(page).to have_content("Your phonenumber is not saved!
+        Please add your number so you can ping
+        the #{newsfeedevent.organizer.name}. To add your phonenumber go to your
+        profile!"
+      )
     end
 
     scenario "eventorgs's phonenumber not saved" do
@@ -63,7 +66,10 @@ feature "user asks to join event", %{
       click_link "Home"
       click_button("Ask to Tag along!")
 
-      expect(page).to have_content("Seems like #{newsfeedevent.organizer.name} doesn't have their number on NOMO-FOMO. Text them and let them know to added it.")
+      expect(page).to have_content("Seems like #{newsfeedevent.organizer.name}
+        doesn't have their number on NOMO-FOMO.
+        Text them and let them know to added it."
+      )
     end
     scenario "eventorgs's and current_user phonenumber saved sends text" do
       current_user.phonenumber = "1111112222"
@@ -73,9 +79,13 @@ feature "user asks to join event", %{
       click_link "Home"
       click_button("Ask to Tag along!")
 
-      expect(page).to have_content("You have sent a text to #{newsfeedevent.organizer.name} about joining the event!")
+      expect(page).to have_content("You have sent a text
+        to #{newsfeedevent.organizer.name} about joining the event!"
+      )
       expect(FakeSMS.messages.count).to eq(1)
-      expect(FakeSMS.messages.first.from[:body]).to eq("Your friend #{current_user.name} wants to join your Event, #{newsfeedevent.name} on NOMO-FOMO! Invite them to it!")
+      expect(FakeSMS.messages.first.from[:body]).to eq(
+        "Your friend #{current_user.name} wants to join your Event, #{newsfeedevent.name} on NOMO-FOMO! Invite them to it!"
+      )
       expect(page).to_not have_button("Ask to Tag along!")
     end
   end

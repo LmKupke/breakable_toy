@@ -8,7 +8,7 @@ feature "user updates their phonenumber", %{
   before(:each) do
     Rails.application.env_config["omniauth.auth"] =
       OmniAuth.config.mock_auth[:facebook]
-    Capybara.server_host= 'localhost' #this is the goal
+    Capybara.server_host = "localhost" #this is the goal
     Capybara.server_port = 3000
     visit root_path
     find("#faceauth-link").click
@@ -22,7 +22,8 @@ feature "user updates their phonenumber", %{
       expect(page).to have_button("Add Phone Number")
     end
 
-    scenario "current user has phonenumber see update Phone Number", js: false do
+    scenario "current user has phonenumber see update Phone Number",
+    js: false do
       current_user.phonenumber = "1123456789"
       current_user.save
       click_link(current_user.name)
@@ -36,7 +37,7 @@ feature "user updates their phonenumber", %{
       fill_in("Phone Number", with: "112345678")
       click_button "Submit"
 
-      expect(page).to have_content("The phone number you submitted is invalid! 
+      expect(page).to have_content("The phone number you submitted is invalid!
         Please submit valid 10 digit US number"
       )
       expect(page).to have_css("form")
@@ -50,7 +51,9 @@ feature "user updates their phonenumber", %{
       fill_in("Phone Number", with: "1123456787")
       click_button "Submit"
 
-      expect(page).to have_content("You have successfully saved your phone number!")
+      expect(page).to have_content("You have
+        successfully saved your phone number!"
+      )
       expect(page).to have_css("form")
     end
   end
