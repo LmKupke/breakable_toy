@@ -16,6 +16,8 @@ feature "user updates their phonenumber", %{
 
   context "current_user" do
     let(:current_user) { User.find_by(uid: "104163923349051") }
+    let(:a) { KoalaFake.new(current_user.token) }
+    let(:friendlist) { a.get_connections("me", "friends") }
 
     scenario "views their own profile", js: false do
       click_link(current_user.name)
@@ -54,6 +56,17 @@ feature "user updates their phonenumber", %{
         successfully saved your phone number!"
       )
       expect(page).to have_css("form")
+    end
+
+    scenario "current user tries to edit friends profile" do
+
+      friend = create(
+        :user,
+        name: friendlist.first["name"],
+        uid: friendlist.first["id"]
+      )
+      visit edit_user_path(friend.id)
+      expect(page).to have_content("Sorry you cannot edit another User's data")
     end
   end
 end
