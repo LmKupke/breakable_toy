@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root "homes#index"
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   devise_scope :user do
-    delete "sign_out", :to => "devise/sessions#destroy"
+    delete "sign_out", to: "devise/sessions#destroy"
   end
 
   resources :newsfeeds, only: [:index]
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :invites, only: [:show, :index, :update]
 
   namespace :api do
-    resources :newsfeeds, only: [:index, :notify]  do
+    resources :newsfeeds, only: [:index, :notify] do
       collection do
         post "notify"
       end

@@ -22,8 +22,7 @@ feature "user updates their phonenumber", %{
       expect(page).to have_button("Add Phone Number")
     end
 
-    scenario "current user has phonenumber see update Phone Number",
-    js: false do
+    scenario "current user has phonenumber see updates it", js: false do
       current_user.phonenumber = "1123456789"
       current_user.save
       click_link(current_user.name)

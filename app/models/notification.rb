@@ -1,6 +1,7 @@
 class Notification < ActiveRecord::Base
   validates :event_id, presence: true, allow_nil: false, allow_blank: false
-  validates :user_id, presence: true, allow_nil: false, allow_blank: false, uniqueness: { scope: :event_id }
+  validates :user_id, presence: true, allow_nil: false, allow_blank: false,
+            uniqueness: { scope: :event_id }
   validates :ping, presence: true
 
   validates :user, presence: true

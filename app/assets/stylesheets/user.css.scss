@@ -31,8 +31,6 @@ div .friendsuserprofile {
 
 #friendcolumn {
   height: 100%;
-  // padding: 0px;
-  // margin: 0px;
   background-color: #007095;;
 }
 
@@ -52,21 +50,19 @@ img.friends-photo {
 }
 
 input#user_phonenumber {
-    margin-bottom: 0;
-    /* flex: 1; */
-    /* padding-right: 10px; */
+  margin-bottom: 0;
 }
 
 input.update-phone-number {
-    display: block;
-    position: absolute;
-    right: 14px;
-    top: 20px;
-    margin: 0px;
-    box-sizing: border-box;
-    vertical-align: middle;
-    height: 2.34rem;
-    line-height: 1;
+  display: block;
+  position: absolute;
+  right: 14px;
+  top: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+  height: 2.34rem;
+  line-height: 1;
 }
 input.phonenumber {
   margin-top: 20px;
