@@ -19,15 +19,15 @@ class Invite < ActiveRecord::Base
     end
   end
 
-  def attending?
+  def self.attending?
     status == "Attending"
   end
 
-  def missing_out?
+  def self.missing_out?
     status == "Not Attending"
   end
 
-  def pending?
+  def self.pending?
     status == "Pending"
   end
 
