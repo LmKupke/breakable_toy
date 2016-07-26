@@ -1,7 +1,6 @@
 class Api::VotesController < AuthenticateController
   before_action :pre_vote
 
-
   def upvote
     if check_time
       # flash[:alert] = "Sorry voting for event has passed"
@@ -19,10 +18,10 @@ class Api::VotesController < AuthenticateController
     end
   end
 
-
   def downvote
     if check_time
-      render json: { message: "Sorry voting for event has passed!" }, status: :bad_request
+      render json: { message: "Sorry voting for event has passed!" },
+                  status: :bad_request
     else
       if @value.vote == -1
         @value.vote += 1
@@ -43,11 +42,11 @@ class Api::VotesController < AuthenticateController
 
   def pre_vote
     @vselect = Venueselection.find(params[:venueselection_id])
-    @value = Vote.find_or_initialize_by(venueselection: @vselect, user: current_user)
+    @value =
+      Vote.find_or_initialize_by(venueselection: @vselect, user: current_user)
   end
 
   def check_time
     @vselect.event.date < Time.zone.now
-
   end
 end

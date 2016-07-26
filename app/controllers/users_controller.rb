@@ -28,7 +28,9 @@ class UsersController < AuthenticateController
       @user.save
       flash[:notice] = "You have successfully saved your phone number!"
     else
-      flash[:alert] = "The phone number you submitted is invalid! Please submit valid 10 digit US number"
+      flash[:alert] =
+        "The phone number you submitted is invalid!
+        Please submit valid 10 digit US number"
     end
     redirect_to user_path(@user)
   end

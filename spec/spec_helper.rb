@@ -1,9 +1,9 @@
-require 'coveralls'
-Coveralls.wear!('rails')
+require "coveralls"
+Coveralls.wear!("rails")
 # require "vcr"
 # require "webmock/rspec"
-require 'simplecov'
-SimpleCov.start 'rails'
+require "simplecov"
+SimpleCov.start "rails"
 
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
