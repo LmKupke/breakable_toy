@@ -8,6 +8,9 @@ $(function(){ $(document).foundation();
       method: "POST",
       dataType: "json"
     });
+    request.fail(function(response){
+      alert(response.responseJSON.message);
+    });
     request.done(function(data) {
       var voteCount = document.getElementById('venue-sum-' + id);
       if(data < 0){
@@ -27,6 +30,11 @@ $(function(){ $(document).foundation();
       url: path,
       method: "POST",
       dataType: "json"
+    });
+    request.fail(function(response){
+      alert(response.responseJSON.message);
+      $("#alert").html(response.responseJSON.message);
+
     });
     request.done(function(data) {
       var voteCount = document.getElementById('venue-sum-' + id);
