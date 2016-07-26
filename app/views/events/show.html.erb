@@ -68,7 +68,7 @@
   </div>
 <% end %>
 
-<% if @venueselection.empty? == false && @selected %>
+<% if @venueselection.empty? == false && @selected && Time.zone.now <= @event.date - 10.minutes %>
   <%= form_tag(event_invites_path(@event), method: "post", id: "invite-form") do  %>
   <div class="row">
     <div class="large-10 medium-10 columns">
