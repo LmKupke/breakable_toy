@@ -36,9 +36,9 @@ feature "user updates their phonenumber", %{
       fill_in("Phone Number", with: "112345678")
       click_button "Submit"
 
-      expect(page).to have_content("The phone number you
-          submitted is invalid! Please submit valid 10 digit US number"
-        )
+      expect(page).to have_content("The phone number you submitted is invalid! 
+        Please submit valid 10 digit US number"
+      )
       expect(page).to have_css("form")
     end
 
