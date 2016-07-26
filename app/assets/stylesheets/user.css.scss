@@ -23,7 +23,7 @@
 }
 
 div .friendsuserprofile {
-  background-color: grey;
+  background-color: #007095;
   height: 100%;
   width: 100%;
   color: white;
@@ -33,7 +33,7 @@ div .friendsuserprofile {
   height: 100%;
   // padding: 0px;
   // margin: 0px;
-  background-color: grey;
+  background-color: #007095;;
 }
 
 #friendcolumn {min-height: 100vh;}
@@ -41,12 +41,14 @@ div .friendsuserprofile {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  margin-bottom: 5px;
 }
 
 img.friends-photo {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  margin-bottom: 5px;
 }
 
 input#user_phonenumber {
@@ -84,6 +86,10 @@ input.phonenumber {
 .photoContainer {
   margin: 0;
   padding: 0;
+}
+
+div.title{
+  background-color: #007095;
 }
 
 .photoContainer:hover .imgDescription {

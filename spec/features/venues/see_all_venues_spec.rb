@@ -40,7 +40,7 @@ feature "see venues", %{
   end
 
   scenario "user finds venue on another page" do
-    create_list(:venue,10)
+    create_list(:venue,13)
     click_link("Boston Nightlife")
 
     click_link "Next"
