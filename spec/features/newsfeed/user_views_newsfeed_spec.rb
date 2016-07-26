@@ -22,7 +22,7 @@ feature "user views newsfeed", %{
     let(:current_user) { User.find_by(uid: "104163923349051") }
 
     scenario "user logs in and sees newsfeed" do
-      a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
+      a = KoalaFake.new(current_user.token)
       friendlist = a.get_connections("me","friends")
 
       friend = create(

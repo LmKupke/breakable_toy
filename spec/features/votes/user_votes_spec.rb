@@ -16,7 +16,7 @@ feature "user votes on venueselection", %{
 
   context "as an authenticated event organizer" do
     let!(:current_user) { User.find_by(uid: "104163923349051") }
-    let!(:koalafake) { KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"]) }
+    let!(:koalafake) { KoalaFake.new(current_user.token) }
     let!(:date) { Time.zone.now + 1.week }
     let!(:friendlist) { koalafake.get_connections("me", "friends") }
     let!(:event) { create(:event, organizer: current_user, date: date) }
@@ -41,7 +41,7 @@ feature "user votes on venueselection", %{
 
   context "as an authenticated event invitee" do
     let!(:current_user) { User.find_by(uid: "104163923349051") }
-    let!(:koalafake) { KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"]) }
+    let!(:koalafake) { KoalaFake.new(current_user.token) }
     let!(:date) { Time.zone.now + 1.week }
     let!(:frlst) { koalafake.get_connections("me", "friends") }
     let!(:friend) { create(:user, name: frlst[0]["name"], uid: frlst[0]["id"]) }

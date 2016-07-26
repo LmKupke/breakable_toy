@@ -13,6 +13,28 @@ class UsersController < AuthenticateController
     end
   end
 
+  def edit
+    @user = User.find(params["id"])
+    if current_user != @user
+      flash[:alert] = "Sorry you cannot edit another User's data"
+      redirect_to newsfeeds_path
+    end
+  end
+
+  def update
+    @user = User.find(params["id"])
+    @user.phonenumber = user_params["phonenumber"]
+    if @user.valid?
+      @user.save
+      flash[:notice] = "You have successfully saved your phone number!"
+    else
+      flash[:alert] =
+        "The phone number you submitted is invalid!
+        Please submit valid 10 digit US number"
+    end
+    redirect_to user_path(@user)
+  end
+
 
   private
 
@@ -70,5 +92,9 @@ class UsersController < AuthenticateController
   def past_events(user)
     @a = Event.where("organizer_id = ? AND date <= ?", user, Time.zone.now ).order(date: :desc, start_time: :asc).limit(5)
     return @a
+  end
+
+  def user_params
+    params.require(:user).permit(:phonenumber)
   end
 end

@@ -1,0 +1,7 @@
+<% if @user.phonenumber == nil %>
+  Add Your Phone Number
+  <%= render "phonenumberform" %>
+<% else %>
+  Update Your Phone Number
+  <%= render "phonenumberform" %>
+<% end %>

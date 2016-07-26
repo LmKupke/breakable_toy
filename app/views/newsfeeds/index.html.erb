@@ -23,14 +23,17 @@
             <% elsif aevent.invites.user_notattending?(current_user) %>
               <b>You declined this event!</b>
             <% end %>
-            <% if aevent.invites.user_notinvited?(current_user) %>
-
+            <% if aevent.invites.user_notinvited?(current_user) && !aevent.notifications.map(&:user).include?(current_user) %>
               <div class="text-centered">
                 <div class="buttons">
-                  <ul class="newsfeed-buttons">
-                    <li><%= button_to "Ask to Tag along!" %></li>
-                  </ul>
+                  <!-- <ul class="newsfeed-buttons"> -->
+                    <%= button_to "Ask to Tag along!", notify_api_newsfeeds_path(aevent), class: "small button" %>
+                  <!-- </ul> -->
                 </div>
+              </div>
+            <% elsif aevent.notifications.map(&:user).include?(current_user) %>
+              <div class="text-centered">
+                You have sent a text to <%= aevent.organizer.name %> about joining the event!
               </div>
             <% end %>
           </div>

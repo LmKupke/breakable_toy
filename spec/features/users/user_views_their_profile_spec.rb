@@ -36,7 +36,7 @@ feature "user views profile", %{
     end
 
     scenario "views friends profile and see only 5 recent Past Events" do
-      a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
+      a = KoalaFake.new(current_user.token)
       friendlist = a.get_connections("me", "friends")
 
       friend = create(
@@ -114,6 +114,44 @@ feature "user views profile", %{
       expect(page).to have_link(past_friend_event2.name)
       expect(page).to have_link(past_friend_event3.name)
       expect(page).to_not have_link(past_friend_event6.name)
+    end
+
+    scenario "views friends profile and see is denied access to event" do
+      a = KoalaFake.new(current_user.token)
+      friendlist = a.get_connections("me", "friends")
+
+      friend = create(
+        :user,
+        name: friendlist.first["name"],
+        uid: friendlist.first["id"]
+      )
+
+      newsfeedevent = create(
+        :event,
+        organizer: friend,
+        name: "NewsFeed Event",
+        date: Time.zone.now + 1.week
+      )
+
+      Invite.create(
+        invitee: current_user,
+        inviter: friend,
+        event: newsfeedevent
+      )
+
+      past_friend_event1 = build(
+        :event,
+        organizer: friend,
+        name: "Event 1",
+        date: Time.zone.now - 1.hour
+      )
+
+      past_friend_event1.save(validate: false)
+
+      click_link "Invitations"
+      click_link friend.name
+      click_link(past_friend_event1.name)
+      expect(page).to have_content("Sorry you haven't been invited to this Event!")
     end
   end
 end

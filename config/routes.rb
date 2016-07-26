@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   root "homes#index"
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   devise_scope :user do
-    delete 'sign_out', :to => 'devise/sessions#destroy'
+    delete "sign_out", to: "devise/sessions#destroy"
   end
 
   resources :newsfeeds, only: [:index]
-  resources :users, only: [:index,:show]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :events
-  get '/venues/search', to: 'venues#search', as: 'venue_search'
+  get "/venues/search", to: "venues#search", as: "venue_search"
 
   resources :venues, only: [:index, :show, :create]
 
@@ -22,11 +22,16 @@ Rails.application.routes.draw do
   resources :invites, only: [:show, :index, :update]
 
   namespace :api do
+    resources :newsfeeds, only: [:index, :notify] do
+      collection do
+        post "notify"
+      end
+    end
     resources :venueselections, only: [:show] do
-      resources :votes, only: [:upvote,:downvote,:index] do
+      resources :votes, only: [:upvote, :downvote, :index] do
         collection do
-          post 'upvote'
-          post 'downvote'
+          post "upvote"
+          post "downvote"
         end
       end
     end

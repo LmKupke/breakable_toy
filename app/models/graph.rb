@@ -7,7 +7,7 @@ class Graph
   def initialize(user, event_organizer = nil)
     @event_organizer = event_organizer
     @user = user
-    @graph = self.class.client_class.new(user.token, ENV["FB_APP_SECRET"])
+    @graph = self.class.client_class.new(user.token)
   end
 
   def friendlist

@@ -24,7 +24,7 @@ class KoalaFake
        "id" => "dXNlcl9jb250ZAXh0OgGQDepANcR5qySRUOeivSUWTV6nSSCOPXjBLRt09rEE5zuudygAO4GTPQ8n0BuzmMAZB660pGu3YiS29a3HStXNF1lkNosDbHry57LepVH4jqrQZD" },
      "id" => "100610493702066" }
 
-  def initialize(token, secret)
+  def initialize(token)
   #   # binding.pry
   end
 

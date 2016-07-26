@@ -31,9 +31,7 @@ div .friendsuserprofile {
 
 #friendcolumn {
   height: 100%;
-  // padding: 0px;
-  // margin: 0px;
-  background-color: grey;
+  background-color: #007095;;
 }
 
 #friendcolumn {min-height: 100vh;}
@@ -49,6 +47,25 @@ img.friends-photo {
   width: 40px;
   height: 40px;
   margin-bottom: 5px;
+}
+
+input#user_phonenumber {
+  margin-bottom: 0;
+}
+
+input.update-phone-number {
+  display: block;
+  position: absolute;
+  right: 14px;
+  top: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  vertical-align: middle;
+  height: 2.34rem;
+  line-height: 1;
+}
+input.phonenumber {
+  margin-top: 20px;
 }
 
 // .imgDescription {

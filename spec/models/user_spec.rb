@@ -9,6 +9,9 @@ RSpec.describe User, type: :model do
   it { should have_valid(:email).when("warthogbran@got.com", "hodor@gmail.com") }
   it { should_not have_valid(:email).when(nil, '', 'warthog', 'warthog@com', 'wartha.com') }
 
+  it { should have_valid(:phonenumber).when("1234567890", nil ) }
+  it { should_not have_valid(:phonenumber).when("12345678901" ) }
+
 
   describe '.name' do
     it 'returns the name of the user' do

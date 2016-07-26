@@ -21,7 +21,7 @@ feature "user rsvps to event", %{
 
   context "current_user" do
     let(:current_user) { User.find_by(uid: "104163923349051") }
-    let!(:koalafake) { KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"]) }
+    let!(:koalafake) { KoalaFake.new(current_user.token) }
     let!(:friendlist) { koalafake.get_connections("me", "friends") }
     let!(:friend) {
       create(
