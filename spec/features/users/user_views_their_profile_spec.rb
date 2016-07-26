@@ -36,7 +36,7 @@ feature "user views profile", %{
     end
 
     scenario "views friends profile and see only 5 recent Past Events" do
-      a = KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"])
+      a = KoalaFake.new(current_user.token)
       friendlist = a.get_connections("me", "friends")
 
       friend = create(

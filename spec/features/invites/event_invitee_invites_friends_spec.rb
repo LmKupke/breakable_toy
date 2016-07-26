@@ -19,7 +19,7 @@ feature "event invitee invites friend to event", %{
 
   context "current_user" do
     let!(:current_user) { User.find_by(uid: "104163923349051") }
-    let!(:koalafake) { KoalaFake.new(current_user.token, ENV["FB_APP_SECRET"]) }
+    let!(:koalafake) { KoalaFake.new(current_user.token) }
     let!(:date) { Time.zone.now + 1.week }
     let!(:flist) { koalafake.get_connections("me", "friends") }
     let!(:friend) { create(:user, name: flist[0]["name"], uid: flist[0]["id"]) }
