@@ -1,4 +1,4 @@
-require 'coveralls' 
+require 'coveralls'
 Coveralls.wear!('rails')
 # require "vcr"
 # require "webmock/rspec"
@@ -30,7 +30,12 @@ RSpec.configure do |config|
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
   end
-
+  config.before(:each) do
+    stub_const("Twilio::REST::Client", FakeSMS)
+  end
+  config.before :each, type: :feature do
+    FakeSMS.messages = []
+  end
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
