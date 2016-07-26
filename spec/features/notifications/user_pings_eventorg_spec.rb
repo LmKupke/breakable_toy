@@ -29,7 +29,7 @@ feature "user asks to join event", %{
     ) }
 
     let!(:newsfeedevent) {
-      create(:event,organizer: friend, name: "NewsFeed Event", date: Time.zone.now + 1.week)
+      create(:event, organizer: friend, name: "NewsFeed Event", date: Time.zone.now + 1.week)
     }
 
     scenario "user logs in and sees newsfeed" do
@@ -44,7 +44,7 @@ feature "user asks to join event", %{
 
       expect(page).to have_content("Your phonenumber
         and #{newsfeedevent.organizer.name}'s number is not saved!"
-      )
+                                  )
     end
 
     scenario "current user's phonenumber not saved" do
