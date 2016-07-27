@@ -20,6 +20,7 @@
  *= require webicons
  *= require font-awesome
  */
+@import url(https://fonts.googleapis.com/css?family=Taviraj:400,700);
 
 html, body, body > .page, .off-canvas-wrap { height:100%; }
 
@@ -198,4 +199,20 @@ section.venueshowpage{
 .venuetitle {
   color: white;
   margin-top: 0px;
+}
+ul.off-canvas-list li {
+  label {
+    color: white;
+  }
+  a {
+    color: white;
+  }
+}
+
+.title {
+  font-family: 'Taviraj', serif;
+}
+.menue-photo {
+  height: 55px;
+  width: 55px;
 }

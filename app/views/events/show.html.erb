@@ -1,6 +1,8 @@
 <% if @current_page == nil %>
 <section id="<%= @sectionpage %>">
 <% end %>
+<div class="background-div">
+
   <div class="text-center event-info">
     <div class="event-title">
       <h1><%= @event.name %></h1>
@@ -12,26 +14,30 @@
       <%= @event.date.strftime('%m/%d/%Y') %> <%= @event.start_time %>
     </div>
     <% if current_user == @event.organizer %>
-      <div class="small-12 large-12 medium-12 eventbuttons columns">
-        <div class="small-1 medium-2 medium-push-3 large-push-4 event-delete columns">
-          <%= button_to "Cancel Event", event_path(@event), method: :delete, class: "button small radius eventdelete" %>
+      <div class="row">
+        <div class="button-container">
+          <ul class="eventorgbuttons" style="margin-left: 0px;">
+            <li class="mybutton">
+              <%= button_to "Cancel Event", event_path(@event), method: :delete, class: "button small radius eventdelete" %>
+            </li>
+            <li class="mybutton">
+              <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "button small radius eventedit", params: { :"event[name]" => @event.name, :"event[date]" => @event.date, :"event[start_time]" => @event.start_time, :"event[id]" => @event.id, :"event[organizer_id]" => @event.organizer_id } %>
+            </li>
+            <% if @venueselection.empty? %>
+              <li class="mybutton"><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
+            <% elsif !@venueselection.empty? && !@selected %>
+              <li class="mybutton"><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
+            <% end %>
+          </ul>
         </div>
-        <div class="small-1 small-pull-3 medium-pull-4 large-pull-5 event-edit columns">
-          <%= button_to "Edit Event", edit_event_path(@event), method: :get, class: "button small radius eventedit", params: { :"event[name]" => @event.name, :"event[date]" => @event.date, :"event[start_time]" => @event.start_time, :"event[id]" => @event.id, :"event[organizer_id]" => @event.organizer_id } %>
-        </div>
-      </div>
+    <% else %>
+        <% if !@venueselection.empty? && !@selected %>
+            <li class="mybutton"><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
+        <% end %>
     <% end %>
   </div>
+</div>
 
-  <div class="text-center addnightlife">
-    <ul>
-      <% if @venueselection.empty? %>
-        <li><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
-      <% elsif !@venueselection.empty? && !@selected %>
-      <li><%= button_to "Add Boston Nightlife", event_venues_path(@event), method: :get, class: "button small radius" %></li>
-      <% end %>
-    </ul>
-  </div>
 <% if @current_page == nil %>
 </section>
 <% end %>
@@ -102,19 +108,16 @@
                 </div>
               </div>
               <div class="small-centered medium-centered small-12 large-12 medium-12 votes row">
-                <div class="arrow up small-3 medium-4 large-3 columns">
+                <div class="text-center">
                   <%= link_to(upvote_api_venueselection_votes_path(vselect), class: "upvote", id: "up-vselect-#{vselect.id}") do %>
                     <i class='fa fa-chevron-up'></i>
                   <% end %>
-                </div>
-                <div class="venuesume small-3 medium-4 large-3 text-center columns text-center">
+
                   <% if vselect.votes.sum(:vote) < 0 %>
                     <span id="venue-sum-<%= vselect.id %>" class="vote-sum red"><%= vselect.votes.sum(:vote) %></span>
                   <% else %>
                     <span id="venue-sum-<%= vselect.id %>" class="vote-sum"><%= vselect.votes.sum(:vote) %></span>
                   <% end %>
-                </div>
-                <div class="arrow down small-3 medium-4 large-3 columns">
                   <%= link_to(downvote_api_venueselection_votes_path(vselect), class: "downvote", id:"down-vselect-#{vselect.id}") do %>
                     <i class='fa fa-chevron-down'></i>
                   <% end %>

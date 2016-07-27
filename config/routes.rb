@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :invites, only: [:show, :index, :update]
 
   namespace :api do
-    resources :newsfeeds, only: [:index, :notify] do
+    resources :newsfeeds, only: [:notify] do
       collection do
         post "notify"
       end
