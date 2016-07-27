@@ -33,6 +33,13 @@ class EventsController < AuthenticateController
           @selected = true
         end
       end
+      if current_user == @event.organizer
+        @graph = Graph.new(current_user)
+        friends = @graph.friendlist
+      else
+        @graph = Graph.new(current_user,@event.organizer)
+        friends = @graph.mutual_friendlist
+      end
       if @venueselection.empty?
         @current_page = "event-show-no-venues"
       else
