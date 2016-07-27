@@ -8,6 +8,12 @@ class NewsfeedsController < AuthenticateController
     @friendevents = fr.map(&:newsfeed_events).flatten.uniq
     @friendevents = @friendevents - current_user.events
     @friendevents = @friendevents.reject { |c| c.nil? }
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => @friendevents.as_json }
+    end
+
   end
 
   private
