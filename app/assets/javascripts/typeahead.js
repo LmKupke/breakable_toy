@@ -22,19 +22,7 @@ $(document).ready(function() {
   };
   var friends = gon.friends;
 
-  var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-    'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-    'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-    'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-    'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-    'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-    'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-  ];
 
-  // var friends = friends;
-  // debugger;
   $('#friend-invite input#search').typeahead({
     hint: true,
     highlight: true,
@@ -43,11 +31,11 @@ $(document).ready(function() {
   {
     name: 'friends',
     displayKey: 'value',
-    source: substringMatcher(states),
+    source: substringMatcher(friends),
     templates: {
-      suggestion: function(states){
+      suggestion: function(friends){
         return  '<div class="custom-form">' +
-                '<h5 class="defaultfont">' + states + '</h5>' +
+                '<h5 class="defaultfont">' + friends + '</h5>' +
                 '</div>' }
 
     }
