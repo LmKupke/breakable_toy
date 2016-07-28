@@ -21,6 +21,7 @@ $(document).ready(function() {
     };
   };
   var friends = gon.friends;
+  debugger;
 
 
   $('#friend-invite input#search').typeahead({

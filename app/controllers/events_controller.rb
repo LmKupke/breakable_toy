@@ -38,7 +38,7 @@ class EventsController < AuthenticateController
         friends = @graph.friendlist
         array = friends.map { |user| user["id"]}
         fr = User.where(uid: array)
-        gon.friends = fr.pluck(:name)
+        gon.friends = fr
       else
         @graph = Graph.new(current_user,@event.organizer)
         friends = @graph.mutual_friendlist
