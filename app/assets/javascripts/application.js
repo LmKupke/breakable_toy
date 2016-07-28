@@ -16,7 +16,7 @@
 //= require foundation
 //= require_tree .
 //= require wickedpicker
-
+//= require twitter/typeahead
 
 
 $(function(){ $(document).foundation(); });
