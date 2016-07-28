@@ -20,6 +20,7 @@ gem 'kaminari'
 gem 'table-for'
 gem 'font-awesome-rails'
 gem 'twilio-ruby'
+gem 'hover-rails'
 
 group :development, :test do
   gem 'capybara'

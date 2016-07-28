@@ -1,4 +1,18 @@
 
+<% if @friendevents.empty? %>
+  <div class="small-12 medium-7 medium-centered large-7 large-centered newsfeed-list columns" id="emptyNews">
+    <div class="panel" id="missingNewsfeed">
+      <center>
+        <b>Oh No!</b>
+      </center>
+
+      <p>
+        Seems like you don't have any events coming up in the next two weeks!
+        Tell your friends to join NOMO-FOMO and start making plans!
+      </p>
+    </div>
+  </div>
+<% end %>
   <% @friendevents.each do |aevent| %>
       <div class="small-12 medium-7 medium-centered large-7 large-centered newsfeed-list columns">
         <div class="row" id="newsfeedrow">

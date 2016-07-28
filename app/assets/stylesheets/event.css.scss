@@ -1,6 +1,7 @@
 // Place all the styles related to the event controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(https://fonts.googleapis.com/css?family=Proza+Libre:700);
 
 .arrow.up.small-3.medium-4.columns {
     padding: 0;
@@ -20,6 +21,11 @@
   padding-bottom: 10px;
 
 }
+
+.event-title h1{
+  font-family: 'Proza Libre', sans-serif;
+}
+
 div.text-center.addnightlife{
   padding-top: 50px;
 
@@ -62,8 +68,15 @@ li.mybutton {
   display: inline-block;
 }
 .vote-sum {
-  margin: 20px;
+  margin: 0px;
 }
 .background-div {
-    background-color: rgba(0, 0, 0, 0.62);
+  background-color: rgba(0, 0, 0, 0.62);
+}
+
+.text-center.event-info {
+  margin-top: 50px;
+}
+.event-org-link{
+
 }
