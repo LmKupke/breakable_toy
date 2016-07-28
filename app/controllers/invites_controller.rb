@@ -52,7 +52,6 @@ class InvitesController < AuthenticateController
     if current_user == event.organizer
       graph.friendlist_match(search_string)
     else
-      @friends = mutual_friendlist
       graph.mutual_friendmatch(search_string)
     end
   end
