@@ -13,7 +13,7 @@ $(document).ready(function() {
       // contains the substring `q`, add it to the `matches` array
       $.each(strs, function(i, str) {
         if (substrRegex.test(str)) {
-          matches.push(str);
+          matches.push({value: str});
         }
       });
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
     templates: {
       suggestion: function(friends){
         return  '<div class="custom-form">' +
-                '<h5 class="defaultfont">' + friends + '</h5>' +
+                '<h5 class="defaultfont">' + friends.value + '</h5>' +
                 '</div>' }
 
     }

@@ -56,3 +56,7 @@ img.event-venue-photo {
 span.vote-sum{
   text-align: center;
 }
+#friend-invite span.twitter-typeahead{
+  display: block;
+}
+.twitter-typeahead, .tt-hint, .tt-input, .tt-menu { width: 100%; }

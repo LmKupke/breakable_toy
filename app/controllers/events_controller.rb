@@ -33,21 +33,7 @@ class EventsController < AuthenticateController
           @selected = true
         end
       end
-      if current_user == @event.organizer
-        @graph = Graph.new(current_user)
-        friends = @graph.friendlist
-        array = friends.map { |user| user["id"]}
-        fr = User.where(uid: array)
-        gon.friends = fr
-      else
-        @graph = Graph.new(current_user,@event.organizer)
-        friends = @graph.mutual_friendlist
-        if !friends.nil?
-          array = friends.map { |user| user["id"]}
-          fr = User.where(uid: array)
-          gon.friends = fr.pluck(:name)
-        end
-      end
+      typeahead
       if @venueselection.empty?
         @current_page = "event-show-no-venues"
       else
@@ -134,5 +120,20 @@ class EventsController < AuthenticateController
     eventattending
     eventpending
     eventdeclined
+  end
+
+  def typeahead
+    if current_user == @event.organizer
+      @graph = Graph.new(current_user)
+      friends = @graph.friendlist
+    else
+      @graph = Graph.new(current_user,@event.organizer)
+      friends = @graph.mutual_friendlist
+    end
+    if !friends.nil?
+      array = friends.map { |user| user["id"]}
+      fr = User.where(uid: array)
+      gon.friends = fr.pluck(:name)
+    end
   end
 end
