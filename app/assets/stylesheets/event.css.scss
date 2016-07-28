@@ -62,6 +62,7 @@ span.vote-sum{
   text-align: center;
 }
 
+
 li.mybutton {
   list-style-type: none;
   display: inline-block;
@@ -79,3 +80,8 @@ li.mybutton {
 .event-org-link{
 
 }
+
+#friend-invite span.twitter-typeahead{
+  display: block;
+}
+.twitter-typeahead, .tt-hint, .tt-input, .tt-menu { width: 100%; }

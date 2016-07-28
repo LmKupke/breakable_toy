@@ -21,6 +21,9 @@ gem 'table-for'
 gem 'font-awesome-rails'
 gem 'twilio-ruby'
 gem 'hover-rails'
+gem 'twitter-typeahead-rails'
+gem 'gon'
+
 
 group :development, :test do
   gem 'capybara'
