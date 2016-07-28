@@ -36,9 +36,18 @@ class EventsController < AuthenticateController
       if current_user == @event.organizer
         @graph = Graph.new(current_user)
         friends = @graph.friendlist
+        array = @friends.map { |user| user["id"]}
+        fr = User.where(uid: array)
+        gon.friends = fr.pluck(:name)
       else
         @graph = Graph.new(current_user,@event.organizer)
         friends = @graph.mutual_friendlist
+        if !friends.nil?
+          binding.pry
+          array = @friends.map { |user| user["id"]}
+          fr = User.where(uid: array)
+          gon.friends = fr.pluck(:name)
+        end
       end
       if @venueselection.empty?
         @current_page = "event-show-no-venues"

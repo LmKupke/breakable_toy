@@ -20,6 +20,7 @@ $(document).ready(function() {
       cb(matches);
     };
   };
+  var friends = gon.friends;
 
   var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
     'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
@@ -40,7 +41,7 @@ $(document).ready(function() {
     minLength: 1
   },
   {
-    name: 'states',
+    name: 'friends',
     displayKey: 'value',
     source: substringMatcher(states),
     templates: {
