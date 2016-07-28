@@ -37,3 +37,18 @@ hr.divider{
 .newsfeed-list{
   background-color: #ffffff;
 }
+
+div#missingNewsfeed.panel {
+  background-color: white;
+  border: 0;
+}
+div#missingNewsfeed {
+  top: 50%;
+  left: 50%;
+}
+
+div#emptyNews {
+  margin-top: 80px;
+  border: 2px solid black;
+  padding: 0;
+}

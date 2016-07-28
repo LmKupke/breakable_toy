@@ -20,6 +20,11 @@
   padding-bottom: 10px;
 
 }
+
+.event-title h1{
+  font-family: 'Proza Libre', sans-serif;
+}
+
 div.text-center.addnightlife{
   padding-top: 50px;
 
@@ -56,6 +61,26 @@ img.event-venue-photo {
 span.vote-sum{
   text-align: center;
 }
+
+
+li.mybutton {
+  list-style-type: none;
+  display: inline-block;
+}
+.vote-sum {
+  margin: 0px;
+}
+.background-div {
+  background-color: rgba(0, 0, 0, 0.62);
+}
+
+.text-center.event-info {
+  margin-top: 50px;
+}
+.event-title h1{
+  font-family: 'Oswald', sans-serif;
+}
+
 #friend-invite span.twitter-typeahead{
   display: block;
 }

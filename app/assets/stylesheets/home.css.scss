@@ -1,11 +1,4 @@
 
-// html.home-page {
-//   background-color: white;
-//   background-image: url("unsplashedhomephoto.jpeg");
-//   background-repeat: no-repeat;
-//   background-size: 100%;
-//   height: 100%
-// }
 
 body.home-page {
   background-color: white;
@@ -23,8 +16,17 @@ h1.sitetitle {
   color: white;
   font-weight: bolder;
   padding-top: 30px;
+  font-family: 'Taviraj', serif;
 }
 h3.sitetagline {
-  color: gray;
+  color: white;
   font-weight: bold;
+  font-family: 'Taviraj', serif;
+}
+
+#back {
+  // background-color: rgba(0, 0, 0, 0.68);
+  background-color: rgba(150, 82, 8, 0.68);
+  padding-bottom: 20px;
+  margin-top: 120px;
 }

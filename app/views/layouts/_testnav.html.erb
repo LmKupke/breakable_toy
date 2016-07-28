@@ -21,7 +21,7 @@
           <li><label>Menu</label></li>
           <li class="image-name-row">
             <div class="small-4 columns" id="menu-photo">
-              <img src="<%= current_user.photo %>" alt="<%= current_user.name %> photo" height="52px" width="55px" />
+              <img src="<%= current_user.photo %>?type=large" class="menue-photo" alt="<%= current_user.name %> photo"  />
             </div>
             <div class="name-title">
               <%= link_to current_user.name, user_path(current_user.id), id: "user-link" %>
@@ -32,8 +32,6 @@
           <li><%= link_to 'Create a New Event', new_event_path %></li>
           <li><%= link_to 'Your Upcoming Events', events_path %></li>
           <li><%= link_to 'Invitations', invites_path %></li>
-          <li><a href="#">Tinder Matches</a></li>
-          <li><a href="#">Settings</a></li>
         </ul>
       </aside>
 

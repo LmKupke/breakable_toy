@@ -8,12 +8,14 @@
 
 
 </div>
-<div class="text-center">
-  <div class="large-12 small-12 medium-12">
-    <h1 class="sitetitle">NOMO-FOMO</h1>
-    <h3 class="sitetagline">Always Be in the Loop</h3>
+<div class="backdrop small-12 medium-9 medium-centered large-centered large-7 columns" id="back">
+  <div class="text-center">
+    <div class="large-12 small-12 medium-12">
+      <h1 class="sitetitle">NOMO-FOMO</h1>
+      <h3 class="sitetagline">Always Be in the Loop</h3>
+    </div>
+      <ul class="facebookhome">
+        <li class= "facebookhome"><%= link_to image_tag("images/btnLoginFacebook.png", class: "facebook-icon", height: "15"), user_facebook_omniauth_authorize_path, id: "faceauth-link" %></li>
+      </ul>
   </div>
-    <ul class="facebookhome">
-      <li class= "facebookhome"><%= link_to image_tag("images/btnLoginFacebook.png", class: "facebook-icon", height: "15"), user_facebook_omniauth_authorize_path, id: "faceauth-link" %></li>
-    </ul>
 </div>
