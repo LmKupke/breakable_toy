@@ -311,8 +311,8 @@ DEPENDENCIES
   font-awesome-rails
   foundation-icons-sass-rails
   foundation-rails (= 5.4.3.1)
-  hover-rails
   gon
+  hover-rails
   jquery-rails
   jquery-ui-rails
   kaminari
