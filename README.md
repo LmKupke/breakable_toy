@@ -1,4 +1,4 @@
-# Breakable Toy
+# NOMO FOMO
 ![Build Status](https://codeship.com/projects/a8436420-0bc4-0134-e391-16fbb5fd4d7e/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/LmKupke/breakable_toy.png)
 [![Coverage Status](https://coveralls.io/repos/github/LmKupke/breakable_toy/badge.svg?branch=master)](https://coveralls.io/github/LmKupke/breakable_toy?branch=master)
@@ -24,7 +24,7 @@ Lastly I integrated the [Twillio API](https://github.com/twilio/twilio-ruby) so 
 
 I decided to build NOMO FOMO to get rid of those chaotic moments before going out, when everyone is asking, "Where are we going? The Uber is here!".
 
-### Cloning this repos
+### Cloning this repo
 
 In order to clone this repo, several API keys are needed:
 Twillio
