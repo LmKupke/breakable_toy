@@ -11,7 +11,7 @@ class Graph
   end
 
   def friendlist
-    @friendlist ||= graph.get_connections("me","friends")
+    @friendlist ||= graph.get_connections("me","friends", limit:400)
   end
 
   def friendlist_match(search_string)
@@ -19,7 +19,7 @@ class Graph
   end
 
   def mutual_friendlist
-    @mutual_friendlist ||= graph.get_object("#{event_organizer.uid}", {fields: ["context"]})
+    @mutual_friendlist ||= graph.get_object("#{event_organizer.uid}", {fields: ["context"]}, limit:400)
 
     @mutual_friendlist["context"]["mutual_friends"]["data"]
   end
