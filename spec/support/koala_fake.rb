@@ -28,11 +28,11 @@ class KoalaFake
   #   # binding.pry
   end
 
-  def get_connections(arg1, arg2)
+  def get_connections(arg1, arg2, limit: 400)
     USERS.map(&:to_h)
   end
 
-  def get_object(_arg1, _arg2)
+  def get_object(_arg1, _arg2, limit: 400)
     MUTUALFRIENDS
   end
 end
